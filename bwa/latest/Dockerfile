@@ -8,5 +8,5 @@ wget -q https://github.com/lh3/bwa/releases/download/v${BWA_VERSION}/bwa-${BWA_V
 tar xjvf bwa-${BWA_VERSION}.tar.bz2; \
 cd /bwa-${BWA_VERSION}/ && make; \
 mv /bwa-${BWA_VERSION}/bwa /bin/; \
-rm -rf /bwa* \
+rm -rf /bwa*; \
 apk del build-base zlib-dev ca-certificates wget
