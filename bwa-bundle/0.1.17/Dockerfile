@@ -70,6 +70,6 @@ RUN make
 
 # Install biobambam2
 WORKDIR /opt
-RUN wget https://github.com/gt1/biobambam2/releases/download/2.0.76-release-20170808165339/biobambam2-2.0.76-release-20170808165339-x86_64-etch-linux-gnu.tar.gz && tar xzf biobambam2-2.0.76-release-20170808165339-x86_64-etch-linux-gnu.tar.gz && rm -rf biobambam2-2.0.76-release-20170808165339-x86_64-etch-linux-gnu.tar.gz
+RUN wget https://github.com/gt1/biobambam2/releases/download/2.0.87-release-20180301132713/biobambam2-2.0.87-release-20180301132713-x86_64-etch-linux-gnu.tar.gz && tar xzf biobambam2-2.0.87-release-20180301132713-x86_64-etch-linux-gnu.tar.gz && rm -rf biobambam2-2.0.87-release-20180301132713-x86_64-etch-linux-gnu.tar.gz
 
 COPY Dockerfile /opt/
