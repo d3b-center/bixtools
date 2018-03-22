@@ -35,13 +35,6 @@ WORKDIR /opt/samblaster
 RUN make 
 RUN cp -s /opt/samblaster/samblaster /bin
 
-# Install sambamba
-WORKDIR /opt
-RUN mkdir sambamba_0.6.7
-WORKDIR sambamba_0.6.7
-RUN curl -L "https://github.com/lomereiter/sambamba/releases/download/v0.6.7/sambamba_v0.6.7_linux.tar.bz2" > sambamba_v0.6.7_linux.tar.bz2 
-RUN tar xvf sambamba_v0.6.7_linux.tar.bz2 
-
 # Install java
 RUN apt-get -y install software-properties-common
 RUN add-apt-repository ppa:webupd8team/java
@@ -68,8 +61,18 @@ tar jxvf samtools-1.7.tar.bz2
 WORKDIR /opt/samtools-1.7
 RUN make
 
+# Install sambamba
+WORKDIR /opt
+RUN mkdir sambamba_0.6.3
+WORKDIR sambamba_0.6.3
+RUN curl -L "https://github.com/lomereiter/sambamba/releases/download/v0.6.3/sambamba_v0.6.3_linux.tar.bz2" > sambamba_v0.6.3_linux.tar.bz2 
+RUN tar xvf sambamba_v0.6.3_linux.tar.bz2 
+RUN chmod +x /opt/sambamba_0.6.3
+
 # Install biobambam2
 WORKDIR /opt
 RUN wget https://github.com/gt1/biobambam2/releases/download/2.0.87-release-20180301132713/biobambam2-2.0.87-release-20180301132713-x86_64-etch-linux-gnu.tar.gz && tar xzf biobambam2-2.0.87-release-20180301132713-x86_64-etch-linux-gnu.tar.gz && rm -rf biobambam2-2.0.87-release-20180301132713-x86_64-etch-linux-gnu.tar.gz
+
+
 
 COPY Dockerfile /opt/

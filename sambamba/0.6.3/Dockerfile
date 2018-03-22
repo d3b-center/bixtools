@@ -14,9 +14,9 @@ RUN apt-get update && apt-get install -y \
 	curl 
 
 WORKDIR /opt
-RUN mkdir sambamba_0.6.7
-WORKDIR sambamba_0.6.7
-RUN curl -L "https://github.com/lomereiter/sambamba/releases/download/v0.6.7/sambamba_v0.6.7_linux.tar.bz2" > sambamba_v0.6.7_linux.tar.bz2 
-RUN tar xvf sambamba_v0.6.7_linux.tar.bz2 
+RUN mkdir sambamba_0.6.3
+WORKDIR sambamba_0.6.3
+RUN curl -L "https://github.com/lomereiter/sambamba/releases/download/v0.6.3/sambamba_v0.6.3_linux.tar.bz2" > sambamba_v0.6.3_linux.tar.bz2 
+RUN tar xvf sambamba_v0.6.3_linux.tar.bz2 
 
 COPY Dockerfile /opt/
