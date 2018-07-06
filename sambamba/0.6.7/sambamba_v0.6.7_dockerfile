@@ -1,0 +1,11 @@
+FROM ubuntu:16.04
+MAINTAINER Xiao Dang (dangx@email.chop.edu)
+
+ENV SAMBAMBA_VERSION v0.6.7
+
+RUN apt-get update && apt-get install -y wget build-essential zlib1g-dev libncurses5-dev; \
+wget -q https://github.com/biod/sambamba/releases/download/${SAMBAMBA_VERSION}/sambamba_${SAMBAMBA_VERSION}_linux.tar.bz2; \
+tar xvjf sambamba_${SAMBAMBA_VERSION}_linux.tar.bz2; \
+mv ./sambamba /bin/; \
+rm -rf /sambamba*; \
+apt-get clean build-essential zlib1g-dev wget

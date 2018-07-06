@@ -1,0 +1,12 @@
+FROM ubuntu:16.04
+MAINTAINER Xiao Dang (dangx@email.chop.edu)
+
+ENV SAMTOOLS_VERSION 1.8
+
+RUN apt-get update && apt-get install -y wget build-essential zlib1g-dev libncurses5-dev libbz2-dev liblzma-dev; \
+wget -q https://github.com/samtools/samtools/releases/download/${SAMTOOLS_VERSION}/samtools-${SAMTOOLS_VERSION}.tar.bz2; \
+tar xjvf samtools-${SAMTOOLS_VERSION}.tar.bz2; \
+cd /samtools-${SAMTOOLS_VERSION}/ && make; \
+mv /samtools-${SAMTOOLS_VERSION}/samtools /bin/; \
+rm -rf /samtools*; \
+apt-get clean build-essential zlib1g-dev wget
