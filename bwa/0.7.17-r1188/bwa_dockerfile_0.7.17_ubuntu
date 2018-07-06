@@ -1,0 +1,9 @@
+FROM ubuntu:latest
+
+ENV BWA_VERSION 0.7.17
+
+RUN apt-get update && apt-get install -y wget build-essential zlib1g-dev libncurses5-dev libbz2-dev liblzma-dev; \
+wget -q https://github.com/lh3/bwa/releases/download/v${BWA_VERSION}/bwa-${BWA_VERSION}.tar.bz2; \
+tar xjvf bwa-${BWA_VERSION}.tar.bz2; \
+cd /bwa-${BWA_VERSION}/ && make; \
+mv /bwa-${BWA_VERSION}/bwa /bin/
