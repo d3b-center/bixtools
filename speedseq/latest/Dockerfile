@@ -24,5 +24,5 @@ ENV CMAKE_PREFIX_PATH /speedseq/root/lib
 ENV JUPYTER_PATH /speedseq/root/etc/notebook
 
 RUN make sv
-RUN echo ' sources /speedseq/root/bin/thisroot.sh' >> /speeseq/bin/speedseq.config
+RUN echo ' sources /speedseq/root/bin/thisroot.sh' >> /speedseq/bin/speedseq.config
 RUN apt remove -y wget curl
