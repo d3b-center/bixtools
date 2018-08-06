@@ -24,4 +24,4 @@ ENV JUPYTER_PATH /speedseq/root/etc/notebook
 
 RUN make sv
 RUN echo 'source /speedseq/root/bin/thisroot.sh' >> /speedseq/bin/speedseq.config
-RUN apt remove -y wget curl software-properties-common
+RUN apt remove -y curl
