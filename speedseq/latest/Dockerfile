@@ -3,7 +3,7 @@ MAINTAINER Miguel Brown (brownm28@email.chop.edu)
 
 ENV SPEEDSEQ_VERSION latest
 
-RUN apt update && apt install -y build-essential autoconf git cmake python curl libz-dev libtbb-dev libncurses5-dev libbz2-dev liblzma-dev libcurl4-openssl-dev
+RUN apt update && apt install -y build-essential autoconf git cmake python curl libz-dev libtbb-dev libncurses5-dev libbz2-dev liblzma-dev libcurl4-openssl-dev libssl-dev
 RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && python get-pip.py && rm get-pip.py
 RUN pip install numpy pysam scipy
 
@@ -30,4 +30,5 @@ ENV JUPYTER_PATH /speedseq/root/etc/notebook
 
 RUN make sv
 RUN echo 'source /speedseq/root/bin/thisroot.sh' >> /speedseq/bin/speedseq.config
+cat /speedseq/bin/speedseq.config | sed 's/SAMTOOLS=/SAMTOOLS=/speedseq/src/samtools-1.8/samtools/' > temp && mv temp /speedseq/bin/speedseq.config
 RUN apt remove -y curl
