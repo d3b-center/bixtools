@@ -30,5 +30,5 @@ ENV JUPYTER_PATH /speedseq/root/etc/notebook
 
 RUN make sv
 RUN echo 'source /speedseq/root/bin/thisroot.sh' >> /speedseq/bin/speedseq.config
-RUN cat /speedseq/bin/speedseq.config | sed 's/SAMTOOLS=/SAMTOOLS=/speedseq/src/samtools-1.8/samtools/' > temp && mv temp /speedseq/bin/speedseq.config
+RUN cat /speedseq/bin/speedseq.config | sed 's/SAMTOOLS=/SAMTOOLS=\/speedseq\/src\/samtools-1.8\/samtools' > temp && mv temp /speedseq/bin/speedseq.config
 RUN apt remove -y curl
