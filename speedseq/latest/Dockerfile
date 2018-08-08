@@ -3,7 +3,7 @@ MAINTAINER Miguel Brown (brownm28@email.chop.edu)
 
 ENV SPEEDSEQ_VERSION latest
 
-RUN apt update && apt install -y build-essential autoconf git cmake python curl libz-dev libtbb-dev libncurses5-dev bsdmainutils
+RUN apt update && apt install -y build-essential autoconf git cmake python curl libz-dev libtbb-dev libncurses5-dev bsdmainutils gawk  libbz2-dev liblzma-dev libcurl4-openssl-dev libssl-dev
 RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && python get-pip.py && rm get-pip.py
 RUN pip install numpy pysam scipy
 
