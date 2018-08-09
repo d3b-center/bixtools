@@ -7,4 +7,4 @@ RUN apt update -y && apt upgrade -y && apt install git cpanminus build-essential
 && cpanm -n install DBI DBD::mysql Set::IntervalTree JSON PerlIO::gzip Bio::Root::Version \
 && git clone https://github.com/Ensembl/ensembl-vep.git && cd ensembl-vep && git checkout release/93 \
 && perl INSTALL.pl --NO_TEST --NO_UPDATE --AUTO a \
-&& apt remove curl wget git -y && apt autoclean &&  apt autoremove
+&& apt remove curl wget git -y && apt autoclean -y &&  apt autoremove -y
