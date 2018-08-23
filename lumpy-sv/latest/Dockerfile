@@ -10,5 +10,5 @@ RUN apt update && apt install -y build-essential git cmake curl python python-pi
 && cd / && git clone https://github.com/GregoryFaust/samblaster && cd samblaster && make && cp samblaster /usr/local/bin/. && cd / && rm -rf samblaster \
 && curl -OL https://github.com/biod/sambamba/releases/download/v0.6.7/sambamba_v0.6.7_linux.tar.bz2 && tar -xjf sambamba_v0.6.7_linux.tar.bz2 && rm sambamba_v0.6.7_linux.tar.bz2 && mv ./sambamba /usr/local/bin/ \
 && git clone --recursive https://github.com/arq5x/lumpy-sv && cd lumpy-sv \
-&& make && mv lumpyexpress_mod bin/lumpyexpress && cp bin/* /usr/local/bin/. \
+&& make && mv /lumpyexpress_mod bin/lumpyexpress && cp bin/* /usr/local/bin/. \
 && apt remove -y curl && apt autoclean -y  && apt autoremove -y
