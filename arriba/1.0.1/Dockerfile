@@ -8,7 +8,7 @@ apt-get install -y samtools r-base rna-star wget libcurl4-openssl-dev libxml2-de
 Rscript -e 'install.packages("circlize", repos="http://cran.r-project.org"); source("https://bioconductor.org/biocLite.R"); biocLite(c("GenomicRanges", "GenomicAlignments"))'
 
 # install arriba
-RUN wget -q "https://github.com/suhrig/arriba/releases/download/v1.0.1/arriba_v1.0.1.tar.gz" && tar -xzf arriba_v1.0.1.tar.gz $$ rm arriba_v1.0.1.tar.gz
+RUN wget -q "https://github.com/suhrig/arriba/releases/download/v1.0.1/arriba_v1.0.1.tar.gz" && tar -xzf arriba_v1.0.1.tar.gz && rm arriba_v1.0.1.tar.gz
 
 # make wrapper script for download_references.sh
 RUN echo '#!/bin/bash\n\
