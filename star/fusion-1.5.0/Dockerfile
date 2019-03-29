@@ -1,5 +1,5 @@
-FROM ubuntu:18.04 AS build-env
-MAINTAINER Miguel Browm (brownm28@email.chop.edu)
+FROM ubuntu:18.04
+LABEL maintainer="Miguel Browm (brownm28@email.chop.edu)"
 
 
 ENV STAR_VERSION 2.6.1d
@@ -7,9 +7,9 @@ ENV STAR_FUSION_VERSION 1.5.0
 ENV SAMTOOLS_VERSION 1.9
 ENV HTSLIB_VERSION 1.9
 
-RUN apt-get update; \
-apt-get install --yes wget build-essential libgomp1 libz-dev zlib1g-dev libncurses5-dev libbz2-dev liblzma-dev libcurl4-openssl-dev libdb-dev; \
-apt-get clean; \
+RUN apt update; \
+apt install --yes wget build-essential libgomp1 libz-dev zlib1g-dev libncurses5-dev libbz2-dev liblzma-dev libcurl4-openssl-dev libdb-dev; \
+apt clean; \
 wget -O - http://cpanmin.us | perl - --self-upgrade; \
 cpanm DB_File URI::Escape Set::IntervalTree Carp::Assert JSON::XS PerlIO::gzip; \
 cd /usr/local && wget -q https://github.com/alexdobin/STAR/archive/${STAR_VERSION}.tar.gz; \
