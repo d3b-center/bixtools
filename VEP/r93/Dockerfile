@@ -1,5 +1,6 @@
 FROM ubuntu:18.04
 LABEL maintainer="Miguel Brown (brownm28@email.chop.edu)"
+LABEL note="modified from https://github.com/mskcc/vcf2maf/blob/master/Dockerfile"
 
 ENV VEP_VERSION=93
 ENV MAF_VERSION=1.6.16
