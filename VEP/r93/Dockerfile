@@ -1,5 +1,5 @@
 FROM ubuntu:18.04
-label maintainer="Miguel Brown (brownm28@email.chop.edu)"
+LABEL maintainer="Miguel Brown (brownm28@email.chop.edu)"
 
 ENV VEP_VERSION=93
 ENV MAF_VERSION=1.6.16
