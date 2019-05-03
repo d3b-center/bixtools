@@ -2,7 +2,7 @@ FROM ubuntu:bionic
 LABEL maintainer="Sebastian Uhrig @ DKFZ"
 LABEL modified_by="Miguel Brown brownm28@email.chop.edu"
 
-ENV ARRIBA_VERSION 1.0.1
+ENV ARRIBA_VERSION 1.1.0
 
 # install dependencies
 RUN export DEBIAN_FRONTEND=noninteractive && \
