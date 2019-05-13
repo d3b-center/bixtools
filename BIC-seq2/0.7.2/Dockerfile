@@ -8,12 +8,13 @@ ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt update --fix-missing && apt install -y wget bzip2 ca-certificates curl tar libxt-dev r-base parallel samtools build-essential zlib1g-dev \
-libncurses5-dev libbz2-dev liblzma-dev libcurl4-openssl-dev libcrypto++-dev libcurl4-openssl-dev libssl-dev
-
-RUN wget -q http://compbio.med.harvard.edu/BIC-seq/NBICseq-norm_v${NORM_VERSION}.tar.gz && \
+libncurses5-dev libbz2-dev liblzma-dev libcurl4-openssl-dev libcrypto++-dev libcurl4-openssl-dev libssl-dev && \
+wget -q http://compbio.med.harvard.edu/BIC-seq/NBICseq-norm_v${NORM_VERSION}.tar.gz && \
 wget -q http://compbio.med.harvard.edu/BIC-seq/NBICseq-seg_v${SEG_VERSION}.tar.gz && \
 tar -xzf NBICseq-norm_v${NORM_VERSION}.tar.gz && rm NBICseq-norm_v${NORM_VERSION}.tar.gz && cd NBICseq-norm_v${NORM_VERSION} && \
 make clean && make && cd / && \
 tar -xzf NBICseq-seg_v${SEG_VERSION}.tar.gz && rm NBICseq-seg_v${SEG_VERSION}.tar.gz && cd NBICseq-seg_v${SEG_VERSION} && \
 make clean && make && cd / && \
+chown -R root:root NBICseq-norm_v${NORM_VERSION} && chown -R root:root NBICseq-seg_v${SEG_VERSION} && \
+chmod -R 755 NBICseq-norm_v${NORM_VERSION} && chmod -R 755 NBICseq-seg_v${SEG_VERSION} && \
 apt remove -y wget
