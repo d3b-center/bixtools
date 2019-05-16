@@ -15,6 +15,8 @@ tar -xzf NBICseq-norm_v${NORM_VERSION}.tar.gz && rm NBICseq-norm_v${NORM_VERSION
 make clean && make && cd / && \
 tar -xzf NBICseq-seg_v${SEG_VERSION}.tar.gz && rm NBICseq-seg_v${SEG_VERSION}.tar.gz && cd NBICseq-seg_v${SEG_VERSION} && \
 make clean && make && cd / && \
-chown -R root:root NBICseq-norm_v${NORM_VERSION} && chown -R root:root NBICseq-seg_v${SEG_VERSION} && \
-chmod -R 755 NBICseq-norm_v${NORM_VERSION} && chmod -R 755 NBICseq-seg_v${SEG_VERSION} && \
+wget -q http://compbio.med.harvard.edu/BIC-seq/BICseq2/samtools-0.1.7a_getUnique-0.1.3.tar.gz && \
+tar -xzf samtools-0.1.7a_getUnique-0.1.3.tar.gz && rm samtools-0.1.7a_getUnique-0.1.3.tar.gz && \
+chown -R root:root NBICseq-norm_v${NORM_VERSION} && chown -R root:root NBICseq-seg_v${SEG_VERSION} && chown -R root:root samtools-0.1.7a_getUnique-0.1.3 && \
+chmod -R 755 NBICseq-norm_v${NORM_VERSION} && chmod -R 755 NBICseq-seg_v${SEG_VERSION} && chmod -R 755 samtools-0.1.7a_getUnique-0.1.3 && \
 apt remove -y wget
