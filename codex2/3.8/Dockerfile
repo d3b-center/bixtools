@@ -12,4 +12,6 @@ Rscript -e 'if (!requireNamespace("BiocManager", quietly = TRUE)) install.packag
 BiocManager::install("CODEX", version = "3.8"); \
 BiocManager::install("WES.1KG.WUGSC", version = "3.8"); \
 install.packages("devtools"); \
-devtools::install_github("yuchaojiang/CODEX2/package")'
+devtools::install_github("yuchaojiang/CODEX2/package"); \
+source("https://bioconductor.org/biocLite.R"); \
+biocLite("BSgenome.Hsapiens.UCSC.hg38")'
