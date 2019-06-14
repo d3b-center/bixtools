@@ -5,7 +5,7 @@ LABEL developer="Jessica Wong wongj4@email.chop.edu"
 ENV DEBIAN_FRONTEND=noninteractive
 ENV CANVAS_VERSION=1.11.0
 
-RUN apt update && apt install -y wget build-essential curl sudo zip vim && \
+RUN apt update && apt install -y wget build-essential curl sudo zip tabix && \
 wget https://github.com/Illumina/canvas/releases/download/v${CANVAS_VERSION}/Canvas-${CANVAS_VERSION}_x64.zip && \
 unzip Canvas-${CANVAS_VERSION}_x64.zip && \
 rm Canvas-${CANVAS_VERSION}_x64.zip && \
