@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:14.04
 
 RUN apt-get update && apt-get upgrade --yes && \ 
 	apt-get install -y wget && \
