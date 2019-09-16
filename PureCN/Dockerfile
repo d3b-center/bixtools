@@ -10,6 +10,6 @@ RUN apt update && apt install -y build-essential software-properties-common libc
 
 RUN mkdir ~/.R && echo "MAKEFLAGS = -j8" > ~/.R/Makevars
 RUN Rscript -e 'install.packages("BiocManager")'
-RUN Rscript -e 'install.packages(c("BiocParallel", "XML"))'
+RUN Rscript -e 'install.packages(c("BiocParallel", "XML", "optparse"))'
 RUN Rscript -e 'BiocManager::install("PureCN")'
 RUN apt autoclean -y && apt autoremove -y
