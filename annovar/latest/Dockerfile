@@ -25,6 +25,8 @@ RUN yum install -y  wget \
                     zlib-devel \
                     bzip2-devel \
                     xz-devel \
+                    openssl-devel \
+                    libcurl-devel \
                     make;
 #RUN yum clean all ;
 
@@ -37,7 +39,7 @@ RUN yum install -y  wget \
 ENV TOOLS=/home/TOOLS/tools
 ENV TOOL_NAME=annovar
 ENV TOOL_VERSION=current
-ENV TARBALL_LOCATION=http://www.openbioinformatics.org/annovar/download/0wgxR2rIVP/
+ENV TARBALL_LOCATION=http://www.openbioinformatics.org/annovar/download/0wgxR2rIVP
 ENV TARBALL=annovar.latest.tar.gz
 ENV TARBALL_FOLDER=$TOOL_NAME
 ENV DEST=$TOOLS/$TOOL_NAME/$TOOL_VERSION
