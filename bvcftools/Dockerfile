@@ -1,5 +1,5 @@
 FROM ubuntu:18.04
 LABEL maintainer="Miguel Brown (brownm28@email.chop.edu)"
 
-RUN apt update && apt install -y bcftools vcftools tabix && \
+RUN apt update && apt install -y bcftools vcftools tabix bedtools && \
 apt autoclean -y && apt autoremove -y
