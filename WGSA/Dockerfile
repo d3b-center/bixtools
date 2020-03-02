@@ -1,5 +1,5 @@
 FROM ubuntu:18.04
-label maintainer="Miguel Brown (brownm28@email.chop.edu)"
+LABEL maintainer="Miguel Brown (brownm28@email.chop.edu)"
 
 ENV VEP_VERSION=94
 ENV SNPEFF_VERSION 4_3t
@@ -15,8 +15,8 @@ RUN cd ${WGSA_DIR} && mkdir htslib && cd htslib && wget https://github.com/samto
 && cd htslib-${HTSLIB_VERSION} && make prefix=/usr/ install
 RUN cd ${WGSA_DIR} && mkdir vep && cd vep && git clone https://github.com/Ensembl/ensembl-vep.git && cd ensembl-vep && git checkout release/${VEP_VERSION} \
 && perl INSTALL.pl --NO_TEST --NO_UPDATE --AUTO ap --PLUGINS LoF --CACHEDIR ${WGSA_DIR}/.vep
-RUN cd /${WGSA_DIR}/.vep/Plugins && rm * && wget https://github.com/konradjk/loftee/archive/v${LOFTEE_VERSION}.zip && unzip -oj v${LOFTEE_VERSION}.zip && rm v${LOFTEE_VERSION}.zip && mv loftee-${LOFTEE_VERSION}/* ./ && rm -rf loftee-${LOFTEE_VERSION}/
-RUN cd /WGSA && mkdir snpeff && cd snpeff && wget -q https://sourceforge.net/projects/snpeff/files/snpEff_v${SNPEFF_VERSION}_core.zip/download \
-RUN cd ${WGSA_DIR} && mkdir annovar${ANNOVAR_VERSION} && cd annovar${ANNOVAR_VERSION} && wget -q http://www.openbioinformatics.org/annovar/download/0wgxR2rIVP/annovar.latest.tar.gz && tar -zxf annovar.latest.tar.gz && rm annovar.latest.tar.gz \
+RUN cd /${WGSA_DIR}/.vep/Plugins && rm * && wget https://github.com/konradjk/loftee/archive/v${LOFTEE_VERSION}.zip && unzip -oj v${LOFTEE_VERSION}.zip && rm v${LOFTEE_VERSION}.zip 
+RUN cd /WGSA && mkdir snpeff && cd snpeff && wget -q https://sourceforge.net/projects/snpeff/files/snpEff_v${SNPEFF_VERSION}_core.zip/download
+RUN cd ${WGSA_DIR} && mkdir annovar${ANNOVAR_VERSION} && cd annovar${ANNOVAR_VERSION} && wget -q http://www.openbioinformatics.org/annovar/download/0wgxR2rIVP/annovar.latest.tar.gz && tar -zxf annovar.latest.tar.gz && rm annovar.latest.tar.gz
 RUN cd ${WGSA_DIR} && wget http://web.corral.tacc.utexas.edu/WGSAdownload/WGSA08.class \
 && apt remove curl wget git -y && apt autoclean -y &&  apt autoremove -y
