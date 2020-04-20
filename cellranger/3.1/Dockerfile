@@ -10,6 +10,7 @@ ARG cellranger_uri
 RUN apt update && apt install -y wget; \
 wget -O cellranger-${CELLRANGER_VERSION}.tar.gz $cellranger_uri; \
 tar -zxvf cellranger-${CELLRANGER_VERSION}.tar.gz; \
+rm cellranger-${CELLRANGER_VERSION}.tar.gz; \
 apt remove -y wget
 
 ENV PATH /cellranger-${CELLRANGER_VERSION}:$PATH
