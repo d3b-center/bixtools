@@ -1,3 +1,4 @@
 .*
+!.circleci
 _local_test
 !.gitignore
