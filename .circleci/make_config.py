@@ -85,7 +85,7 @@ commands:
 
 monthlyTrigger = {
   "schedule": {
-    "cron": "* * 1 * *",
+    "cron": "57 0 1 * *",
     "filters": {
       "branches": {
         "only": ["master"]
