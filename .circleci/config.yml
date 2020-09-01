@@ -77,7 +77,7 @@ workflows:
   monthly:
     triggers:
     - schedule:
-        cron: '57 0 1 * *'
+        cron: 57 0 1 * *
         filters:
           branches:
             only:
@@ -657,6 +657,20 @@ workflows:
         tag: 0.7.2
         path: BIC-seq2/0.7.2/
         docker-context: BIC-seq2/0.7.2/
+    - docker/publish:
+        name: freebayes_v1.3.1_monthly
+        deploy: false
+        image: kfdrc/freebayes
+        tag: v1.3.1
+        path: freebayes/v1.3.1/
+        docker-context: freebayes/v1.3.1/
+    - docker/publish:
+        name: freebayes_v1.3.2_monthly
+        deploy: false
+        image: kfdrc/freebayes
+        tag: v1.3.2
+        path: freebayes/v1.3.2/
+        docker-context: freebayes/v1.3.2/
   diff:
     jobs:
     - docker/publish:
@@ -1561,3 +1575,25 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: BIC-seq2/0.7.2/Dockerfile
+    - docker/publish:
+        context: dockerhub-vars
+        name: freebayes_v1.3.1_diff
+        deploy: true
+        image: kfdrc/freebayes
+        tag: v1.3.1
+        path: freebayes/v1.3.1/
+        docker-context: freebayes/v1.3.1/
+        before_build:
+        - run_if_modified:
+            pattern: freebayes/v1.3.1/Dockerfile
+    - docker/publish:
+        context: dockerhub-vars
+        name: freebayes_v1.3.2_diff
+        deploy: true
+        image: kfdrc/freebayes
+        tag: v1.3.2
+        path: freebayes/v1.3.2/
+        docker-context: freebayes/v1.3.2/
+        before_build:
+        - run_if_modified:
+            pattern: freebayes/v1.3.2/Dockerfile
