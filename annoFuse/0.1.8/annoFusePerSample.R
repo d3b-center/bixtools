@@ -29,7 +29,7 @@ outputfile <- opt$outputfile
 
 # read files
 STARFusioninputfile<-read_tsv(STARFusioninputfile)
-Arribainputfile<-read_tsv(Arribainputfile)
+Arribainputfile<-read_tsv(Arribainputfile,col_types = readr::cols(breakpoint1 = readr::col_character(),breakpoint2 = readr::col_character()))
 
 # if StarFusion and Arriba files empty execution stops
 if(is_empty(STARFusioninputfile$FusionName) & is_empty(Arribainputfile$"gene1--gene2")){
@@ -89,7 +89,7 @@ if(!is_empty(STARFusioninputfile$FusionName) & is_empty(Arribainputfile$"gene1--
 
 
 # General fusion QC for read support and red flags
-fusionQCFiltered<-fusion_filtering_QC(standardFusioncalls=standardFusioncalls,readingFrameFilter="in-frame|frameshift|other",artifactFilter="GTEx_Recurrent|DGD_PARALOGS|Normal|BodyMap|ConjoinG",junctionReadCountFilter=1,spanningFragCountFilter=10,readthroughFilter=FALSE)
+fusionQCFiltered<-fusion_filtering_QC(standardFusioncalls=standardFusioncalls,readingFrameFilter="in-frame|frameshift|other",artifactFilter="GTEx_Recurrent|DGD_PARALOGS|Normal|BodyMap|ConjoinG",junctionReadCountFilter=1,spanningFragCountFilter=100,readthroughFilter=FALSE)
 
 expressionMatrix<-read_tsv(expressionFile)
 
