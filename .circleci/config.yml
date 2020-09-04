@@ -77,7 +77,7 @@ workflows:
   monthly:
     triggers:
     - schedule:
-        cron: '57 0 1 * *'
+        cron: 57 0 1 * *
         filters:
           branches:
             only:
@@ -184,7 +184,7 @@ workflows:
     - docker/publish:
         name: SVTyper_0.7.1_monthly
         deploy: false
-        image: kfdrc/SVTyper
+        image: kfdrc/svtyper
         tag: 0.7.1
         path: SVTyper/0.7.1/
         docker-context: SVTyper/0.7.1/
@@ -198,14 +198,14 @@ workflows:
     - docker/publish:
         name: VarDictJava_fp_filter_monthly
         deploy: false
-        image: kfdrc/VarDictJava
+        image: kfdrc/vardictjava
         tag: fp_filter
         path: VarDictJava/fp_filter/
         docker-context: VarDictJava/fp_filter/
     - docker/publish:
         name: VarDictJava_1.5.8_monthly
         deploy: false
-        image: kfdrc/VarDictJava
+        image: kfdrc/vardictjava
         tag: 1.5.8
         path: VarDictJava/1.5.8/
         docker-context: VarDictJava/1.5.8/
@@ -345,28 +345,28 @@ workflows:
     - docker/publish:
         name: VEP_r98_monthly
         deploy: false
-        image: kfdrc/VEP
+        image: kfdrc/vep
         tag: r98
         path: VEP/r98/
         docker-context: VEP/r98/
     - docker/publish:
         name: VEP_r93_v2_monthly
         deploy: false
-        image: kfdrc/VEP
+        image: kfdrc/vep
         tag: r93_v2
         path: VEP/r93_v2/
         docker-context: VEP/r93_v2/
     - docker/publish:
         name: VEP_r94_monthly
         deploy: false
-        image: kfdrc/VEP
+        image: kfdrc/vep
         tag: r94
         path: VEP/r94/
         docker-context: VEP/r94/
     - docker/publish:
         name: VEP_r93_monthly
         deploy: false
-        image: kfdrc/VEP
+        image: kfdrc/vep
         tag: r93
         path: VEP/r93/
         docker-context: VEP/r93/
@@ -436,7 +436,7 @@ workflows:
     - docker/publish:
         name: FusionCatcher_latest_monthly
         deploy: false
-        image: kfdrc/FusionCatcher
+        image: kfdrc/fusioncatcher
         tag: latest
         path: FusionCatcher/latest/
         docker-context: FusionCatcher/latest/
@@ -450,7 +450,7 @@ workflows:
     - docker/publish:
         name: LinkedSV_latest_monthly
         deploy: false
-        image: kfdrc/LinkedSV
+        image: kfdrc/linkedsv
         tag: latest
         path: LinkedSV/latest/
         docker-context: LinkedSV/latest/
@@ -639,7 +639,7 @@ workflows:
     - docker/publish:
         name: annoFuse_0.1.8_monthly
         deploy: false
-        image: kfdrc/annoFuse
+        image: kfdrc/annofuse
         tag: 0.1.8
         path: annoFuse/0.1.8/
         docker-context: annoFuse/0.1.8/
@@ -653,7 +653,7 @@ workflows:
     - docker/publish:
         name: BIC-seq2_0.7.2_monthly
         deploy: false
-        image: kfdrc/BIC-seq2
+        image: kfdrc/bic-seq2
         tag: 0.7.2
         path: BIC-seq2/0.7.2/
         docker-context: BIC-seq2/0.7.2/
@@ -817,7 +817,7 @@ workflows:
         context: dockerhub-vars
         name: SVTyper_0.7.1_diff
         deploy: true
-        image: kfdrc/SVTyper
+        image: kfdrc/svtyper
         tag: 0.7.1
         path: SVTyper/0.7.1/
         docker-context: SVTyper/0.7.1/
@@ -839,7 +839,7 @@ workflows:
         context: dockerhub-vars
         name: VarDictJava_fp_filter_diff
         deploy: true
-        image: kfdrc/VarDictJava
+        image: kfdrc/vardictjava
         tag: fp_filter
         path: VarDictJava/fp_filter/
         docker-context: VarDictJava/fp_filter/
@@ -850,7 +850,7 @@ workflows:
         context: dockerhub-vars
         name: VarDictJava_1.5.8_diff
         deploy: true
-        image: kfdrc/VarDictJava
+        image: kfdrc/vardictjava
         tag: 1.5.8
         path: VarDictJava/1.5.8/
         docker-context: VarDictJava/1.5.8/
@@ -1070,7 +1070,7 @@ workflows:
         context: dockerhub-vars
         name: VEP_r98_diff
         deploy: true
-        image: kfdrc/VEP
+        image: kfdrc/vep
         tag: r98
         path: VEP/r98/
         docker-context: VEP/r98/
@@ -1081,7 +1081,7 @@ workflows:
         context: dockerhub-vars
         name: VEP_r93_v2_diff
         deploy: true
-        image: kfdrc/VEP
+        image: kfdrc/vep
         tag: r93_v2
         path: VEP/r93_v2/
         docker-context: VEP/r93_v2/
@@ -1092,7 +1092,7 @@ workflows:
         context: dockerhub-vars
         name: VEP_r94_diff
         deploy: true
-        image: kfdrc/VEP
+        image: kfdrc/vep
         tag: r94
         path: VEP/r94/
         docker-context: VEP/r94/
@@ -1103,7 +1103,7 @@ workflows:
         context: dockerhub-vars
         name: VEP_r93_diff
         deploy: true
-        image: kfdrc/VEP
+        image: kfdrc/vep
         tag: r93
         path: VEP/r93/
         docker-context: VEP/r93/
@@ -1213,7 +1213,7 @@ workflows:
         context: dockerhub-vars
         name: FusionCatcher_latest_diff
         deploy: true
-        image: kfdrc/FusionCatcher
+        image: kfdrc/fusioncatcher
         tag: latest
         path: FusionCatcher/latest/
         docker-context: FusionCatcher/latest/
@@ -1235,7 +1235,7 @@ workflows:
         context: dockerhub-vars
         name: LinkedSV_latest_diff
         deploy: true
-        image: kfdrc/LinkedSV
+        image: kfdrc/linkedsv
         tag: latest
         path: LinkedSV/latest/
         docker-context: LinkedSV/latest/
@@ -1532,7 +1532,7 @@ workflows:
         context: dockerhub-vars
         name: annoFuse_0.1.8_diff
         deploy: true
-        image: kfdrc/annoFuse
+        image: kfdrc/annofuse
         tag: 0.1.8
         path: annoFuse/0.1.8/
         docker-context: annoFuse/0.1.8/
@@ -1554,7 +1554,7 @@ workflows:
         context: dockerhub-vars
         name: BIC-seq2_0.7.2_diff
         deploy: true
-        image: kfdrc/BIC-seq2
+        image: kfdrc/bic-seq2
         tag: 0.7.2
         path: BIC-seq2/0.7.2/
         docker-context: BIC-seq2/0.7.2/
