@@ -399,6 +399,13 @@ workflows:
         path: bwa/0.7.17-r1188/
         docker-context: bwa/0.7.17-r1188/
     - docker/publish:
+        name: strelka_v2.9.10_monthly
+        deploy: false
+        image: kfdrc/strelka
+        tag: v2.9.10
+        path: strelka/v2.9.10/
+        docker-context: strelka/v2.9.10/
+    - docker/publish:
         name: star_2.7.5a_monthly
         deploy: false
         image: kfdrc/star
@@ -1168,6 +1175,17 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: bwa/0.7.17-r1188/Dockerfile
+    - docker/publish:
+        context: dockerhub-vars
+        name: strelka_v2.9.10_diff
+        deploy: true
+        image: kfdrc/strelka
+        tag: v2.9.10
+        path: strelka/v2.9.10/
+        docker-context: strelka/v2.9.10/
+        before_build:
+        - run_if_modified:
+            pattern: strelka/v2.9.10/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: star_2.7.5a_diff
