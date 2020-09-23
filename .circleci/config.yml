@@ -644,6 +644,13 @@ workflows:
         path: annoFuse/0.1.8/
         docker-context: annoFuse/0.1.8/
     - docker/publish:
+        name: annoFuse_0.90.0_monthly
+        deploy: false
+        image: kfdrc/annoFuse
+        tag: 0.90.0
+        path: annoFuse/0.90.0/
+        docker-context: annoFuse/0.90.0/
+    - docker/publish:
         name: pizzly_latest_monthly
         deploy: false
         image: kfdrc/pizzly
