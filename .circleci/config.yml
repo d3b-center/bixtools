@@ -1570,7 +1570,7 @@ workflows:
             pattern: BIC-seq2/0.7.2/Dockerfile
     - docker/publish:
         context: dockerhub-vars
-        name: annoFuse_0.1.8_diff
+        name: annoFuse_0.90.0_diff
         deploy: true
         image: kfdrc/annoFuse
         tag: 0.90.0
