@@ -651,6 +651,13 @@ workflows:
         path: annoFuse/0.1.8/
         docker-context: annoFuse/0.1.8/
     - docker/publish:
+        name: annoFuse_0.90.0_monthly
+        deploy: false
+        image: kfdrc/annofuse
+        tag: 0.90.0
+        path: annoFuse/0.90.0/
+        docker-context: annoFuse/0.90.0/
+    - docker/publish:
         name: pizzly_latest_monthly
         deploy: false
         image: kfdrc/pizzly
@@ -1595,6 +1602,17 @@ workflows:
             pattern: BIC-seq2/0.7.2/Dockerfile
     - docker/publish:
         context: dockerhub-vars
+        name: annoFuse_0.90.0_diff
+        deploy: true
+        image: kfdrc/annofuse
+        tag: 0.90.0
+        path: annoFuse/0.90.0/
+        docker-context: annoFuse/0.90.0/
+        before_build:
+        - run_if_modified:
+            pattern: annoFuse/0.90.0/Dockerfile
+    - docker/publish:
+        context: dockerhub-vars     
         name: freebayes_v1.3.1_diff
         deploy: true
         image: kfdrc/freebayes
