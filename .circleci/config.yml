@@ -646,7 +646,7 @@ workflows:
     - docker/publish:
         name: annoFuse_0.90.0_monthly
         deploy: false
-        image: kfdrc/annoFuse
+        image: kfdrc/annofuse
         tag: 0.90.0
         path: annoFuse/0.90.0/
         docker-context: annoFuse/0.90.0/
@@ -1572,7 +1572,7 @@ workflows:
         context: dockerhub-vars
         name: annoFuse_0.90.0_diff
         deploy: true
-        image: kfdrc/annoFuse
+        image: kfdrc/annofuse
         tag: 0.90.0
         path: annoFuse/0.90.0/
         docker-context: annoFuse/0.90.0/
