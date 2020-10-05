@@ -182,6 +182,13 @@ workflows:
         path: lumpy-sv/0.2.13/
         docker-context: lumpy-sv/0.2.13/
     - docker/publish:
+        name: zumis_2.9.4_monthly
+        deploy: false
+        image: kfdrc/zumis
+        tag: 2.9.4
+        path: zumis/2.9.4/
+        docker-context: zumis/2.9.4/
+    - docker/publish:
         name: SVTyper_0.7.1_monthly
         deploy: false
         image: kfdrc/svtyper
@@ -644,19 +651,19 @@ workflows:
         path: seurat/latest/
         docker-context: seurat/latest/
     - docker/publish:
-        name: annoFuse_0.1.8_monthly
-        deploy: false
-        image: kfdrc/annofuse
-        tag: 0.1.8
-        path: annoFuse/0.1.8/
-        docker-context: annoFuse/0.1.8/
-    - docker/publish:
         name: annoFuse_0.90.0_monthly
         deploy: false
         image: kfdrc/annofuse
         tag: 0.90.0
         path: annoFuse/0.90.0/
         docker-context: annoFuse/0.90.0/
+    - docker/publish:
+        name: annoFuse_0.1.8_monthly
+        deploy: false
+        image: kfdrc/annofuse
+        tag: 0.1.8
+        path: annoFuse/0.1.8/
+        docker-context: annoFuse/0.1.8/
     - docker/publish:
         name: pizzly_latest_monthly
         deploy: false
@@ -841,6 +848,17 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: lumpy-sv/0.2.13/Dockerfile
+    - docker/publish:
+        context: dockerhub-vars
+        name: zumis_2.9.4_diff
+        deploy: true
+        image: kfdrc/zumis
+        tag: 2.9.4
+        path: zumis/2.9.4/
+        docker-context: zumis/2.9.4/
+        before_build:
+        - run_if_modified:
+            pattern: zumis/2.9.4/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: SVTyper_0.7.1_diff
@@ -1569,6 +1587,17 @@ workflows:
             pattern: seurat/latest/Dockerfile
     - docker/publish:
         context: dockerhub-vars
+        name: annoFuse_0.90.0_diff
+        deploy: true
+        image: kfdrc/annofuse
+        tag: 0.90.0
+        path: annoFuse/0.90.0/
+        docker-context: annoFuse/0.90.0/
+        before_build:
+        - run_if_modified:
+            pattern: annoFuse/0.90.0/Dockerfile
+    - docker/publish:
+        context: dockerhub-vars
         name: annoFuse_0.1.8_diff
         deploy: true
         image: kfdrc/annofuse
@@ -1602,17 +1631,6 @@ workflows:
             pattern: BIC-seq2/0.7.2/Dockerfile
     - docker/publish:
         context: dockerhub-vars
-        name: annoFuse_0.90.0_diff
-        deploy: true
-        image: kfdrc/annofuse
-        tag: 0.90.0
-        path: annoFuse/0.90.0/
-        docker-context: annoFuse/0.90.0/
-        before_build:
-        - run_if_modified:
-            pattern: annoFuse/0.90.0/Dockerfile
-    - docker/publish:
-        context: dockerhub-vars     
         name: freebayes_v1.3.1_diff
         deploy: true
         image: kfdrc/freebayes
