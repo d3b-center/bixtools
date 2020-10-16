@@ -280,19 +280,19 @@ workflows:
         path: gatk-picard/4.0.1.2-2.8.3/
         docker-context: gatk-picard/4.0.1.2-2.8.3/
     - docker/publish:
-        name: manta_1.6_monthly
-        deploy: false
-        image: kfdrc/manta
-        tag: '1.6'
-        path: manta/1.6/
-        docker-context: manta/1.6/
-    - docker/publish:
         name: manta_1.4_monthly
         deploy: false
         image: kfdrc/manta
         tag: '1.4'
         path: manta/1.4/
         docker-context: manta/1.4/
+    - docker/publish:
+        name: manta_1.6.0_monthly
+        deploy: false
+        image: kfdrc/manta
+        tag: 1.6.0
+        path: manta/1.6.0/
+        docker-context: manta/1.6.0/
     - docker/publish:
         name: velocyto_0.17.17_monthly
         deploy: false
@@ -1004,17 +1004,6 @@ workflows:
             pattern: gatk-picard/4.0.1.2-2.8.3/Dockerfile
     - docker/publish:
         context: dockerhub-vars
-        name: manta_1.6_diff
-        deploy: true
-        image: kfdrc/manta
-        tag: '1.6'
-        path: manta/1.6/
-        docker-context: manta/1.6/
-        before_build:
-        - run_if_modified:
-            pattern: manta/1.6/Dockerfile
-    - docker/publish:
-        context: dockerhub-vars
         name: manta_1.4_diff
         deploy: true
         image: kfdrc/manta
@@ -1024,6 +1013,17 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: manta/1.4/Dockerfile
+    - docker/publish:
+        context: dockerhub-vars
+        name: manta_1.6.0_diff
+        deploy: true
+        image: kfdrc/manta
+        tag: 1.6.0
+        path: manta/1.6.0/
+        docker-context: manta/1.6.0/
+        before_build:
+        - run_if_modified:
+            pattern: manta/1.6.0/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: velocyto_0.17.17_diff
