@@ -20,7 +20,7 @@ g++=${G_VERSION} \
 git=${GIT_VERSION} \
 liblzma-dev=${LIBLZMA_VERSION} \
 libbz2-dev=${LIBBZ2_VERSION} \
-python3-dev=${PYTHON_VERSION} \
+python3.8-dev=${PYTHON_VERSION} \
 wget=${WGET_VERSION} \
 zlib1g-dev=${ZLIB1G_VERSION} \
 && git clone --recursive --depth 1 --branch ${FREEBAYES_VERSION} https://github.com/ekg/freebayes.git \
