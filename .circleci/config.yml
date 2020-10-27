@@ -602,6 +602,13 @@ workflows:
         path: peddy/latest/
         docker-context: peddy/latest/
     - docker/publish:
+        name: fastqc_v0.11.9_monthly
+        deploy: false
+        image: kfdrc/fastqc
+        tag: v0.11.9
+        path: fastqc/v0.11.9/
+        docker-context: fastqc/v0.11.9/
+    - docker/publish:
         name: samtools_1.7-11-g041220d_monthly
         deploy: false
         image: kfdrc/samtools
@@ -1508,6 +1515,17 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: peddy/latest/Dockerfile
+    - docker/publish:
+        context: dockerhub-vars
+        name: fastqc_v0.11.9_diff
+        deploy: true
+        image: kfdrc/fastqc
+        tag: v0.11.9
+        path: fastqc/v0.11.9/
+        docker-context: fastqc/v0.11.9/
+        before_build:
+        - run_if_modified:
+            pattern: fastqc/v0.11.9/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: samtools_1.7-11-g041220d_diff
