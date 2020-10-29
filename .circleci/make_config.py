@@ -126,7 +126,7 @@ for path in validPaths:
   diff['docker/publish']['tag'] = "{}".format(tag)
   diff['docker/publish']['path'] = "{}/{}/".format(tool,tag)
   diff['docker/publish']['docker-context'] = "{}/{}/".format(tool,tag)
-#  diff['docker/publish']['before_build'] = [{'run_if_modified':{'pattern':"{}/{}/{}".format(tool,tag,dockerfile)}}]
+  diff['docker/publish']['before_build'] = [{'run_if_modified':{'pattern':"{}/{}/{}".format(tool,tag,dockerfile)}}]
   diffs.append(diff)
 
 # Build the output dictionary
