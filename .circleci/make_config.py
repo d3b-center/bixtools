@@ -105,7 +105,8 @@ for path in validPaths:
   datum['docker/publish'] = {}
   datum['docker/publish']['name'] = "{}_{}_monthly".format(tool,tag)
   datum['docker/publish']['deploy'] = False
-  datum['docker/publish']['image'] = "kfdrc/{}".format(tool.lower())
+  datum['docker/publish']['registry'] = "pgc-images.sbgenomics.com"
+  datum['docker/publish']['image'] = "d3b-bixu/{}".format(tool.lower())
   datum['docker/publish']['tag'] = "{}".format(tag)
   datum['docker/publish']['path'] = "{}/{}/".format(tool,tag)
   datum['docker/publish']['docker-context'] = "{}/{}/".format(tool,tag)
@@ -120,7 +121,8 @@ for path in validPaths:
   diff['docker/publish']['context'] = "dockerhub-vars"
   diff['docker/publish']['name'] = "{}_{}_diff".format(tool,tag)
   diff['docker/publish']['deploy'] = True
-  diff['docker/publish']['image'] = "kfdrc/{}".format(tool.lower())
+  diff['docker/publish']['registry'] = "pgc-images.sbgenomics.com"
+  diff['docker/publish']['image'] = "d3b-bixu/{}".format(tool.lower())
   diff['docker/publish']['tag'] = "{}".format(tag)
   diff['docker/publish']['path'] = "{}/{}/".format(tool,tag)
   diff['docker/publish']['docker-context'] = "{}/{}/".format(tool,tag)
