@@ -798,6 +798,9 @@ workflows:
         tag: latest
         path: verifybamid/latest/
         docker-context: verifybamid/latest/
+        before_build:
+        - run_if_modified:
+            pattern: verifybamid/latest/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: verifybamid_1.0.1_diff
@@ -807,6 +810,9 @@ workflows:
         tag: 1.0.1
         path: verifybamid/1.0.1/
         docker-context: verifybamid/1.0.1/
+        before_build:
+        - run_if_modified:
+            pattern: verifybamid/1.0.1/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: verifybamid_1.0.2_diff
@@ -816,6 +822,9 @@ workflows:
         tag: 1.0.2
         path: verifybamid/1.0.2/
         docker-context: verifybamid/1.0.2/
+        before_build:
+        - run_if_modified:
+            pattern: verifybamid/1.0.2/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: arriba_latest_diff
@@ -825,6 +834,9 @@ workflows:
         tag: latest
         path: arriba/latest/
         docker-context: arriba/latest/
+        before_build:
+        - run_if_modified:
+            pattern: arriba/latest/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: arriba_1.0.1_diff
@@ -834,6 +846,9 @@ workflows:
         tag: 1.0.1
         path: arriba/1.0.1/
         docker-context: arriba/1.0.1/
+        before_build:
+        - run_if_modified:
+            pattern: arriba/1.0.1/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: arriba_1.1.0_diff
@@ -843,6 +858,9 @@ workflows:
         tag: 1.1.0
         path: arriba/1.1.0/
         docker-context: arriba/1.1.0/
+        before_build:
+        - run_if_modified:
+            pattern: arriba/1.1.0/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: picard_2.14.0_diff
@@ -852,6 +870,9 @@ workflows:
         tag: 2.14.0
         path: picard/2.14.0/
         docker-context: picard/2.14.0/
+        before_build:
+        - run_if_modified:
+            pattern: picard/2.14.0/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: picard_latest_diff
@@ -861,6 +882,9 @@ workflows:
         tag: latest
         path: picard/latest/
         docker-context: picard/latest/
+        before_build:
+        - run_if_modified:
+            pattern: picard/latest/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: picard_2.8.3_diff
@@ -870,6 +894,9 @@ workflows:
         tag: 2.8.3
         path: picard/2.8.3/
         docker-context: picard/2.8.3/
+        before_build:
+        - run_if_modified:
+            pattern: picard/2.8.3/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: picard_2.18.9_diff
@@ -879,6 +906,9 @@ workflows:
         tag: 2.18.9
         path: picard/2.18.9/
         docker-context: picard/2.18.9/
+        before_build:
+        - run_if_modified:
+            pattern: picard/2.18.9/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: picard_2.17.4_diff
@@ -888,6 +918,9 @@ workflows:
         tag: 2.17.4
         path: picard/2.17.4/
         docker-context: picard/2.17.4/
+        before_build:
+        - run_if_modified:
+            pattern: picard/2.17.4/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: picard_2.15.0_diff
@@ -897,6 +930,9 @@ workflows:
         tag: 2.15.0
         path: picard/2.15.0/
         docker-context: picard/2.15.0/
+        before_build:
+        - run_if_modified:
+            pattern: picard/2.15.0/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: lumpy-sv_0.3.0_diff
@@ -906,6 +942,9 @@ workflows:
         tag: 0.3.0
         path: lumpy-sv/0.3.0/
         docker-context: lumpy-sv/0.3.0/
+        before_build:
+        - run_if_modified:
+            pattern: lumpy-sv/0.3.0/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: lumpy-sv_0.2.13_diff
@@ -915,6 +954,9 @@ workflows:
         tag: 0.2.13
         path: lumpy-sv/0.2.13/
         docker-context: lumpy-sv/0.2.13/
+        before_build:
+        - run_if_modified:
+            pattern: lumpy-sv/0.2.13/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: zumis_2.9.4_diff
@@ -924,6 +966,9 @@ workflows:
         tag: 2.9.4
         path: zumis/2.9.4/
         docker-context: zumis/2.9.4/
+        before_build:
+        - run_if_modified:
+            pattern: zumis/2.9.4/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: SVTyper_0.7.1_diff
@@ -933,6 +978,9 @@ workflows:
         tag: 0.7.1
         path: SVTyper/0.7.1/
         docker-context: SVTyper/0.7.1/
+        before_build:
+        - run_if_modified:
+            pattern: SVTyper/0.7.1/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: cutadapt_latest_diff
@@ -942,6 +990,9 @@ workflows:
         tag: latest
         path: cutadapt/latest/
         docker-context: cutadapt/latest/
+        before_build:
+        - run_if_modified:
+            pattern: cutadapt/latest/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: VarDictJava_fp_filter_diff
@@ -951,6 +1002,9 @@ workflows:
         tag: fp_filter
         path: VarDictJava/fp_filter/
         docker-context: VarDictJava/fp_filter/
+        before_build:
+        - run_if_modified:
+            pattern: VarDictJava/fp_filter/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: VarDictJava_1.5.8_diff
@@ -960,6 +1014,9 @@ workflows:
         tag: 1.5.8
         path: VarDictJava/1.5.8/
         docker-context: VarDictJava/1.5.8/
+        before_build:
+        - run_if_modified:
+            pattern: VarDictJava/1.5.8/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: bwa-picard_latest_diff
@@ -969,6 +1026,9 @@ workflows:
         tag: latest
         path: bwa-picard/latest/
         docker-context: bwa-picard/latest/
+        before_build:
+        - run_if_modified:
+            pattern: bwa-picard/latest/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: bwa-picard_broad_diff
@@ -978,6 +1038,9 @@ workflows:
         tag: broad
         path: bwa-picard/broad/
         docker-context: bwa-picard/broad/
+        before_build:
+        - run_if_modified:
+            pattern: bwa-picard/broad/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: python_2.7.13_diff
@@ -987,6 +1050,9 @@ workflows:
         tag: 2.7.13
         path: python/2.7.13/
         docker-context: python/2.7.13/
+        before_build:
+        - run_if_modified:
+            pattern: python/2.7.13/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: smoove_0.2.5_diff
@@ -996,6 +1062,9 @@ workflows:
         tag: 0.2.5
         path: smoove/0.2.5/
         docker-context: smoove/0.2.5/
+        before_build:
+        - run_if_modified:
+            pattern: smoove/0.2.5/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: cellranger_3.1_diff
@@ -1005,6 +1074,9 @@ workflows:
         tag: '3.1'
         path: cellranger/3.1/
         docker-context: cellranger/3.1/
+        before_build:
+        - run_if_modified:
+            pattern: cellranger/3.1/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: bcbio_variation_recall-0.2.4_diff
@@ -1014,6 +1086,9 @@ workflows:
         tag: variation_recall-0.2.4
         path: bcbio/variation_recall-0.2.4/
         docker-context: bcbio/variation_recall-0.2.4/
+        before_build:
+        - run_if_modified:
+            pattern: bcbio/variation_recall-0.2.4/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: bwa-bundle_0.1.17_diff
@@ -1023,6 +1098,9 @@ workflows:
         tag: 0.1.17
         path: bwa-bundle/0.1.17/
         docker-context: bwa-bundle/0.1.17/
+        before_build:
+        - run_if_modified:
+            pattern: bwa-bundle/0.1.17/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: gatk-picard_4.beta.1-2.8.3_diff
@@ -1032,6 +1110,9 @@ workflows:
         tag: 4.beta.1-2.8.3
         path: gatk-picard/4.beta.1-2.8.3/
         docker-context: gatk-picard/4.beta.1-2.8.3/
+        before_build:
+        - run_if_modified:
+            pattern: gatk-picard/4.beta.1-2.8.3/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: gatk-picard_4.0.1.2-2.8.3_diff
@@ -1041,6 +1122,9 @@ workflows:
         tag: 4.0.1.2-2.8.3
         path: gatk-picard/4.0.1.2-2.8.3/
         docker-context: gatk-picard/4.0.1.2-2.8.3/
+        before_build:
+        - run_if_modified:
+            pattern: gatk-picard/4.0.1.2-2.8.3/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: manta_1.4_diff
@@ -1050,6 +1134,9 @@ workflows:
         tag: '1.4'
         path: manta/1.4/
         docker-context: manta/1.4/
+        before_build:
+        - run_if_modified:
+            pattern: manta/1.4/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: manta_1.6.0_diff
@@ -1059,6 +1146,9 @@ workflows:
         tag: 1.6.0
         path: manta/1.6.0/
         docker-context: manta/1.6.0/
+        before_build:
+        - run_if_modified:
+            pattern: manta/1.6.0/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: velocyto_0.17.17_diff
@@ -1068,6 +1158,9 @@ workflows:
         tag: 0.17.17
         path: velocyto/0.17.17/
         docker-context: velocyto/0.17.17/
+        before_build:
+        - run_if_modified:
+            pattern: velocyto/0.17.17/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: speedseq_latest_diff
@@ -1077,6 +1170,9 @@ workflows:
         tag: latest
         path: speedseq/latest/
         docker-context: speedseq/latest/
+        before_build:
+        - run_if_modified:
+            pattern: speedseq/latest/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: svaba_1.1.0_diff
@@ -1086,6 +1182,9 @@ workflows:
         tag: 1.1.0
         path: svaba/1.1.0/
         docker-context: svaba/1.1.0/
+        before_build:
+        - run_if_modified:
+            pattern: svaba/1.1.0/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: lancet_1.0.7_diff
@@ -1095,6 +1194,9 @@ workflows:
         tag: 1.0.7
         path: lancet/1.0.7/
         docker-context: lancet/1.0.7/
+        before_build:
+        - run_if_modified:
+            pattern: lancet/1.0.7/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: sambamba_0.7.1_diff
@@ -1104,6 +1206,9 @@ workflows:
         tag: 0.7.1
         path: sambamba/0.7.1/
         docker-context: sambamba/0.7.1/
+        before_build:
+        - run_if_modified:
+            pattern: sambamba/0.7.1/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: sambamba_0.6.3_diff
@@ -1113,6 +1218,9 @@ workflows:
         tag: 0.6.3
         path: sambamba/0.6.3/
         docker-context: sambamba/0.6.3/
+        before_build:
+        - run_if_modified:
+            pattern: sambamba/0.6.3/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: picard-r_picard2.8.3-r3.3.3_diff
@@ -1122,6 +1230,9 @@ workflows:
         tag: picard2.8.3-r3.3.3
         path: picard-r/picard2.8.3-r3.3.3/
         docker-context: picard-r/picard2.8.3-r3.3.3/
+        before_build:
+        - run_if_modified:
+            pattern: picard-r/picard2.8.3-r3.3.3/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: picard-r_picard2.15.0-r.3.3.3_diff
@@ -1131,6 +1242,9 @@ workflows:
         tag: picard2.15.0-r.3.3.3
         path: picard-r/picard2.15.0-r.3.3.3/
         docker-context: picard-r/picard2.15.0-r.3.3.3/
+        before_build:
+        - run_if_modified:
+            pattern: picard-r/picard2.15.0-r.3.3.3/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: VEP_r98_diff
@@ -1140,6 +1254,9 @@ workflows:
         tag: r98
         path: VEP/r98/
         docker-context: VEP/r98/
+        before_build:
+        - run_if_modified:
+            pattern: VEP/r98/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: VEP_r93_v2_diff
@@ -1149,6 +1266,9 @@ workflows:
         tag: r93_v2
         path: VEP/r93_v2/
         docker-context: VEP/r93_v2/
+        before_build:
+        - run_if_modified:
+            pattern: VEP/r93_v2/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: VEP_r94_diff
@@ -1158,6 +1278,9 @@ workflows:
         tag: r94
         path: VEP/r94/
         docker-context: VEP/r94/
+        before_build:
+        - run_if_modified:
+            pattern: VEP/r94/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: VEP_r93_diff
@@ -1167,6 +1290,9 @@ workflows:
         tag: r93
         path: VEP/r93/
         docker-context: VEP/r93/
+        before_build:
+        - run_if_modified:
+            pattern: VEP/r93/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: canvas_1.11.0_diff
@@ -1176,6 +1302,9 @@ workflows:
         tag: 1.11.0
         path: canvas/1.11.0/
         docker-context: canvas/1.11.0/
+        before_build:
+        - run_if_modified:
+            pattern: canvas/1.11.0/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: bwa_0.7.15-r1140_diff
@@ -1185,6 +1314,9 @@ workflows:
         tag: 0.7.15-r1140
         path: bwa/0.7.15-r1140/
         docker-context: bwa/0.7.15-r1140/
+        before_build:
+        - run_if_modified:
+            pattern: bwa/0.7.15-r1140/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: bwa_latest_diff
@@ -1194,6 +1326,9 @@ workflows:
         tag: latest
         path: bwa/latest/
         docker-context: bwa/latest/
+        before_build:
+        - run_if_modified:
+            pattern: bwa/latest/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: bwa_0.7.17-r1188_diff
@@ -1203,6 +1338,9 @@ workflows:
         tag: 0.7.17-r1188
         path: bwa/0.7.17-r1188/
         docker-context: bwa/0.7.17-r1188/
+        before_build:
+        - run_if_modified:
+            pattern: bwa/0.7.17-r1188/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: strelka_v2.9.10_diff
@@ -1212,6 +1350,9 @@ workflows:
         tag: v2.9.10
         path: strelka/v2.9.10/
         docker-context: strelka/v2.9.10/
+        before_build:
+        - run_if_modified:
+            pattern: strelka/v2.9.10/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: star_2.7.5a_diff
@@ -1221,6 +1362,9 @@ workflows:
         tag: 2.7.5a
         path: star/2.7.5a/
         docker-context: star/2.7.5a/
+        before_build:
+        - run_if_modified:
+            pattern: star/2.7.5a/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: star_2.6.1d_diff
@@ -1230,6 +1374,9 @@ workflows:
         tag: 2.6.1d
         path: star/2.6.1d/
         docker-context: star/2.6.1d/
+        before_build:
+        - run_if_modified:
+            pattern: star/2.6.1d/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: star_fusion-1.5.0_diff
@@ -1239,6 +1386,9 @@ workflows:
         tag: fusion-1.5.0
         path: star/fusion-1.5.0/
         docker-context: star/fusion-1.5.0/
+        before_build:
+        - run_if_modified:
+            pattern: star/fusion-1.5.0/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: codex2_3.8_diff
@@ -1248,6 +1398,9 @@ workflows:
         tag: '3.8'
         path: codex2/3.8/
         docker-context: codex2/3.8/
+        before_build:
+        - run_if_modified:
+            pattern: codex2/3.8/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: sv2_latest_diff
@@ -1257,6 +1410,9 @@ workflows:
         tag: latest
         path: sv2/latest/
         docker-context: sv2/latest/
+        before_build:
+        - run_if_modified:
+            pattern: sv2/latest/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: FusionCatcher_latest_diff
@@ -1266,6 +1422,9 @@ workflows:
         tag: latest
         path: FusionCatcher/latest/
         docker-context: FusionCatcher/latest/
+        before_build:
+        - run_if_modified:
+            pattern: FusionCatcher/latest/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: controlfreec_11.5_diff
@@ -1275,6 +1434,9 @@ workflows:
         tag: '11.5'
         path: controlfreec/11.5/
         docker-context: controlfreec/11.5/
+        before_build:
+        - run_if_modified:
+            pattern: controlfreec/11.5/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: LinkedSV_latest_diff
@@ -1284,6 +1446,9 @@ workflows:
         tag: latest
         path: LinkedSV/latest/
         docker-context: LinkedSV/latest/
+        before_build:
+        - run_if_modified:
+            pattern: LinkedSV/latest/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: gatk_4.beta.6_diff
@@ -1293,6 +1458,9 @@ workflows:
         tag: 4.beta.6
         path: gatk/4.beta.6/
         docker-context: gatk/4.beta.6/
+        before_build:
+        - run_if_modified:
+            pattern: gatk/4.beta.6/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: gatk_4.0.1.0_diff
@@ -1302,6 +1470,9 @@ workflows:
         tag: 4.0.1.0
         path: gatk/4.0.1.0/
         docker-context: gatk/4.0.1.0/
+        before_build:
+        - run_if_modified:
+            pattern: gatk/4.0.1.0/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: gatk_4.beta.1_diff
@@ -1311,6 +1482,9 @@ workflows:
         tag: 4.beta.1
         path: gatk/4.beta.1/
         docker-context: gatk/4.beta.1/
+        before_build:
+        - run_if_modified:
+            pattern: gatk/4.beta.1/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: gatk_4.1.1.0_diff
@@ -1320,6 +1494,9 @@ workflows:
         tag: 4.1.1.0
         path: gatk/4.1.1.0/
         docker-context: gatk/4.1.1.0/
+        before_build:
+        - run_if_modified:
+            pattern: gatk/4.1.1.0/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: gatk_4.beta.1-3.5_diff
@@ -1329,6 +1506,9 @@ workflows:
         tag: 4.beta.1-3.5
         path: gatk/4.beta.1-3.5/
         docker-context: gatk/4.beta.1-3.5/
+        before_build:
+        - run_if_modified:
+            pattern: gatk/4.beta.1-3.5/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: gatk_4.1.7.0R_diff
@@ -1338,6 +1518,9 @@ workflows:
         tag: 4.1.7.0R
         path: gatk/4.1.7.0R/
         docker-context: gatk/4.1.7.0R/
+        before_build:
+        - run_if_modified:
+            pattern: gatk/4.1.7.0R/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: gatk_4.beta.5-tabix_diff
@@ -1347,6 +1530,9 @@ workflows:
         tag: 4.beta.5-tabix
         path: gatk/4.beta.5-tabix/
         docker-context: gatk/4.beta.5-tabix/
+        before_build:
+        - run_if_modified:
+            pattern: gatk/4.beta.5-tabix/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: gatk_4.0.12.0_diff
@@ -1356,6 +1542,9 @@ workflows:
         tag: 4.0.12.0
         path: gatk/4.0.12.0/
         docker-context: gatk/4.0.12.0/
+        before_build:
+        - run_if_modified:
+            pattern: gatk/4.0.12.0/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: gatk_latest_diff
@@ -1365,6 +1554,9 @@ workflows:
         tag: latest
         path: gatk/latest/
         docker-context: gatk/latest/
+        before_build:
+        - run_if_modified:
+            pattern: gatk/latest/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: gatk_3.8_ubuntu_diff
@@ -1374,6 +1566,9 @@ workflows:
         tag: 3.8_ubuntu
         path: gatk/3.8_ubuntu/
         docker-context: gatk/3.8_ubuntu/
+        before_build:
+        - run_if_modified:
+            pattern: gatk/3.8_ubuntu/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: gatk_4.beta.6-tabix_diff
@@ -1383,6 +1578,9 @@ workflows:
         tag: 4.beta.6-tabix
         path: gatk/4.beta.6-tabix/
         docker-context: gatk/4.beta.6-tabix/
+        before_build:
+        - run_if_modified:
+            pattern: gatk/4.beta.6-tabix/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: gatk_4.0.5.2_diff
@@ -1392,6 +1590,9 @@ workflows:
         tag: 4.0.5.2
         path: gatk/4.0.5.2/
         docker-context: gatk/4.0.5.2/
+        before_build:
+        - run_if_modified:
+            pattern: gatk/4.0.5.2/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: gatk_3.5-0-g36282e4_diff
@@ -1401,6 +1602,9 @@ workflows:
         tag: 3.5-0-g36282e4
         path: gatk/3.5-0-g36282e4/
         docker-context: gatk/3.5-0-g36282e4/
+        before_build:
+        - run_if_modified:
+            pattern: gatk/3.5-0-g36282e4/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: gatk_4.beta.5_diff
@@ -1410,6 +1614,9 @@ workflows:
         tag: 4.beta.5
         path: gatk/4.beta.5/
         docker-context: gatk/4.beta.5/
+        before_build:
+        - run_if_modified:
+            pattern: gatk/4.beta.5/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: gatk_3.6-0-g89b7209_diff
@@ -1419,6 +1626,9 @@ workflows:
         tag: 3.6-0-g89b7209
         path: gatk/3.6-0-g89b7209/
         docker-context: gatk/3.6-0-g89b7209/
+        before_build:
+        - run_if_modified:
+            pattern: gatk/3.6-0-g89b7209/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: gatk_4.0.1.2_diff
@@ -1428,6 +1638,9 @@ workflows:
         tag: 4.0.1.2
         path: gatk/4.0.1.2/
         docker-context: gatk/4.0.1.2/
+        before_build:
+        - run_if_modified:
+            pattern: gatk/4.0.1.2/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: gatk_3.8_diff
@@ -1437,6 +1650,9 @@ workflows:
         tag: '3.8'
         path: gatk/3.8/
         docker-context: gatk/3.8/
+        before_build:
+        - run_if_modified:
+            pattern: gatk/3.8/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: bed_tools_bedopsv2.4.36_plus_bedtools_diff
@@ -1446,6 +1662,9 @@ workflows:
         tag: bedopsv2.4.36_plus_bedtools
         path: bed_tools/bedopsv2.4.36_plus_bedtools/
         docker-context: bed_tools/bedopsv2.4.36_plus_bedtools/
+        before_build:
+        - run_if_modified:
+            pattern: bed_tools/bedopsv2.4.36_plus_bedtools/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: peddy_latest_diff
@@ -1455,6 +1674,9 @@ workflows:
         tag: latest
         path: peddy/latest/
         docker-context: peddy/latest/
+        before_build:
+        - run_if_modified:
+            pattern: peddy/latest/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: fastqc_v0.11.9_diff
@@ -1464,6 +1686,9 @@ workflows:
         tag: v0.11.9
         path: fastqc/v0.11.9/
         docker-context: fastqc/v0.11.9/
+        before_build:
+        - run_if_modified:
+            pattern: fastqc/v0.11.9/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: samtools_1.7-11-g041220d_diff
@@ -1473,6 +1698,9 @@ workflows:
         tag: 1.7-11-g041220d
         path: samtools/1.7-11-g041220d/
         docker-context: samtools/1.7-11-g041220d/
+        before_build:
+        - run_if_modified:
+            pattern: samtools/1.7-11-g041220d/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: samtools_1.9_diff
@@ -1482,6 +1710,9 @@ workflows:
         tag: '1.9'
         path: samtools/1.9/
         docker-context: samtools/1.9/
+        before_build:
+        - run_if_modified:
+            pattern: samtools/1.9/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: samtools_1.6_diff
@@ -1491,6 +1722,9 @@ workflows:
         tag: '1.6'
         path: samtools/1.6/
         docker-context: samtools/1.6/
+        before_build:
+        - run_if_modified:
+            pattern: samtools/1.6/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: samtools_1.3.1_diff
@@ -1500,6 +1734,9 @@ workflows:
         tag: 1.3.1
         path: samtools/1.3.1/
         docker-context: samtools/1.3.1/
+        before_build:
+        - run_if_modified:
+            pattern: samtools/1.3.1/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: samtools_latest_diff
@@ -1509,6 +1746,9 @@ workflows:
         tag: latest
         path: samtools/latest/
         docker-context: samtools/latest/
+        before_build:
+        - run_if_modified:
+            pattern: samtools/latest/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: annovar_latest_diff
@@ -1518,6 +1758,9 @@ workflows:
         tag: latest
         path: annovar/latest/
         docker-context: annovar/latest/
+        before_build:
+        - run_if_modified:
+            pattern: annovar/latest/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: seurat_latest_diff
@@ -1527,6 +1770,9 @@ workflows:
         tag: latest
         path: seurat/latest/
         docker-context: seurat/latest/
+        before_build:
+        - run_if_modified:
+            pattern: seurat/latest/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: annoFuse_0.90.0_diff
@@ -1536,6 +1782,9 @@ workflows:
         tag: 0.90.0
         path: annoFuse/0.90.0/
         docker-context: annoFuse/0.90.0/
+        before_build:
+        - run_if_modified:
+            pattern: annoFuse/0.90.0/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: annoFuse_0.1.8_diff
@@ -1545,6 +1794,9 @@ workflows:
         tag: 0.1.8
         path: annoFuse/0.1.8/
         docker-context: annoFuse/0.1.8/
+        before_build:
+        - run_if_modified:
+            pattern: annoFuse/0.1.8/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: pizzly_latest_diff
@@ -1554,6 +1806,9 @@ workflows:
         tag: latest
         path: pizzly/latest/
         docker-context: pizzly/latest/
+        before_build:
+        - run_if_modified:
+            pattern: pizzly/latest/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: BIC-seq2_0.7.2_diff
@@ -1563,6 +1818,9 @@ workflows:
         tag: 0.7.2
         path: BIC-seq2/0.7.2/
         docker-context: BIC-seq2/0.7.2/
+        before_build:
+        - run_if_modified:
+            pattern: BIC-seq2/0.7.2/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: freebayes_v1.3.1_diff
@@ -1572,6 +1830,9 @@ workflows:
         tag: v1.3.1
         path: freebayes/v1.3.1/
         docker-context: freebayes/v1.3.1/
+        before_build:
+        - run_if_modified:
+            pattern: freebayes/v1.3.1/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: freebayes_v1.3.2_diff
@@ -1581,3 +1842,6 @@ workflows:
         tag: v1.3.2
         path: freebayes/v1.3.2/
         docker-context: freebayes/v1.3.2/
+        before_build:
+        - run_if_modified:
+            pattern: freebayes/v1.3.2/Dockerfile
