@@ -1,5 +1,5 @@
 FROM alpine:3.6
-MAINTAINER Yuankun Zhu (zhuy@email.chop.edu)
+LABEL maintainer="Yuankun Zhu (zhuy@email.chop.edu)"
 
 ENV GATK4_VERSION 4.beta.1
 ENV GATK_ARCHIVE_VERSION 3.5-0-g36282e4
