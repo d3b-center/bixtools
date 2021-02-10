@@ -676,6 +676,14 @@ workflows:
         path: peddy/latest/
         docker-context: peddy/latest/
     - docker/publish:
+        name: peddy_v0.4.2_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/peddy
+        tag: v0.4.2
+        path: peddy/v0.4.2/
+        docker-context: peddy/v0.4.2/
+    - docker/publish:
         name: fastqc_v0.11.9_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -1677,6 +1685,18 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: peddy/latest/Dockerfile
+    - docker/publish:
+        context: dockerhub-vars
+        name: peddy_v0.4.2_diff
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/peddy
+        tag: v0.4.2
+        path: peddy/v0.4.2/
+        docker-context: peddy/v0.4.2/
+        before_build:
+        - run_if_modified:
+            pattern: peddy/v0.4.2/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: fastqc_v0.11.9_diff
