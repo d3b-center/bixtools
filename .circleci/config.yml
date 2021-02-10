@@ -800,7 +800,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: verifybamid_latest_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/verifybamid
         tag: latest
@@ -812,7 +812,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: verifybamid_1.0.1_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/verifybamid
         tag: 1.0.1
@@ -824,7 +824,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: verifybamid_1.0.2_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/verifybamid
         tag: 1.0.2
@@ -836,7 +836,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: arriba_latest_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/arriba
         tag: latest
@@ -848,7 +848,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: arriba_1.0.1_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/arriba
         tag: 1.0.1
@@ -860,7 +860,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: arriba_1.1.0_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/arriba
         tag: 1.1.0
@@ -872,7 +872,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: picard_2.14.0_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/picard
         tag: 2.14.0
@@ -884,7 +884,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: picard_latest_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/picard
         tag: latest
@@ -896,7 +896,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: picard_2.8.3_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/picard
         tag: 2.8.3
@@ -908,7 +908,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: picard_2.18.9_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/picard
         tag: 2.18.9
@@ -920,7 +920,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: picard_2.17.4_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/picard
         tag: 2.17.4
@@ -932,7 +932,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: picard_2.15.0_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/picard
         tag: 2.15.0
@@ -944,7 +944,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: lumpy-sv_0.3.0_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/lumpy-sv
         tag: 0.3.0
@@ -956,7 +956,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: lumpy-sv_0.2.13_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/lumpy-sv
         tag: 0.2.13
@@ -968,7 +968,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: zumis_2.9.4_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/zumis
         tag: 2.9.4
@@ -980,7 +980,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: SVTyper_0.7.1_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/svtyper
         tag: 0.7.1
@@ -992,7 +992,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: cutadapt_latest_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/cutadapt
         tag: latest
@@ -1004,7 +1004,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: VarDictJava_fp_filter_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/vardictjava
         tag: fp_filter
@@ -1016,7 +1016,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: VarDictJava_1.5.8_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/vardictjava
         tag: 1.5.8
@@ -1028,7 +1028,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: bwa-picard_latest_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/bwa-picard
         tag: latest
@@ -1040,7 +1040,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: bwa-picard_broad_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/bwa-picard
         tag: broad
@@ -1052,7 +1052,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: python_2.7.13_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/python
         tag: 2.7.13
@@ -1064,7 +1064,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: smoove_0.2.5_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/smoove
         tag: 0.2.5
@@ -1076,7 +1076,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: cellranger_3.1_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/cellranger
         tag: '3.1'
@@ -1088,7 +1088,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: bcbio_variation_recall-0.2.4_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/bcbio
         tag: variation_recall-0.2.4
@@ -1100,7 +1100,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: bwa-bundle_0.1.17_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/bwa-bundle
         tag: 0.1.17
@@ -1112,7 +1112,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: gatk-picard_4.beta.1-2.8.3_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/gatk-picard
         tag: 4.beta.1-2.8.3
@@ -1124,7 +1124,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: gatk-picard_4.0.1.2-2.8.3_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/gatk-picard
         tag: 4.0.1.2-2.8.3
@@ -1136,7 +1136,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: manta_1.4_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/manta
         tag: '1.4'
@@ -1148,7 +1148,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: manta_1.6.0_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/manta
         tag: 1.6.0
@@ -1160,7 +1160,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: velocyto_0.17.17_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/velocyto
         tag: 0.17.17
@@ -1172,7 +1172,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: speedseq_latest_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/speedseq
         tag: latest
@@ -1184,7 +1184,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: svaba_1.1.0_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/svaba
         tag: 1.1.0
@@ -1196,7 +1196,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: lancet_1.0.7_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/lancet
         tag: 1.0.7
@@ -1208,7 +1208,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: sambamba_0.7.1_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/sambamba
         tag: 0.7.1
@@ -1220,7 +1220,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: sambamba_0.6.3_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/sambamba
         tag: 0.6.3
@@ -1232,7 +1232,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: picard-r_picard2.8.3-r3.3.3_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/picard-r
         tag: picard2.8.3-r3.3.3
@@ -1244,7 +1244,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: picard-r_picard2.15.0-r.3.3.3_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/picard-r
         tag: picard2.15.0-r.3.3.3
@@ -1256,7 +1256,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: VEP_r98_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/vep
         tag: r98
@@ -1268,7 +1268,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: VEP_r93_v2_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/vep
         tag: r93_v2
@@ -1280,7 +1280,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: VEP_r94_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/vep
         tag: r94
@@ -1292,7 +1292,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: VEP_r93_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/vep
         tag: r93
@@ -1304,7 +1304,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: canvas_1.11.0_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/canvas
         tag: 1.11.0
@@ -1316,7 +1316,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: bwa_0.7.15-r1140_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/bwa
         tag: 0.7.15-r1140
@@ -1328,7 +1328,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: bwa_latest_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/bwa
         tag: latest
@@ -1340,7 +1340,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: bwa_0.7.17-r1188_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/bwa
         tag: 0.7.17-r1188
@@ -1352,7 +1352,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: strelka_v2.9.10_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/strelka
         tag: v2.9.10
@@ -1364,7 +1364,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: star_2.7.5a_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/star
         tag: 2.7.5a
@@ -1376,7 +1376,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: star_2.6.1d_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/star
         tag: 2.6.1d
@@ -1388,7 +1388,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: star_fusion-1.5.0_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/star
         tag: fusion-1.5.0
@@ -1400,7 +1400,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: codex2_3.8_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/codex2
         tag: '3.8'
@@ -1412,7 +1412,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: sv2_latest_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/sv2
         tag: latest
@@ -1424,7 +1424,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: FusionCatcher_latest_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/fusioncatcher
         tag: latest
@@ -1436,7 +1436,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: controlfreec_11.5_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/controlfreec
         tag: '11.5'
@@ -1448,7 +1448,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: LinkedSV_latest_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/linkedsv
         tag: latest
@@ -1460,7 +1460,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: gatk_4.beta.6_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/gatk
         tag: 4.beta.6
@@ -1472,7 +1472,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: gatk_4.0.1.0_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/gatk
         tag: 4.0.1.0
@@ -1484,7 +1484,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: gatk_4.beta.1_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/gatk
         tag: 4.beta.1
@@ -1496,7 +1496,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: gatk_4.1.1.0_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/gatk
         tag: 4.1.1.0
@@ -1508,7 +1508,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: gatk_4.beta.1-3.5_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/gatk
         tag: 4.beta.1-3.5
@@ -1520,7 +1520,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: gatk_4.1.7.0R_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/gatk
         tag: 4.1.7.0R
@@ -1532,7 +1532,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: gatk_4.beta.5-tabix_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/gatk
         tag: 4.beta.5-tabix
@@ -1544,7 +1544,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: gatk_4.0.12.0_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/gatk
         tag: 4.0.12.0
@@ -1556,7 +1556,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: gatk_latest_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/gatk
         tag: latest
@@ -1568,7 +1568,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: gatk_3.8_ubuntu_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/gatk
         tag: 3.8_ubuntu
@@ -1580,7 +1580,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: gatk_4.beta.6-tabix_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/gatk
         tag: 4.beta.6-tabix
@@ -1592,7 +1592,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: gatk_4.0.5.2_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/gatk
         tag: 4.0.5.2
@@ -1604,7 +1604,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: gatk_3.5-0-g36282e4_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/gatk
         tag: 3.5-0-g36282e4
@@ -1616,7 +1616,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: gatk_4.beta.5_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/gatk
         tag: 4.beta.5
@@ -1628,7 +1628,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: gatk_3.6-0-g89b7209_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/gatk
         tag: 3.6-0-g89b7209
@@ -1640,7 +1640,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: gatk_4.0.1.2_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/gatk
         tag: 4.0.1.2
@@ -1652,7 +1652,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: gatk_3.8_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/gatk
         tag: '3.8'
@@ -1664,7 +1664,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: bed_tools_bedopsv2.4.36_plus_bedtools_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/bed_tools
         tag: bedopsv2.4.36_plus_bedtools
@@ -1676,7 +1676,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: peddy_latest_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/peddy
         tag: latest
@@ -1688,7 +1688,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: peddy_v0.4.2_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/peddy
         tag: v0.4.2
@@ -1700,7 +1700,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: fastqc_v0.11.9_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/fastqc
         tag: v0.11.9
@@ -1712,7 +1712,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: samtools_1.7-11-g041220d_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/samtools
         tag: 1.7-11-g041220d
@@ -1724,7 +1724,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: samtools_1.9_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/samtools
         tag: '1.9'
@@ -1736,7 +1736,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: samtools_1.6_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/samtools
         tag: '1.6'
@@ -1748,7 +1748,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: samtools_1.3.1_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/samtools
         tag: 1.3.1
@@ -1760,7 +1760,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: samtools_latest_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/samtools
         tag: latest
@@ -1772,7 +1772,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: annovar_latest_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/annovar
         tag: latest
@@ -1784,7 +1784,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: seurat_latest_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/seurat
         tag: latest
@@ -1796,7 +1796,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: annoFuse_0.90.0_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/annofuse
         tag: 0.90.0
@@ -1808,7 +1808,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: annoFuse_0.1.8_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/annofuse
         tag: 0.1.8
@@ -1820,7 +1820,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: pizzly_latest_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/pizzly
         tag: latest
@@ -1832,7 +1832,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: BIC-seq2_0.7.2_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/bic-seq2
         tag: 0.7.2
@@ -1844,7 +1844,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: freebayes_v1.3.1_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/freebayes
         tag: v1.3.1
@@ -1856,7 +1856,7 @@ workflows:
     - docker/publish:
         context: dockerhub-vars
         name: freebayes_v1.3.2_diff
-        deploy: true
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/freebayes
         tag: v1.3.2

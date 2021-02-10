@@ -120,7 +120,7 @@ for path in validPaths:
   diff['docker/publish'] = {}
   diff['docker/publish']['context'] = "dockerhub-vars"
   diff['docker/publish']['name'] = "{}_{}_diff".format(tool,tag)
-  diff['docker/publish']['deploy'] = True
+  diff['docker/publish']['deploy'] = False
   diff['docker/publish']['registry'] = "pgc-images.sbgenomics.com"
   diff['docker/publish']['image'] = "d3b-bixu/{}".format(tool.lower())
   diff['docker/publish']['tag'] = "{}".format(tag)
