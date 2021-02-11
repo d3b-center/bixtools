@@ -268,6 +268,14 @@ workflows:
         path: smoove/0.2.5/
         docker-context: smoove/0.2.5/
     - docker/publish:
+        name: cellranger_5.0.1_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/cellranger
+        tag: 5.0.1
+        path: cellranger/5.0.1/
+        docker-context: cellranger/5.0.1/
+    - docker/publish:
         name: cellranger_3.1_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -1081,6 +1089,18 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: smoove/0.2.5/Dockerfile
+    - docker/publish:
+        context: dockerhub-vars
+        name: cellranger_5.0.1_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/cellranger
+        tag: 5.0.1
+        path: cellranger/5.0.1/
+        docker-context: cellranger/5.0.1/
+        before_build:
+        - run_if_modified:
+            pattern: cellranger/5.0.1/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: cellranger_3.1_diff
