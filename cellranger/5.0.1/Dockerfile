@@ -1,8 +1,8 @@
 FROM ubuntu:18.04
 MAINTAINER Alex Sickler (sicklera@email.chop.edu)
 
-ENV CELLRANGER_MAJ_VER 3.1
-ENV CELLRANGER_VERSION 3.1.0
+ENV CELLRANGER_MAJ_VER 5.0
+ENV CELLRANGER_VERSION 5.0.1
 
 RUN apt update && apt install -y curl \
 && DL_LINK=`curl "https://support.10xgenomics.com/single-cell-gene-expression/software/downloads/${CELLRANGER_MAJ_VER}/?" -H 'Connection: keep-alive' \
