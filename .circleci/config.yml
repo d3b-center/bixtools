@@ -668,13 +668,13 @@ workflows:
         path: bed_tools/bedopsv2.4.36_plus_bedtools/
         docker-context: bed_tools/bedopsv2.4.36_plus_bedtools/
     - docker/publish:
-        name: peddy_latest_monthly
+        name: peddy_v0.4.7_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/peddy
-        tag: latest
-        path: peddy/latest/
-        docker-context: peddy/latest/
+        tag: v0.4.7
+        path: peddy/v0.4.7/
+        docker-context: peddy/v0.4.7/
     - docker/publish:
         name: peddy_v0.4.2_monthly
         deploy: false
@@ -1675,16 +1675,16 @@ workflows:
             pattern: bed_tools/bedopsv2.4.36_plus_bedtools/Dockerfile
     - docker/publish:
         context: dockerhub-vars
-        name: peddy_latest_diff
+        name: peddy_v0.4.7_diff
         deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/peddy
-        tag: latest
-        path: peddy/latest/
-        docker-context: peddy/latest/
+        tag: v0.4.7
+        path: peddy/v0.4.7/
+        docker-context: peddy/v0.4.7/
         before_build:
         - run_if_modified:
-            pattern: peddy/latest/Dockerfile
+            pattern: peddy/v0.4.7/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: peddy_v0.4.2_diff
