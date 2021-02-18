@@ -268,13 +268,13 @@ workflows:
         path: smoove/0.2.5/
         docker-context: smoove/0.2.5/
     - docker/publish:
-        name: cellranger_5.0.1_monthly
+        name: cellranger_5.0_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/cellranger
-        tag: 5.0.1
-        path: cellranger/5.0.1/
-        docker-context: cellranger/5.0.1/
+        tag: '5.0'
+        path: cellranger/5.0/
+        docker-context: cellranger/5.0/
     - docker/publish:
         name: cellranger_3.1_monthly
         deploy: false
@@ -1091,16 +1091,16 @@ workflows:
             pattern: smoove/0.2.5/Dockerfile
     - docker/publish:
         context: dockerhub-vars
-        name: cellranger_5.0.1_diff
+        name: cellranger_5.0_diff
         deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/cellranger
-        tag: 5.0.1
-        path: cellranger/5.0.1/
-        docker-context: cellranger/5.0.1/
+        tag: '5.0'
+        path: cellranger/5.0/
+        docker-context: cellranger/5.0/
         before_build:
         - run_if_modified:
-            pattern: cellranger/5.0.1/Dockerfile
+            pattern: cellranger/5.0/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: cellranger_3.1_diff
@@ -2297,6 +2297,23 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: smoove/0.2.5/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
+        name: cellranger_5.0_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/cellranger
+        tag: '5.0'
+        path: cellranger/5.0/
+        docker-context: cellranger/5.0/
+        before_build:
+        - run_if_modified:
+            pattern: cellranger/5.0/Dockerfile
             check-last-commit-on-base-branch: true
     - docker/publish:
         filters:
