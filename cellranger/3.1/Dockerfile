@@ -1,5 +1,5 @@
 FROM ubuntu:18.04
-MAINTAINER Alex Sickler (sicklera@email.chop.edu)
+LABEL maintainer="Alex Sickler (sicklera@email.chop.edu)"
 
 ENV CELLRANGER_MAJ_VER 3.1
 
