@@ -94,49 +94,75 @@ monthlyTrigger = {
   }
 }
 
+mergeFilter = {
+  "branches": {
+    "only": ["master"]
+  }
+}
+
 # Grab the paths of validly structured Dockerfiles (git_dir/tool_dir/version_dir/Dockerfile)
 validPaths = glob.glob(os.path.join(os.path.dirname(os.path.abspath(__file__)),"../*/*/Dockerfile"))
 
 # Build dictionary for monthly jobs
-data = []
+monthly_jobs = []
 for path in validPaths:
-  datum = {}
+  dat = {}
   workdir,tool,tag,dockerfile = path.split('/')[-4:]
-  datum['docker/publish'] = {}
-  datum['docker/publish']['name'] = "{}_{}_monthly".format(tool,tag)
-  datum['docker/publish']['deploy'] = False
-  datum['docker/publish']['registry'] = "pgc-images.sbgenomics.com"
-  datum['docker/publish']['image'] = "d3b-bixu/{}".format(tool.lower())
-  datum['docker/publish']['tag'] = "{}".format(tag)
-  datum['docker/publish']['path'] = "{}/{}/".format(tool,tag)
-  datum['docker/publish']['docker-context'] = "{}/{}/".format(tool,tag)
-  data.append(datum)
+  dat['docker/publish'] = {}
+  dat['docker/publish']['name'] = "{}_{}_monthly".format(tool,tag)
+  dat['docker/publish']['deploy'] = False
+  dat['docker/publish']['registry'] = "pgc-images.sbgenomics.com"
+  dat['docker/publish']['image'] = "d3b-bixu/{}".format(tool.lower())
+  dat['docker/publish']['tag'] = "{}".format(tag)
+  dat['docker/publish']['path'] = "{}/{}/".format(tool,tag)
+  dat['docker/publish']['docker-context'] = "{}/{}/".format(tool,tag)
+  monthly_jobs.append(dat)
 
 # Build dictionary for diff based jobs
-diffs = []
+diff_jobs = []
 for path in validPaths:
-  diff = {}
+  dat = {}
   workdir,tool,tag,dockerfile = path.split('/')[-4:]
-  diff['docker/publish'] = {}
-  diff['docker/publish']['context'] = "dockerhub-vars"
-  diff['docker/publish']['name'] = "{}_{}_diff".format(tool,tag)
-  diff['docker/publish']['deploy'] = False
-  diff['docker/publish']['registry'] = "pgc-images.sbgenomics.com"
-  diff['docker/publish']['image'] = "d3b-bixu/{}".format(tool.lower())
-  diff['docker/publish']['tag'] = "{}".format(tag)
-  diff['docker/publish']['path'] = "{}/{}/".format(tool,tag)
-  diff['docker/publish']['docker-context'] = "{}/{}/".format(tool,tag)
-  diff['docker/publish']['before_build'] = [{'run_if_modified':{'pattern':"{}/{}/{}".format(tool,tag,dockerfile)}}]
-  diffs.append(diff)
+  dat['docker/publish'] = {}
+  dat['docker/publish']['context'] = "dockerhub-vars"
+  dat['docker/publish']['name'] = "{}_{}_diff".format(tool,tag)
+  dat['docker/publish']['deploy'] = False
+  dat['docker/publish']['registry'] = "pgc-images.sbgenomics.com"
+  dat['docker/publish']['image'] = "d3b-bixu/{}".format(tool.lower())
+  dat['docker/publish']['tag'] = "{}".format(tag)
+  dat['docker/publish']['path'] = "{}/{}/".format(tool,tag)
+  dat['docker/publish']['docker-context'] = "{}/{}/".format(tool,tag)
+  dat['docker/publish']['before_build'] = [{'run_if_modified':{'pattern':"{}/{}/{}".format(tool,tag,dockerfile)}}]
+  diff_jobs.append(dat)
+
+# Build dictionary for merge builds
+merge_jobs = []
+for path in validPaths:
+  dat = {}
+  workdir,tool,tag,dockerfile = path.split('/')[-4:]
+  dat['docker/publish'] = {}
+  dat['docker/publish']['filters'] = mergeFilter
+  dat['docker/publish']['name'] = "{}_{}_merge".format(tool,tag)
+  dat['docker/publish']['context'] = "dockerhub-vars"
+  dat['docker/publish']['deploy'] = True
+  dat['docker/publish']['registry'] = "pgc-images.sbgenomics.com"
+  dat['docker/publish']['image'] = "d3b-bixu/{}".format(tool.lower())
+  dat['docker/publish']['tag'] = "{}".format(tag)
+  dat['docker/publish']['path'] = "{}/{}/".format(tool,tag)
+  dat['docker/publish']['docker-context'] = "{}/{}/".format(tool,tag)
+  dat['docker/publish']['before_build'] = [{'run_if_modified':{'pattern':"{}/{}/{}".format(tool,tag,dockerfile), 'check-last-commit-on-base-branch':True}}]
+  merge_jobs.append(dat)
 
 # Build the output dictionary
 output = yaml.load(header,Loader=yaml.RoundTripLoader)
 output['workflows'] = {}
 output['workflows']['monthly'] = {}
 output['workflows']['monthly']['triggers'] = [monthlyTrigger]
-output['workflows']['monthly']['jobs'] = data
+output['workflows']['monthly']['jobs'] = monthly_jobs
 output['workflows']['diff'] = {}
-output['workflows']['diff']['jobs'] = diffs
+output['workflows']['diff']['jobs'] = diff_jobs
+output['workflows']['merge'] = {}
+output['workflows']['merge']['jobs'] = merge_jobs
 
 # Output the output dictionary as YAML to stdout without aliases
 yaml = YAML()

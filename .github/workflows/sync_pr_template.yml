@@ -1,0 +1,41 @@
+on:
+  schedule:
+  - cron:  '57 0 1 * *'
+  push:
+    branches:
+    - main 
+    - master
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout This Repo
+      uses: actions/checkout@v2
+      with:
+        path: main
+    - name: Checkout Template Repo
+      uses: actions/checkout@v2
+      with:
+        repository: d3b-center/d3b-bixu-template 
+        path: template
+    - name: Sync template file
+      run: |
+        cmp ./template/.github/PULL_REQUEST_TEMPLATE.md ./main/.github/PULL_REQUEST_TEMPLATE.md || cp ./template/.github/PULL_REQUEST_TEMPLATE.md ./main/.github/PULL_REQUEST_TEMPLATE.md
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v3
+      with:
+        path: ./main/
+        commit-message: sync with template repo
+        title: Sync PR Template with Template Repo
+        body: |
+          Automated changes by [create-pull-request](https://github.com/peter-evans/create-pull-request) GitHub action.
+
+          PULL_REQUEST_TEMPLATE.md is no longer in sync with the [bixu_template_repo](https://github.com/kids-first/kf-template-repo).
+          This PR sets this repository's PULL_REQUEST_TEMPLATE.md to the template found in the bixu_template_repo.
+
+          If this repository's PULL_REQUEST_TEMPLATE.md is preferred to the one in the bixu_template_repo,
+          please update the bixu_template_repo's template file to the newest standard and close this PR.
+        delete-branch: true
+        branch: gha-sync-pr-temp
+        branch-suffix: timestamp
+        reviewers: dmiller15,migbro,sickler-alex,NHJohnson,yuankunzhu
