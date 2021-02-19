@@ -580,6 +580,14 @@ workflows:
         path: gatk/4.beta.1-3.5/
         docker-context: gatk/4.beta.1-3.5/
     - docker/publish:
+        name: gatk_4.2.0.0R_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/gatk
+        tag: 4.2.0.0R
+        path: gatk/4.2.0.0R/
+        docker-context: gatk/4.2.0.0R/
+    - docker/publish:
         name: gatk_4.1.7.0R_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -1565,6 +1573,18 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: gatk/4.beta.1-3.5/Dockerfile
+    - docker/publish:
+        context: dockerhub-vars
+        name: gatk_4.2.0.0R_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/gatk
+        tag: 4.2.0.0R
+        path: gatk/4.2.0.0R/
+        docker-context: gatk/4.2.0.0R/
+        before_build:
+        - run_if_modified:
+            pattern: gatk/4.2.0.0R/Dockerfile
     - docker/publish:
         context: dockerhub-vars
         name: gatk_4.1.7.0R_diff
@@ -2980,6 +3000,23 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: gatk/4.beta.1-3.5/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
+        name: gatk_4.2.0.0R_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/gatk
+        tag: 4.2.0.0R
+        path: gatk/4.2.0.0R/
+        docker-context: gatk/4.2.0.0R/
+        before_build:
+        - run_if_modified:
+            pattern: gatk/4.2.0.0R/Dockerfile
             check-last-commit-on-base-branch: true
     - docker/publish:
         filters:
