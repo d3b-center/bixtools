@@ -811,6 +811,14 @@ workflows:
         tag: v1.3.2
         path: freebayes/v1.3.2/
         docker-context: freebayes/v1.3.2/
+    - docker/publish:
+        name: kf_vcf2maf_v1.0.0_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/kf_vcf2maf
+        tag: v1.0.0
+        path: kf_vcf2maf/v1.0.0/
+        docker-context: kf_vcf2maf/v1.0.0/
   diff:
     jobs:
     - docker/publish:
@@ -1905,6 +1913,18 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: freebayes/v1.3.2/Dockerfile
+    - docker/publish:
+        context: dockerhub-vars
+        name: kf_vcf2maf_v1.0.0_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/kf_vcf2maf
+        tag: v1.0.0
+        path: kf_vcf2maf/v1.0.0/
+        docker-context: kf_vcf2maf/v1.0.0/
+        before_build:
+        - run_if_modified:
+            pattern: kf_vcf2maf/v1.0.0/Dockerfile
   merge:
     jobs:
     - docker/publish:
@@ -3459,24 +3479,7 @@ workflows:
           branches:
             only:
             - master
-        name: vep_r93.7_merge
-        context: dockerhub-vars
-        deploy: true
-        registry: pgc-images.sbgenomics.com
-        image: d3b-bixu/vep
-        tag: r93.7
-        path: VEP/r93.7/
-        docker-context: VEP/r93.7/
-        before_build:
-        - run_if_modified:
-            pattern: VEP/r93.7/Dockerfile
-            check-last-commit-on-base-branch: true
-    - docker/publish:
-        filters:
-          branches:
-            only:
-            - master
-        name: kf_vcf2maf_1.0.0_merge
+        name: kf_vcf2maf_v1.0.0_merge
         context: dockerhub-vars
         deploy: true
         registry: pgc-images.sbgenomics.com
