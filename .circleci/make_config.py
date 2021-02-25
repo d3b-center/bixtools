@@ -66,7 +66,7 @@ commands:
             <</ parameters.use-divergence-point >>
             <<# parameters.check-last-commit-on-base-branch >>
             if [[ "$CIRCLE_BRANCH" == "<< parameters.base-branch >>" ]]; then
-              FILES_MODIFIED=$(git diff --name-only HEAD HEAD~1 | grep -i -E '<< parameters.pattern >>')
+              FILES_MODIFIED=$(git diff --name-only HEAD~1 HEAD | grep -i -E '<< parameters.pattern >>')
             fi
             <</ parameters.check-last-commit-on-base-branch >>
           }
