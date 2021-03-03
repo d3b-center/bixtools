@@ -819,6 +819,14 @@ workflows:
         tag: v1.0.0
         path: kf_vcf2maf/v1.0.0/
         docker-context: kf_vcf2maf/v1.0.0/
+    - docker/publish:
+        name: add_strelka2_fields_v1.0.0_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/add_strelka2_fields
+        tag: v1.0.0
+        path: add_strelka2_fields/v1.0.0/
+        docker-context: add_strelka2_fields/v1.0.0/
   diff:
     jobs:
     - docker/publish:
@@ -1925,6 +1933,18 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: kf_vcf2maf/v1.0.0/Dockerfile
+    - docker/publish:
+        context: dockerhub-vars
+        name: add_strelka2_fields_v1.0.0_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/add_strelka2_fields
+        tag: v1.0.0
+        path: add_strelka2_fields/v1.0.0/
+        docker-context: add_strelka2_fields/v1.0.0/
+        before_build:
+        - run_if_modified:
+            pattern: add_strelka2_fields/v1.0.0/Dockerfile
   merge:
     jobs:
     - docker/publish:
@@ -3490,4 +3510,38 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: kf_vcf2maf/v1.0.0/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
+        name: kf_vcf2maf_v1.0.0_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/kf_vcf2maf
+        tag: v1.0.0
+        path: kf_vcf2maf/v1.0.0/
+        docker-context: kf_vcf2maf/v1.0.0/
+        before_build:
+        - run_if_modified:
+            pattern: kf_vcf2maf/v1.0.0/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
+        name: add_strelka2_fields_v1.0.0_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/add_strelka2_fields
+        tag: v1.0.0
+        path: add_strelka2_fields/v1.0.0/
+        docker-context: add_strelka2_fields/v1.0.0/
+        before_build:
+        - run_if_modified:
+            pattern: add_strelka2_fields/v1.0.0/Dockerfile
             check-last-commit-on-base-branch: true
