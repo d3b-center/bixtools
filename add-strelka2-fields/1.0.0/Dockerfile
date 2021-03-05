@@ -20,7 +20,7 @@ RUN conda create -qy -p /usr/local \
         htslib==${HTSLIB_VERSION} \
         samtools==${SAMTOOLS_VERSION} \
         pysam==${PYSAM_VERSION} && \
-    curl -sL -o /usr/bin/add_strelka2_fields.py https://raw.githubusercontent.com/kids-first/kf-somatic-workflow/33e828caac8ab29eb50e6b1883de87402b1ccdbd/scripts/add_strelka2_fields.py && \
+    curl -sL -o /usr/bin/add_strelka2_fields.py https://raw.githubusercontent.com/kids-first/kf-somatic-workflow/4104408f005be30c280abfb04383779d06dc3bd7/scripts/add_strelka2_fields.py && \
     conda clean -a -y && \
     apt remove curl -y && apt autoclean -y
 
