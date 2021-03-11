@@ -15,13 +15,12 @@ ENV HTSLIB_VERSION=1.9 \
     PYSAM_VERSION=0.16.0.1 \
     NUMPY_VERSION=1.18.1
 
-RUN conda config --add channels conda-forge
-RUN conda config --add channels bioconda
-RUN conda install -qy htslib==${HTSLIB_VERSION} samtools==${SAMTOOLS_VERSION} pysam==${PYSAM_VERSION} numpy==${NUMPY_VERSION}
-RUN curl -sL -o /usr/bin/consensus_merge.py https://raw.githubusercontent.com/kids-first/kf-somatic-workflow/52b8ac4a1786a1406b6f9ddda99e8f2b7444b631/scripts/consensus_merge.py  && \
+RUN conda config --add channels conda-forge && \
+    conda config --add channels bioconda && \
+    conda install -qy htslib==${HTSLIB_VERSION} samtools==${SAMTOOLS_VERSION} pysam==${PYSAM_VERSION} numpy==${NUMPY_VERSION} && \
+    curl -sL -o /usr/bin/consensus_merge.py https://raw.githubusercontent.com/kids-first/kf-somatic-workflow/bb6e4259f11b553c2f6c7ce7995c59afccfdc064/scripts/consensus_merge.py && \
     conda clean -a -y && \
-    apt remove curl -y && apt autoclean -y
-
-RUN chmod +x /usr/bin/consensus_merge.py
+    apt remove curl -y && apt autoclean -y && \
+    chmod +x /usr/bin/consensus_merge.py
 
 WORKDIR /usr/bin/
