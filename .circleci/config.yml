@@ -548,6 +548,14 @@ workflows:
         path: add-strelka2-fields/1.0.0/
         docker-context: add-strelka2-fields/1.0.0/
     - docker/publish:
+        name: consensus-merge_1.0.0_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/consensus-merge
+        tag: 1.0.0
+        path: consensus-merge/1.0.0/
+        docker-context: consensus-merge/1.0.0/        
+    - docker/publish:
         name: gatk_4.beta.6_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -1773,6 +1781,22 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: add-strelka2-fields/1.0.0/Dockerfile
+    - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
+        context: dockerhub-vars
+        name: consensus-merge_1.0.0_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/consensus-merge
+        tag: 1.0.0
+        path: consensus-merge/1.0.0/
+        docker-context: consensus-merge/1.0.0/
+        before_build:
+        - run_if_modified:
+            pattern: consensus-merge/1.0.0/Dockerfile
     - docker/publish:
         filters:
           branches:
@@ -3352,6 +3376,23 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: add-strelka2-fields/1.0.0/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
+        name: consensus-merge_1.0.0_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/consensus-merge
+        tag: 1.0.0
+        path: consensus-merge/1.0.0/
+        docker-context: consensus-merge/1.0.0/
+        before_build:
+        - run_if_modified:
+            pattern: consensus-merge/1.0.0/Dockerfile
             check-last-commit-on-base-branch: true
     - docker/publish:
         filters:
