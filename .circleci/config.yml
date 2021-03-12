@@ -356,6 +356,14 @@ workflows:
         path: svaba/1.1.0/
         docker-context: svaba/1.1.0/
     - docker/publish:
+        name: hotspots_0.1.0_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/hotspots
+        tag: 0.1.0
+        path: hotspots/0.1.0/
+        docker-context: hotspots/0.1.0/
+    - docker/publish:
         name: lancet_1.0.7_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -1397,6 +1405,22 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: svaba/1.1.0/Dockerfile
+    - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
+        context: dockerhub-vars
+        name: hotspots_0.1.0_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/hotspots
+        tag: 0.1.0
+        path: hotspots/0.1.0/
+        docker-context: hotspots/0.1.0/
+        before_build:
+        - run_if_modified:
+            pattern: hotspots/0.1.0/Dockerfile
     - docker/publish:
         filters:
           branches:
@@ -2968,6 +2992,23 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: svaba/1.1.0/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
+        name: hotspots_0.1.0_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/hotspots
+        tag: 0.1.0
+        path: hotspots/0.1.0/
+        docker-context: hotspots/0.1.0/
+        before_build:
+        - run_if_modified:
+            pattern: hotspots/0.1.0/Dockerfile
             check-last-commit-on-base-branch: true
     - docker/publish:
         filters:
