@@ -556,14 +556,6 @@ workflows:
         path: add-strelka2-fields/1.0.0/
         docker-context: add-strelka2-fields/1.0.0/
     - docker/publish:
-        name: consensus-merge_1.0.0_monthly
-        deploy: false
-        registry: pgc-images.sbgenomics.com
-        image: d3b-bixu/consensus-merge
-        tag: 1.0.0
-        path: consensus-merge/1.0.0/
-        docker-context: consensus-merge/1.0.0/        
-    - docker/publish:
         name: gatk_4.beta.6_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -716,6 +708,14 @@ workflows:
         path: bed_tools/bedopsv2.4.36_plus_bedtools/
         docker-context: bed_tools/bedopsv2.4.36_plus_bedtools/
     - docker/publish:
+        name: consensus-merge_1.0.0_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/consensus-merge
+        tag: 1.0.0
+        path: consensus-merge/1.0.0/
+        docker-context: consensus-merge/1.0.0/
+    - docker/publish:
         name: peddy_v0.4.7_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -859,6 +859,14 @@ workflows:
         tag: v1.0.0
         path: kf_vcf2maf/v1.0.0/
         docker-context: kf_vcf2maf/v1.0.0/
+    - docker/publish:
+        name: kf_vcf2maf_v1.0.2_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/kf_vcf2maf
+        tag: v1.0.2
+        path: kf_vcf2maf/v1.0.2/
+        docker-context: kf_vcf2maf/v1.0.2/
   diff:
     jobs:
     - docker/publish:
@@ -1811,22 +1819,6 @@ workflows:
             ignore:
             - master
         context: dockerhub-vars
-        name: consensus-merge_1.0.0_diff
-        deploy: false
-        registry: pgc-images.sbgenomics.com
-        image: d3b-bixu/consensus-merge
-        tag: 1.0.0
-        path: consensus-merge/1.0.0/
-        docker-context: consensus-merge/1.0.0/
-        before_build:
-        - run_if_modified:
-            pattern: consensus-merge/1.0.0/Dockerfile
-    - docker/publish:
-        filters:
-          branches:
-            ignore:
-            - master
-        context: dockerhub-vars
         name: gatk_4.beta.6_diff
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -2131,6 +2123,22 @@ workflows:
             ignore:
             - master
         context: dockerhub-vars
+        name: consensus-merge_1.0.0_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/consensus-merge
+        tag: 1.0.0
+        path: consensus-merge/1.0.0/
+        docker-context: consensus-merge/1.0.0/
+        before_build:
+        - run_if_modified:
+            pattern: consensus-merge/1.0.0/Dockerfile
+    - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
+        context: dockerhub-vars
         name: peddy_v0.4.7_diff
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -2413,6 +2421,22 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: kf_vcf2maf/v1.0.0/Dockerfile
+    - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
+        context: dockerhub-vars
+        name: kf_vcf2maf_v1.0.2_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/kf_vcf2maf
+        tag: v1.0.2
+        path: kf_vcf2maf/v1.0.2/
+        docker-context: kf_vcf2maf/v1.0.2/
+        before_build:
+        - run_if_modified:
+            pattern: kf_vcf2maf/v1.0.2/Dockerfile
   merge:
     jobs:
     - docker/publish:
@@ -3423,23 +3447,6 @@ workflows:
           branches:
             only:
             - master
-        name: consensus-merge_1.0.0_merge
-        context: dockerhub-vars
-        deploy: true
-        registry: pgc-images.sbgenomics.com
-        image: d3b-bixu/consensus-merge
-        tag: 1.0.0
-        path: consensus-merge/1.0.0/
-        docker-context: consensus-merge/1.0.0/
-        before_build:
-        - run_if_modified:
-            pattern: consensus-merge/1.0.0/Dockerfile
-            check-last-commit-on-base-branch: true
-    - docker/publish:
-        filters:
-          branches:
-            only:
-            - master
         name: gatk_4.beta.6_merge
         context: dockerhub-vars
         deploy: true
@@ -3763,6 +3770,23 @@ workflows:
           branches:
             only:
             - master
+        name: consensus-merge_1.0.0_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/consensus-merge
+        tag: 1.0.0
+        path: consensus-merge/1.0.0/
+        docker-context: consensus-merge/1.0.0/
+        before_build:
+        - run_if_modified:
+            pattern: consensus-merge/1.0.0/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
         name: peddy_v0.4.7_merge
         context: dockerhub-vars
         deploy: true
@@ -4063,4 +4087,21 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: kf_vcf2maf/v1.0.0/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
+        name: kf_vcf2maf_v1.0.2_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/kf_vcf2maf
+        tag: v1.0.2
+        path: kf_vcf2maf/v1.0.2/
+        docker-context: kf_vcf2maf/v1.0.2/
+        before_build:
+        - run_if_modified:
+            pattern: kf_vcf2maf/v1.0.2/Dockerfile
             check-last-commit-on-base-branch: true
