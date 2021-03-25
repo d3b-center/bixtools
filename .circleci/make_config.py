@@ -100,6 +100,12 @@ mergeFilter = {
   }
 }
 
+diffFilter = {
+  "branches": {
+    "ignore": ["master"]
+  }
+}
+
 # Grab the paths of validly structured Dockerfiles (git_dir/tool_dir/version_dir/Dockerfile)
 validPaths = glob.glob(os.path.join(os.path.dirname(os.path.abspath(__file__)),"../*/*/Dockerfile"))
 
@@ -124,6 +130,7 @@ for path in validPaths:
   dat = {}
   workdir,tool,tag,dockerfile = path.split('/')[-4:]
   dat['docker/publish'] = {}
+  dat['docker/publish']['filters'] = diffFilter
   dat['docker/publish']['context'] = "dockerhub-vars"
   dat['docker/publish']['name'] = "{}_{}_diff".format(tool,tag)
   dat['docker/publish']['deploy'] = False

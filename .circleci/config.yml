@@ -356,6 +356,14 @@ workflows:
         path: svaba/1.1.0/
         docker-context: svaba/1.1.0/
     - docker/publish:
+        name: hotspots_0.1.0_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/hotspots
+        tag: 0.1.0
+        path: hotspots/0.1.0/
+        docker-context: hotspots/0.1.0/
+    - docker/publish:
         name: lancet_1.0.7_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -540,6 +548,22 @@ workflows:
         path: LinkedSV/latest/
         docker-context: LinkedSV/latest/
     - docker/publish:
+        name: add-strelka2-fields_1.0.0_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/add-strelka2-fields
+        tag: 1.0.0
+        path: add-strelka2-fields/1.0.0/
+        docker-context: add-strelka2-fields/1.0.0/
+    - docker/publish:
+        name: consensus-merge_1.0.0_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/consensus-merge
+        tag: 1.0.0
+        path: consensus-merge/1.0.0/
+        docker-context: consensus-merge/1.0.0/        
+    - docker/publish:
         name: gatk_4.beta.6_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -579,6 +603,14 @@ workflows:
         tag: 4.beta.1-3.5
         path: gatk/4.beta.1-3.5/
         docker-context: gatk/4.beta.1-3.5/
+    - docker/publish:
+        name: gatk_4.2.0.0R_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/gatk
+        tag: 4.2.0.0R
+        path: gatk/4.2.0.0R/
+        docker-context: gatk/4.2.0.0R/
     - docker/publish:
         name: gatk_4.1.7.0R_monthly
         deploy: false
@@ -812,6 +844,14 @@ workflows:
         path: freebayes/v1.3.2/
         docker-context: freebayes/v1.3.2/
     - docker/publish:
+        name: kf_vcf2maf_v1.0.1_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/kf_vcf2maf
+        tag: v1.0.1
+        path: kf_vcf2maf/v1.0.1/
+        docker-context: kf_vcf2maf/v1.0.1/
+    - docker/publish:
         name: kf_vcf2maf_v1.0.0_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -822,6 +862,10 @@ workflows:
   diff:
     jobs:
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: verifybamid_latest_diff
         deploy: false
@@ -834,6 +878,10 @@ workflows:
         - run_if_modified:
             pattern: verifybamid/latest/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: verifybamid_1.0.1_diff
         deploy: false
@@ -846,6 +894,10 @@ workflows:
         - run_if_modified:
             pattern: verifybamid/1.0.1/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: verifybamid_1.0.2_diff
         deploy: false
@@ -858,6 +910,10 @@ workflows:
         - run_if_modified:
             pattern: verifybamid/1.0.2/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: arriba_latest_diff
         deploy: false
@@ -870,6 +926,10 @@ workflows:
         - run_if_modified:
             pattern: arriba/latest/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: arriba_1.0.1_diff
         deploy: false
@@ -882,6 +942,10 @@ workflows:
         - run_if_modified:
             pattern: arriba/1.0.1/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: arriba_1.1.0_diff
         deploy: false
@@ -894,6 +958,10 @@ workflows:
         - run_if_modified:
             pattern: arriba/1.1.0/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: picard_2.14.0_diff
         deploy: false
@@ -906,6 +974,10 @@ workflows:
         - run_if_modified:
             pattern: picard/2.14.0/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: picard_latest_diff
         deploy: false
@@ -918,6 +990,10 @@ workflows:
         - run_if_modified:
             pattern: picard/latest/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: picard_2.8.3_diff
         deploy: false
@@ -930,6 +1006,10 @@ workflows:
         - run_if_modified:
             pattern: picard/2.8.3/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: picard_2.18.9_diff
         deploy: false
@@ -942,6 +1022,10 @@ workflows:
         - run_if_modified:
             pattern: picard/2.18.9/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: picard_2.17.4_diff
         deploy: false
@@ -954,6 +1038,10 @@ workflows:
         - run_if_modified:
             pattern: picard/2.17.4/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: picard_2.15.0_diff
         deploy: false
@@ -966,6 +1054,10 @@ workflows:
         - run_if_modified:
             pattern: picard/2.15.0/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: lumpy-sv_0.3.0_diff
         deploy: false
@@ -978,6 +1070,10 @@ workflows:
         - run_if_modified:
             pattern: lumpy-sv/0.3.0/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: lumpy-sv_0.2.13_diff
         deploy: false
@@ -990,6 +1086,10 @@ workflows:
         - run_if_modified:
             pattern: lumpy-sv/0.2.13/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: zumis_2.9.4_diff
         deploy: false
@@ -1002,6 +1102,10 @@ workflows:
         - run_if_modified:
             pattern: zumis/2.9.4/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: SVTyper_0.7.1_diff
         deploy: false
@@ -1014,6 +1118,10 @@ workflows:
         - run_if_modified:
             pattern: SVTyper/0.7.1/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: cutadapt_latest_diff
         deploy: false
@@ -1026,6 +1134,10 @@ workflows:
         - run_if_modified:
             pattern: cutadapt/latest/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: VarDictJava_fp_filter_diff
         deploy: false
@@ -1038,6 +1150,10 @@ workflows:
         - run_if_modified:
             pattern: VarDictJava/fp_filter/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: VarDictJava_1.5.8_diff
         deploy: false
@@ -1050,6 +1166,10 @@ workflows:
         - run_if_modified:
             pattern: VarDictJava/1.5.8/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: bwa-picard_latest_diff
         deploy: false
@@ -1062,6 +1182,10 @@ workflows:
         - run_if_modified:
             pattern: bwa-picard/latest/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: bwa-picard_broad_diff
         deploy: false
@@ -1074,6 +1198,10 @@ workflows:
         - run_if_modified:
             pattern: bwa-picard/broad/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: python_2.7.13_diff
         deploy: false
@@ -1086,6 +1214,10 @@ workflows:
         - run_if_modified:
             pattern: python/2.7.13/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: smoove_0.2.5_diff
         deploy: false
@@ -1098,6 +1230,10 @@ workflows:
         - run_if_modified:
             pattern: smoove/0.2.5/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: cellranger_5.0_diff
         deploy: false
@@ -1110,6 +1246,10 @@ workflows:
         - run_if_modified:
             pattern: cellranger/5.0/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: cellranger_3.1_diff
         deploy: false
@@ -1122,6 +1262,10 @@ workflows:
         - run_if_modified:
             pattern: cellranger/3.1/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: bcbio_variation_recall-0.2.4_diff
         deploy: false
@@ -1134,6 +1278,10 @@ workflows:
         - run_if_modified:
             pattern: bcbio/variation_recall-0.2.4/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: bwa-bundle_0.1.17_diff
         deploy: false
@@ -1146,6 +1294,10 @@ workflows:
         - run_if_modified:
             pattern: bwa-bundle/0.1.17/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: gatk-picard_4.beta.1-2.8.3_diff
         deploy: false
@@ -1158,6 +1310,10 @@ workflows:
         - run_if_modified:
             pattern: gatk-picard/4.beta.1-2.8.3/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: gatk-picard_4.0.1.2-2.8.3_diff
         deploy: false
@@ -1170,6 +1326,10 @@ workflows:
         - run_if_modified:
             pattern: gatk-picard/4.0.1.2-2.8.3/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: manta_1.4_diff
         deploy: false
@@ -1182,6 +1342,10 @@ workflows:
         - run_if_modified:
             pattern: manta/1.4/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: manta_1.6.0_diff
         deploy: false
@@ -1194,6 +1358,10 @@ workflows:
         - run_if_modified:
             pattern: manta/1.6.0/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: velocyto_0.17.17_diff
         deploy: false
@@ -1206,6 +1374,10 @@ workflows:
         - run_if_modified:
             pattern: velocyto/0.17.17/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: speedseq_latest_diff
         deploy: false
@@ -1218,6 +1390,10 @@ workflows:
         - run_if_modified:
             pattern: speedseq/latest/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: svaba_1.1.0_diff
         deploy: false
@@ -1230,6 +1406,26 @@ workflows:
         - run_if_modified:
             pattern: svaba/1.1.0/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
+        context: dockerhub-vars
+        name: hotspots_0.1.0_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/hotspots
+        tag: 0.1.0
+        path: hotspots/0.1.0/
+        docker-context: hotspots/0.1.0/
+        before_build:
+        - run_if_modified:
+            pattern: hotspots/0.1.0/Dockerfile
+    - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: lancet_1.0.7_diff
         deploy: false
@@ -1242,6 +1438,10 @@ workflows:
         - run_if_modified:
             pattern: lancet/1.0.7/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: sambamba_0.7.1_diff
         deploy: false
@@ -1254,6 +1454,10 @@ workflows:
         - run_if_modified:
             pattern: sambamba/0.7.1/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: sambamba_0.6.3_diff
         deploy: false
@@ -1266,6 +1470,10 @@ workflows:
         - run_if_modified:
             pattern: sambamba/0.6.3/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: picard-r_picard2.8.3-r3.3.3_diff
         deploy: false
@@ -1278,6 +1486,10 @@ workflows:
         - run_if_modified:
             pattern: picard-r/picard2.8.3-r3.3.3/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: picard-r_picard2.15.0-r.3.3.3_diff
         deploy: false
@@ -1290,6 +1502,10 @@ workflows:
         - run_if_modified:
             pattern: picard-r/picard2.15.0-r.3.3.3/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: VEP_r98_diff
         deploy: false
@@ -1302,6 +1518,10 @@ workflows:
         - run_if_modified:
             pattern: VEP/r98/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: VEP_r93.7_diff
         deploy: false
@@ -1314,6 +1534,10 @@ workflows:
         - run_if_modified:
             pattern: VEP/r93.7/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: VEP_r93_v2_diff
         deploy: false
@@ -1326,6 +1550,10 @@ workflows:
         - run_if_modified:
             pattern: VEP/r93_v2/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: VEP_r94_diff
         deploy: false
@@ -1338,6 +1566,10 @@ workflows:
         - run_if_modified:
             pattern: VEP/r94/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: VEP_r93_diff
         deploy: false
@@ -1350,6 +1582,10 @@ workflows:
         - run_if_modified:
             pattern: VEP/r93/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: canvas_1.11.0_diff
         deploy: false
@@ -1362,6 +1598,10 @@ workflows:
         - run_if_modified:
             pattern: canvas/1.11.0/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: bwa_0.7.15-r1140_diff
         deploy: false
@@ -1374,6 +1614,10 @@ workflows:
         - run_if_modified:
             pattern: bwa/0.7.15-r1140/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: bwa_latest_diff
         deploy: false
@@ -1386,6 +1630,10 @@ workflows:
         - run_if_modified:
             pattern: bwa/latest/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: bwa_0.7.17-r1188_diff
         deploy: false
@@ -1398,6 +1646,10 @@ workflows:
         - run_if_modified:
             pattern: bwa/0.7.17-r1188/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: strelka_v2.9.10_diff
         deploy: false
@@ -1410,6 +1662,10 @@ workflows:
         - run_if_modified:
             pattern: strelka/v2.9.10/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: star_2.7.5a_diff
         deploy: false
@@ -1422,6 +1678,10 @@ workflows:
         - run_if_modified:
             pattern: star/2.7.5a/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: star_2.6.1d_diff
         deploy: false
@@ -1434,6 +1694,10 @@ workflows:
         - run_if_modified:
             pattern: star/2.6.1d/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: star_fusion-1.5.0_diff
         deploy: false
@@ -1446,6 +1710,10 @@ workflows:
         - run_if_modified:
             pattern: star/fusion-1.5.0/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: codex2_3.8_diff
         deploy: false
@@ -1458,6 +1726,10 @@ workflows:
         - run_if_modified:
             pattern: codex2/3.8/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: sv2_latest_diff
         deploy: false
@@ -1470,6 +1742,10 @@ workflows:
         - run_if_modified:
             pattern: sv2/latest/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: FusionCatcher_latest_diff
         deploy: false
@@ -1482,6 +1758,10 @@ workflows:
         - run_if_modified:
             pattern: FusionCatcher/latest/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: controlfreec_11.5_diff
         deploy: false
@@ -1494,6 +1774,10 @@ workflows:
         - run_if_modified:
             pattern: controlfreec/11.5/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: LinkedSV_latest_diff
         deploy: false
@@ -1506,6 +1790,42 @@ workflows:
         - run_if_modified:
             pattern: LinkedSV/latest/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
+        context: dockerhub-vars
+        name: add-strelka2-fields_1.0.0_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/add-strelka2-fields
+        tag: 1.0.0
+        path: add-strelka2-fields/1.0.0/
+        docker-context: add-strelka2-fields/1.0.0/
+        before_build:
+        - run_if_modified:
+            pattern: add-strelka2-fields/1.0.0/Dockerfile
+    - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
+        context: dockerhub-vars
+        name: consensus-merge_1.0.0_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/consensus-merge
+        tag: 1.0.0
+        path: consensus-merge/1.0.0/
+        docker-context: consensus-merge/1.0.0/
+        before_build:
+        - run_if_modified:
+            pattern: consensus-merge/1.0.0/Dockerfile
+    - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: gatk_4.beta.6_diff
         deploy: false
@@ -1518,6 +1838,10 @@ workflows:
         - run_if_modified:
             pattern: gatk/4.beta.6/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: gatk_4.0.1.0_diff
         deploy: false
@@ -1530,6 +1854,10 @@ workflows:
         - run_if_modified:
             pattern: gatk/4.0.1.0/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: gatk_4.beta.1_diff
         deploy: false
@@ -1542,6 +1870,10 @@ workflows:
         - run_if_modified:
             pattern: gatk/4.beta.1/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: gatk_4.1.1.0_diff
         deploy: false
@@ -1554,6 +1886,10 @@ workflows:
         - run_if_modified:
             pattern: gatk/4.1.1.0/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: gatk_4.beta.1-3.5_diff
         deploy: false
@@ -1566,6 +1902,26 @@ workflows:
         - run_if_modified:
             pattern: gatk/4.beta.1-3.5/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
+        context: dockerhub-vars
+        name: gatk_4.2.0.0R_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/gatk
+        tag: 4.2.0.0R
+        path: gatk/4.2.0.0R/
+        docker-context: gatk/4.2.0.0R/
+        before_build:
+        - run_if_modified:
+            pattern: gatk/4.2.0.0R/Dockerfile
+    - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: gatk_4.1.7.0R_diff
         deploy: false
@@ -1578,6 +1934,10 @@ workflows:
         - run_if_modified:
             pattern: gatk/4.1.7.0R/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: gatk_4.beta.5-tabix_diff
         deploy: false
@@ -1590,6 +1950,10 @@ workflows:
         - run_if_modified:
             pattern: gatk/4.beta.5-tabix/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: gatk_4.0.12.0_diff
         deploy: false
@@ -1602,6 +1966,10 @@ workflows:
         - run_if_modified:
             pattern: gatk/4.0.12.0/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: gatk_latest_diff
         deploy: false
@@ -1614,6 +1982,10 @@ workflows:
         - run_if_modified:
             pattern: gatk/latest/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: gatk_3.8_ubuntu_diff
         deploy: false
@@ -1626,6 +1998,10 @@ workflows:
         - run_if_modified:
             pattern: gatk/3.8_ubuntu/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: gatk_4.beta.6-tabix_diff
         deploy: false
@@ -1638,6 +2014,10 @@ workflows:
         - run_if_modified:
             pattern: gatk/4.beta.6-tabix/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: gatk_4.0.5.2_diff
         deploy: false
@@ -1650,6 +2030,10 @@ workflows:
         - run_if_modified:
             pattern: gatk/4.0.5.2/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: gatk_3.5-0-g36282e4_diff
         deploy: false
@@ -1662,6 +2046,10 @@ workflows:
         - run_if_modified:
             pattern: gatk/3.5-0-g36282e4/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: gatk_4.beta.5_diff
         deploy: false
@@ -1674,6 +2062,10 @@ workflows:
         - run_if_modified:
             pattern: gatk/4.beta.5/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: gatk_3.6-0-g89b7209_diff
         deploy: false
@@ -1686,6 +2078,10 @@ workflows:
         - run_if_modified:
             pattern: gatk/3.6-0-g89b7209/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: gatk_4.0.1.2_diff
         deploy: false
@@ -1698,6 +2094,10 @@ workflows:
         - run_if_modified:
             pattern: gatk/4.0.1.2/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: gatk_3.8_diff
         deploy: false
@@ -1710,6 +2110,10 @@ workflows:
         - run_if_modified:
             pattern: gatk/3.8/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: bed_tools_bedopsv2.4.36_plus_bedtools_diff
         deploy: false
@@ -1722,6 +2126,10 @@ workflows:
         - run_if_modified:
             pattern: bed_tools/bedopsv2.4.36_plus_bedtools/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: peddy_v0.4.7_diff
         deploy: false
@@ -1734,6 +2142,10 @@ workflows:
         - run_if_modified:
             pattern: peddy/v0.4.7/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: peddy_v0.4.2_diff
         deploy: false
@@ -1746,6 +2158,10 @@ workflows:
         - run_if_modified:
             pattern: peddy/v0.4.2/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: fastqc_v0.11.9_diff
         deploy: false
@@ -1758,6 +2174,10 @@ workflows:
         - run_if_modified:
             pattern: fastqc/v0.11.9/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: samtools_1.7-11-g041220d_diff
         deploy: false
@@ -1770,6 +2190,10 @@ workflows:
         - run_if_modified:
             pattern: samtools/1.7-11-g041220d/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: samtools_1.9_diff
         deploy: false
@@ -1782,6 +2206,10 @@ workflows:
         - run_if_modified:
             pattern: samtools/1.9/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: samtools_1.6_diff
         deploy: false
@@ -1794,6 +2222,10 @@ workflows:
         - run_if_modified:
             pattern: samtools/1.6/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: samtools_1.3.1_diff
         deploy: false
@@ -1806,6 +2238,10 @@ workflows:
         - run_if_modified:
             pattern: samtools/1.3.1/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: samtools_latest_diff
         deploy: false
@@ -1818,6 +2254,10 @@ workflows:
         - run_if_modified:
             pattern: samtools/latest/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: annovar_latest_diff
         deploy: false
@@ -1830,6 +2270,10 @@ workflows:
         - run_if_modified:
             pattern: annovar/latest/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: seurat_latest_diff
         deploy: false
@@ -1842,6 +2286,10 @@ workflows:
         - run_if_modified:
             pattern: seurat/latest/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: annoFuse_0.90.0_diff
         deploy: false
@@ -1854,6 +2302,10 @@ workflows:
         - run_if_modified:
             pattern: annoFuse/0.90.0/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: annoFuse_0.1.8_diff
         deploy: false
@@ -1866,6 +2318,10 @@ workflows:
         - run_if_modified:
             pattern: annoFuse/0.1.8/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: pizzly_latest_diff
         deploy: false
@@ -1878,6 +2334,10 @@ workflows:
         - run_if_modified:
             pattern: pizzly/latest/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: BIC-seq2_0.7.2_diff
         deploy: false
@@ -1890,6 +2350,10 @@ workflows:
         - run_if_modified:
             pattern: BIC-seq2/0.7.2/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: freebayes_v1.3.1_diff
         deploy: false
@@ -1902,6 +2366,10 @@ workflows:
         - run_if_modified:
             pattern: freebayes/v1.3.1/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: freebayes_v1.3.2_diff
         deploy: false
@@ -1914,6 +2382,26 @@ workflows:
         - run_if_modified:
             pattern: freebayes/v1.3.2/Dockerfile
     - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
+        context: dockerhub-vars
+        name: kf_vcf2maf_v1.0.1_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/kf_vcf2maf
+        tag: v1.0.1
+        path: kf_vcf2maf/v1.0.1/
+        docker-context: kf_vcf2maf/v1.0.1/
+        before_build:
+        - run_if_modified:
+            pattern: kf_vcf2maf/v1.0.1/Dockerfile
+    - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
         context: dockerhub-vars
         name: kf_vcf2maf_v1.0.0_diff
         deploy: false
@@ -2510,6 +2998,23 @@ workflows:
           branches:
             only:
             - master
+        name: hotspots_0.1.0_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/hotspots
+        tag: 0.1.0
+        path: hotspots/0.1.0/
+        docker-context: hotspots/0.1.0/
+        before_build:
+        - run_if_modified:
+            pattern: hotspots/0.1.0/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
         name: lancet_1.0.7_merge
         context: dockerhub-vars
         deploy: true
@@ -2901,6 +3406,40 @@ workflows:
           branches:
             only:
             - master
+        name: add-strelka2-fields_1.0.0_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/add-strelka2-fields
+        tag: 1.0.0
+        path: add-strelka2-fields/1.0.0/
+        docker-context: add-strelka2-fields/1.0.0/
+        before_build:
+        - run_if_modified:
+            pattern: add-strelka2-fields/1.0.0/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
+        name: consensus-merge_1.0.0_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/consensus-merge
+        tag: 1.0.0
+        path: consensus-merge/1.0.0/
+        docker-context: consensus-merge/1.0.0/
+        before_build:
+        - run_if_modified:
+            pattern: consensus-merge/1.0.0/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
         name: gatk_4.beta.6_merge
         context: dockerhub-vars
         deploy: true
@@ -2980,6 +3519,23 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: gatk/4.beta.1-3.5/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
+        name: gatk_4.2.0.0R_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/gatk
+        tag: 4.2.0.0R
+        path: gatk/4.2.0.0R/
+        docker-context: gatk/4.2.0.0R/
+        before_build:
+        - run_if_modified:
+            pattern: gatk/4.2.0.0R/Dockerfile
             check-last-commit-on-base-branch: true
     - docker/publish:
         filters:
@@ -3473,6 +4029,23 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: freebayes/v1.3.2/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
+        name: kf_vcf2maf_v1.0.1_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/kf_vcf2maf
+        tag: v1.0.1
+        path: kf_vcf2maf/v1.0.1/
+        docker-context: kf_vcf2maf/v1.0.1/
+        before_build:
+        - run_if_modified:
+            pattern: kf_vcf2maf/v1.0.1/Dockerfile
             check-last-commit-on-base-branch: true
     - docker/publish:
         filters:
