@@ -1,4 +1,5 @@
 FROM ubuntu:18.04
+LABEL maintainer="Daniel Miller (millerd15@email.chop.edu)"
 
 RUN apt update && apt install -y --no-install-recommends \
   ca-certificates \
