@@ -724,6 +724,14 @@ workflows:
         path: consensus-merge/1.0.0/
         docker-context: consensus-merge/1.0.0/
     - docker/publish:
+        name: THetA2_1.0.0_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/THetA2
+        tag: 0.7.1
+        path: THetA2/0.7.1/
+        docker-context: THetA2/0.7.1/
+    - docker/publish:
         name: peddy_v0.4.7_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -2157,6 +2165,22 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: consensus-merge/1.0.0/Dockerfile
+    - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
+        context: dockerhub-vars
+        name: THetA2_0.7.1_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/THetA2
+        tag: 0.7.1
+        path: THetA2/0.7.1/
+        docker-context: THetA2/0.7.1/
+        before_build:
+        - run_if_modified:
+            pattern: THetA2/0.7.1/Dockerfile
     - docker/publish:
         filters:
           branches:
@@ -3822,6 +3846,23 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: consensus-merge/1.0.0/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
+        name: THetA2_0.7.1_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/THetA2
+        tag: 0.7.1
+        path: THetA2/0.7.1/
+        docker-context: THetA2/0.7.1/
+        before_build:
+        - run_if_modified:
+            pattern: THetA2/0.7.1/Dockerfile
             check-last-commit-on-base-branch: true
     - docker/publish:
         filters:
