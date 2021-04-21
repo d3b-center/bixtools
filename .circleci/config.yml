@@ -724,7 +724,7 @@ workflows:
         path: consensus-merge/1.0.0/
         docker-context: consensus-merge/1.0.0/
     - docker/publish:
-        name: THetA2_1.0.0_monthly
+        name: THetA2_0.7.1_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/THetA2
