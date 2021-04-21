@@ -727,7 +727,7 @@ workflows:
         name: THetA2_0.7.1_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
-        image: d3b-bixu/THetA2
+        image: d3b-bixu/theta2
         tag: 0.7.1
         path: THetA2/0.7.1/
         docker-context: THetA2/0.7.1/
@@ -2174,7 +2174,7 @@ workflows:
         name: THetA2_0.7.1_diff
         deploy: false
         registry: pgc-images.sbgenomics.com
-        image: d3b-bixu/THetA2
+        image: d3b-bixu/theta2
         tag: 0.7.1
         path: THetA2/0.7.1/
         docker-context: THetA2/0.7.1/
@@ -3856,7 +3856,7 @@ workflows:
         context: dockerhub-vars
         deploy: true
         registry: pgc-images.sbgenomics.com
-        image: d3b-bixu/THetA2
+        image: d3b-bixu/theta2
         tag: 0.7.1
         path: THetA2/0.7.1/
         docker-context: THetA2/0.7.1/
