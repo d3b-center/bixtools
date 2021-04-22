@@ -9,3 +9,5 @@ RUN apt-get update -y && apt-get install -y python default-jdk curl gcc python-m
     pip install numpy scipy joblib psutil pandas && \
     git clone https://github.com/kids-first/THetA.git --branch v0.7.1 && cd /THetA && ./install && \
     git clone https://bitbucket.org/michaelchughes/bnpy-dev.git
+
+ADD Dockerfile .
