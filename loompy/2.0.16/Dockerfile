@@ -1,5 +1,5 @@
 FROM python:3.9.1
-MAINTAINER Alex Sickler (sicklera@email.chop.edu)
+LABEL maintainer = "Alex Sickler (sicklera@email.chop.edu)"
 
 ENV LOOMPY_VERSION 2.0.16
 ENV SCIPY_VERSION 1.6.2
