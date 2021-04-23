@@ -16,7 +16,7 @@ RUN apt update -y && apt install -y curl && \
     conda config --add channels conda-forge && \
     conda config --add channels bioconda && \
     conda install -qy htslib==${HTSLIB_VERSION} samtools==${SAMTOOLS_VERSION} pysam==${PYSAM_VERSION} numpy==${NUMPY_VERSION} && \
-    curl -sL -o /usr/bin/consensus_merge.py https://raw.githubusercontent.com/kids-first/kf-somatic-workflow/bb6e4259f11b553c2f6c7ce7995c59afccfdc064/scripts/consensus_merge.py && \
+    curl -sL -o /usr/bin/consensus_merge.py https://raw.githubusercontent.com/kids-first/kf-somatic-workflow/a00dff47cf9a8e572a340636d562d5c22d366899/scripts/consensus_merge.py && \
     conda clean -a -y && \
     apt remove curl -y && apt autoclean -y && \
     chmod +x /usr/bin/consensus_merge.py
