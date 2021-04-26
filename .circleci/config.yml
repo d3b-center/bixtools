@@ -724,14 +724,6 @@ workflows:
         path: consensus-merge/1.0.0/
         docker-context: consensus-merge/1.0.0/
     - docker/publish:
-        name: THetA2_0.7.1_monthly
-        deploy: false
-        registry: pgc-images.sbgenomics.com
-        image: d3b-bixu/theta2
-        tag: 0.7.1
-        path: THetA2/0.7.1/
-        docker-context: THetA2/0.7.1/
-    - docker/publish:
         name: peddy_v0.4.7_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -860,6 +852,22 @@ workflows:
         path: freebayes/v1.3.2/
         docker-context: freebayes/v1.3.2/
     - docker/publish:
+        name: THetA2_0.7.1_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/theta2
+        tag: 0.7.1
+        path: THetA2/0.7.1/
+        docker-context: THetA2/0.7.1/
+    - docker/publish:
+        name: THetA2_0.7.0_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/theta2
+        tag: 0.7.0
+        path: THetA2/0.7.0/
+        docker-context: THetA2/0.7.0/
+    - docker/publish:
         name: kf_vcf2maf_v1.0.1_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -883,6 +891,14 @@ workflows:
         tag: v1.0.2
         path: kf_vcf2maf/v1.0.2/
         docker-context: kf_vcf2maf/v1.0.2/
+    - docker/publish:
+        name: kf_vcf2maf_v1.0.3_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/kf_vcf2maf
+        tag: v1.0.3
+        path: kf_vcf2maf/v1.0.3/
+        docker-context: kf_vcf2maf/v1.0.3/
   diff:
     jobs:
     - docker/publish:
@@ -2171,22 +2187,6 @@ workflows:
             ignore:
             - master
         context: dockerhub-vars
-        name: THetA2_0.7.1_diff
-        deploy: false
-        registry: pgc-images.sbgenomics.com
-        image: d3b-bixu/theta2
-        tag: 0.7.1
-        path: THetA2/0.7.1/
-        docker-context: THetA2/0.7.1/
-        before_build:
-        - run_if_modified:
-            pattern: THetA2/0.7.1/Dockerfile
-    - docker/publish:
-        filters:
-          branches:
-            ignore:
-            - master
-        context: dockerhub-vars
         name: peddy_v0.4.7_diff
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -2443,6 +2443,38 @@ workflows:
             ignore:
             - master
         context: dockerhub-vars
+        name: THetA2_0.7.1_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/theta2
+        tag: 0.7.1
+        path: THetA2/0.7.1/
+        docker-context: THetA2/0.7.1/
+        before_build:
+        - run_if_modified:
+            pattern: THetA2/0.7.1/Dockerfile
+    - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
+        context: dockerhub-vars
+        name: THetA2_0.7.0_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/theta2
+        tag: 0.7.0
+        path: THetA2/0.7.0/
+        docker-context: THetA2/0.7.0/
+        before_build:
+        - run_if_modified:
+            pattern: THetA2/0.7.0/Dockerfile
+    - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
+        context: dockerhub-vars
         name: kf_vcf2maf_v1.0.1_diff
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -2485,6 +2517,22 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: kf_vcf2maf/v1.0.2/Dockerfile
+    - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
+        context: dockerhub-vars
+        name: kf_vcf2maf_v1.0.3_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/kf_vcf2maf
+        tag: v1.0.3
+        path: kf_vcf2maf/v1.0.3/
+        docker-context: kf_vcf2maf/v1.0.3/
+        before_build:
+        - run_if_modified:
+            pattern: kf_vcf2maf/v1.0.3/Dockerfile
   merge:
     jobs:
     - docker/publish:
@@ -3852,23 +3900,6 @@ workflows:
           branches:
             only:
             - master
-        name: THetA2_0.7.1_merge
-        context: dockerhub-vars
-        deploy: true
-        registry: pgc-images.sbgenomics.com
-        image: d3b-bixu/theta2
-        tag: 0.7.1
-        path: THetA2/0.7.1/
-        docker-context: THetA2/0.7.1/
-        before_build:
-        - run_if_modified:
-            pattern: THetA2/0.7.1/Dockerfile
-            check-last-commit-on-base-branch: true
-    - docker/publish:
-        filters:
-          branches:
-            only:
-            - master
         name: peddy_v0.4.7_merge
         context: dockerhub-vars
         deploy: true
@@ -4141,6 +4172,40 @@ workflows:
           branches:
             only:
             - master
+        name: THetA2_0.7.1_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/theta2
+        tag: 0.7.1
+        path: THetA2/0.7.1/
+        docker-context: THetA2/0.7.1/
+        before_build:
+        - run_if_modified:
+            pattern: THetA2/0.7.1/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
+        name: THetA2_0.7.0_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/theta2
+        tag: 0.7.0
+        path: THetA2/0.7.0/
+        docker-context: THetA2/0.7.0/
+        before_build:
+        - run_if_modified:
+            pattern: THetA2/0.7.0/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
         name: kf_vcf2maf_v1.0.1_merge
         context: dockerhub-vars
         deploy: true
@@ -4186,4 +4251,21 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: kf_vcf2maf/v1.0.2/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
+        name: kf_vcf2maf_v1.0.3_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/kf_vcf2maf
+        tag: v1.0.3
+        path: kf_vcf2maf/v1.0.3/
+        docker-context: kf_vcf2maf/v1.0.3/
+        before_build:
+        - run_if_modified:
+            pattern: kf_vcf2maf/v1.0.3/Dockerfile
             check-last-commit-on-base-branch: true
