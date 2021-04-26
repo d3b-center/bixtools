@@ -8,6 +8,7 @@ ENV PYTHONPATH=:/bnpy-dev
 RUN apt-get update -y && apt-get install -y python default-jdk curl gcc python-matplotlib python-dev git python-pip python-sklearn ant && \
     pip install numpy scipy joblib psutil pandas && \
     git clone https://github.com/kids-first/THetA.git --branch v0.7.1 && cd /THetA && ./install && \
-    git clone https://bitbucket.org/michaelchughes/bnpy-dev.git
+    cd / && git clone https://bitbucket.org/michaelchughes/bnpy-dev.git && \
+    apt remove -y git curl ant python-pip && apt autoremove -y && apt autoclean -y
 
 ADD Dockerfile .
