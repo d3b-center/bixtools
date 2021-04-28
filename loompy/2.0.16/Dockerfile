@@ -8,4 +8,4 @@ ENV PANDAS_VERSION 1.2.4
 
 RUN apt update -y && pip install --no-cache-dir scipy==$SCIPY_VERSION numpy==$NUMPY_VERSION pandas==$PANDAS_VERSION loompy==$LOOMPY_VERSION
 
-add Dockerfile .
+ADD Dockerfile .
