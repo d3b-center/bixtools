@@ -412,6 +412,14 @@ workflows:
         path: picard-r/picard2.15.0-r.3.3.3/
         docker-context: picard-r/picard2.15.0-r.3.3.3/
     - docker/publish:
+        name: loompy_2.0.16_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/loompy
+        tag: 2.0.16
+        path: loompy/2.0.16/
+        docker-context: loompy/2.0.16/
+    - docker/publish:
         name: VEP_r98_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -1557,6 +1565,22 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: picard-r/picard2.15.0-r.3.3.3/Dockerfile
+    - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
+        context: dockerhub-vars
+        name: loompy_2.0.16_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/loompy
+        tag: 2.0.16
+        path: loompy/2.0.16/
+        docker-context: loompy/2.0.16/
+        before_build:
+        - run_if_modified:
+            pattern: loompy/2.0.16/Dockerfile
     - docker/publish:
         filters:
           branches:
@@ -3231,6 +3255,23 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: picard-r/picard2.15.0-r.3.3.3/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
+        name: loompy_2.0.16_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/loompy
+        tag: 2.0.16
+        path: loompy/2.0.16/
+        docker-context: loompy/2.0.16/
+        before_build:
+        - run_if_modified:
+            pattern: loompy/2.0.16/Dockerfile
             check-last-commit-on-base-branch: true
     - docker/publish:
         filters:
