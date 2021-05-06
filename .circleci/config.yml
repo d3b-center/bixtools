@@ -284,6 +284,14 @@ workflows:
         path: cellranger/5.0/
         docker-context: cellranger/5.0/
     - docker/publish:
+        name: cellranger_6.0_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/cellranger
+        tag: '6.0'
+        path: cellranger/6.0/
+        docker-context: cellranger/6.0/
+    - docker/publish:
         name: cellranger_3.1_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -1309,6 +1317,22 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: cellranger/5.0/Dockerfile
+    - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
+        context: dockerhub-vars
+        name: cellranger_6.0_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/cellranger
+        tag: '6.0'
+        path: cellranger/6.0/
+        docker-context: cellranger/6.0/
+        before_build:
+        - run_if_modified:
+            pattern: cellranger/6.0/Dockerfile
     - docker/publish:
         filters:
           branches:
@@ -2983,6 +3007,23 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: cellranger/5.0/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
+        name: cellranger_6.0_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/cellranger
+        tag: '6.0'
+        path: cellranger/6.0/
+        docker-context: cellranger/6.0/
+        before_build:
+        - run_if_modified:
+            pattern: cellranger/6.0/Dockerfile
             check-last-commit-on-base-branch: true
     - docker/publish:
         filters:
