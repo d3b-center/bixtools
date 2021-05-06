@@ -1,7 +1,7 @@
 FROM ubuntu:18.04
 LABEL maintainer="Alex Sickler (sicklera@email.chop.edu)"
 
-ENV CELLRANGER_MAJ_VER 5.0
+ENV CELLRANGER_MAJ_VER 6.0
 
 RUN apt update && apt install -y curl \
 && DL_INFO=$(/bin/bash -c "set -o pipefail && curl \"https://support.10xgenomics.com/single-cell-gene-expression/software/downloads/${CELLRANGER_MAJ_VER}/?\" -H 'Connection: keep-alive' \
