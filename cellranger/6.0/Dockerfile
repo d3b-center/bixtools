@@ -18,3 +18,5 @@ grep -Eo \"cellranger-${CELLRANGER_MAJ_VER}.[0-9]+.tar.gz \\\"https:\S+\\\"\" | 
 && apt remove -y curl
 
 ENV PATH /cellranger:$PATH
+
+ADD Dockerfile .
