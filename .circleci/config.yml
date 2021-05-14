@@ -164,6 +164,14 @@ workflows:
         path: picard/2.18.9/
         docker-context: picard/2.18.9/
     - docker/publish:
+        name: picard_2.18.9R_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/picard
+        tag: 2.18.9R
+        path: picard/2.18.9R/
+        docker-context: picard/2.18.9R/
+    - docker/publish:
         name: picard_2.17.4_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -1061,6 +1069,22 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: picard/2.18.9/Dockerfile
+    - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
+        context: dockerhub-vars
+        name: picard_2.18.9R_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/picard
+        tag: 2.18.9R
+        path: picard/2.18.9R/
+        docker-context: picard/2.18.9R/
+        before_build:
+        - run_if_modified:
+            pattern: picard/2.18.9R/Dockerfile
     - docker/publish:
         filters:
           branches:
@@ -2704,6 +2728,23 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: picard/2.18.9/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
+        name: picard_2.18.9R_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/picard
+        tag: 2.18.9R
+        path: picard/2.18.9R/
+        docker-context: picard/2.18.9R/
+        before_build:
+        - run_if_modified:
+            pattern: picard/2.18.9R/Dockerfile
             check-last-commit-on-base-branch: true
     - docker/publish:
         filters:
