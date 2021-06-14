@@ -364,6 +364,14 @@ workflows:
         path: velocyto/0.17.17/
         docker-context: velocyto/0.17.17/
     - docker/publish:
+        name: R_4.1.0_SoupX_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/r
+        tag: 4.1.0_SoupX
+        path: R/4.1.0_SoupX/
+        docker-context: R/4.1.0_SoupX/
+    - docker/publish:
         name: speedseq_latest_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -1493,6 +1501,22 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: velocyto/0.17.17/Dockerfile
+    - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
+        context: dockerhub-vars
+        name: R_4.1.0_SoupX_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/r
+        tag: 4.1.0_SoupX
+        path: R/4.1.0_SoupX/
+        docker-context: R/4.1.0_SoupX/
+        before_build:
+        - run_if_modified:
+            pattern: R/4.1.0_SoupX/Dockerfile
     - docker/publish:
         filters:
           branches:
@@ -3225,6 +3249,23 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: velocyto/0.17.17/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
+        name: R_4.1.0_SoupX_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/r
+        tag: 4.1.0_SoupX
+        path: R/4.1.0_SoupX/
+        docker-context: R/4.1.0_SoupX/
+        before_build:
+        - run_if_modified:
+            pattern: R/4.1.0_SoupX/Dockerfile
             check-last-commit-on-base-branch: true
     - docker/publish:
         filters:
