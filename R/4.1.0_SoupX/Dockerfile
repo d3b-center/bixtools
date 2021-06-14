@@ -12,5 +12,3 @@ RUN apt update -y && apt install -y curl \
     && R -e "install.packages(c('optparse', 'codetools', 'survival', 'plyr', 'zoo', 'data.table', 'htmlwidgets', 'lazyeval', 'reshape2', 'SoupX'), dependencies=TRUE, repos='http://cran.us.r-project.org')"
 
 ADD Dockerfile .
-
-CMD ["/bin/bash"]
