@@ -13,4 +13,4 @@ RUN apt update -y && apt install -y curl \
 
 ADD Dockerfile .
 
-CMD ["/usr/bin/R"]
+CMD ["/bin/bash"]
