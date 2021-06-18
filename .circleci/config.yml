@@ -364,14 +364,6 @@ workflows:
         path: velocyto/0.17.17/
         docker-context: velocyto/0.17.17/
     - docker/publish:
-        name: R_4.1.0_SoupX_monthly
-        deploy: false
-        registry: pgc-images.sbgenomics.com
-        image: d3b-bixu/r
-        tag: 4.1.0_SoupX
-        path: R/4.1.0_SoupX/
-        docker-context: R/4.1.0_SoupX/
-    - docker/publish:
         name: speedseq_latest_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -787,6 +779,14 @@ workflows:
         tag: v0.11.9
         path: fastqc/v0.11.9/
         docker-context: fastqc/v0.11.9/
+    - docker/publish:
+        name: soupx_R_4.1.0_SoupX_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/soupx_r
+        tag: 4.1.0_SoupX
+        path: soupx_R/4.1.0_SoupX/
+        docker-context: soupx_R/4.1.0_SoupX/
     - docker/publish:
         name: samtools_1.7-11-g041220d_monthly
         deploy: false
@@ -1501,22 +1501,6 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: velocyto/0.17.17/Dockerfile
-    - docker/publish:
-        filters:
-          branches:
-            ignore:
-            - master
-        context: dockerhub-vars
-        name: R_4.1.0_SoupX_diff
-        deploy: false
-        registry: pgc-images.sbgenomics.com
-        image: d3b-bixu/r
-        tag: 4.1.0_SoupX
-        path: R/4.1.0_SoupX/
-        docker-context: R/4.1.0_SoupX/
-        before_build:
-        - run_if_modified:
-            pattern: R/4.1.0_SoupX/Dockerfile
     - docker/publish:
         filters:
           branches:
@@ -2349,6 +2333,22 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: fastqc/v0.11.9/Dockerfile
+    - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
+        context: dockerhub-vars
+        name: soupx_R_4.1.0_SoupX_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/soupx_r
+        tag: 4.1.0_SoupX
+        path: soupx_R/4.1.0_SoupX/
+        docker-context: soupx_R/4.1.0_SoupX/
+        before_build:
+        - run_if_modified:
+            pattern: soupx_R/4.1.0_SoupX/Dockerfile
     - docker/publish:
         filters:
           branches:
@@ -3255,23 +3255,6 @@ workflows:
           branches:
             only:
             - master
-        name: R_4.1.0_SoupX_merge
-        context: dockerhub-vars
-        deploy: true
-        registry: pgc-images.sbgenomics.com
-        image: d3b-bixu/r
-        tag: 4.1.0_SoupX
-        path: R/4.1.0_SoupX/
-        docker-context: R/4.1.0_SoupX/
-        before_build:
-        - run_if_modified:
-            pattern: R/4.1.0_SoupX/Dockerfile
-            check-last-commit-on-base-branch: true
-    - docker/publish:
-        filters:
-          branches:
-            only:
-            - master
         name: speedseq_latest_merge
         context: dockerhub-vars
         deploy: true
@@ -4150,6 +4133,23 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: fastqc/v0.11.9/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
+        name: soupx_R_4.1.0_SoupX_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/soupx_r
+        tag: 4.1.0_SoupX
+        path: soupx_R/4.1.0_SoupX/
+        docker-context: soupx_R/4.1.0_SoupX/
+        before_build:
+        - run_if_modified:
+            pattern: soupx_R/4.1.0_SoupX/Dockerfile
             check-last-commit-on-base-branch: true
     - docker/publish:
         filters:
