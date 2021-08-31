@@ -396,6 +396,14 @@ workflows:
         path: lancet/1.0.7/
         docker-context: lancet/1.0.7/
     - docker/publish:
+        name: scrublet_0.2.3_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/scrublet
+        tag: 0.2.3
+        path: scrublet/0.2.3/
+        docker-context: scrublet/0.2.3/
+    - docker/publish:
         name: sambamba_0.7.1_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -1565,6 +1573,22 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: lancet/1.0.7/Dockerfile
+    - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
+        context: dockerhub-vars
+        name: scrublet_0.2.3_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/scrublet
+        tag: 0.2.3
+        path: scrublet/0.2.3/
+        docker-context: scrublet/0.2.3/
+        before_build:
+        - run_if_modified:
+            pattern: scrublet/0.2.3/Dockerfile
     - docker/publish:
         filters:
           branches:
@@ -3317,6 +3341,23 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: lancet/1.0.7/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
+        name: scrublet_0.2.3_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/scrublet
+        tag: 0.2.3
+        path: scrublet/0.2.3/
+        docker-context: scrublet/0.2.3/
+        before_build:
+        - run_if_modified:
+            pattern: scrublet/0.2.3/Dockerfile
             check-last-commit-on-base-branch: true
     - docker/publish:
         filters:
