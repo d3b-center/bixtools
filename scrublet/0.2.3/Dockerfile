@@ -1,5 +1,5 @@
 FROM ubuntu:20.04
-MAINTAINER Alex Sickler (sicklera@email.chop.edu)
+LABEL maintainer="Alex Sickler (sicklera@email.chop.edu)"
 
 ENV NUMPY_VERSION 1.20.3
 ENV SCRUBLET_VERSION 0.2.3
