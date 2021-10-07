@@ -436,6 +436,14 @@ workflows:
         path: picard-r/picard2.15.0-r.3.3.3/
         docker-context: picard-r/picard2.15.0-r.3.3.3/
     - docker/publish:
+        name: toolkit_subtyping_4.1.0R_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/toolkit_subtyping
+        tag: 4.1.0R
+        path: toolkit_subtyping/4.1.0R/
+        docker-context: toolkit_subtyping/4.1.0R/
+    - docker/publish:
         name: loompy_2.0.16_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -1653,6 +1661,22 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: picard-r/picard2.15.0-r.3.3.3/Dockerfile
+    - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
+        context: dockerhub-vars
+        name: toolkit_subtyping_4.1.0R_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/toolkit_subtyping
+        tag: 4.1.0R
+        path: toolkit_subtyping/4.1.0R/
+        docker-context: toolkit_subtyping/4.1.0R/
+        before_build:
+        - run_if_modified:
+            pattern: toolkit_subtyping/4.1.0R/Dockerfile
     - docker/publish:
         filters:
           branches:
@@ -3426,6 +3450,23 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: picard-r/picard2.15.0-r.3.3.3/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
+        name: toolkit_subtyping_4.1.0R_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/toolkit_subtyping
+        tag: 4.1.0R
+        path: toolkit_subtyping/4.1.0R/
+        docker-context: toolkit_subtyping/4.1.0R/
+        before_build:
+        - run_if_modified:
+            pattern: toolkit_subtyping/4.1.0R/Dockerfile
             check-last-commit-on-base-branch: true
     - docker/publish:
         filters:
