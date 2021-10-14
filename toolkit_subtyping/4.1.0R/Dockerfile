@@ -9,7 +9,7 @@ RUN apt update -y && apt install -y curl \
     && sh /tmp/miniconda.sh -bfp /usr \
     && conda config --add channels conda-forge \
     && conda install -y -c conda-forge r-base=4.1.0 \
-    && conda install -c bioconda bioconductor-gsva r-devtools bioconductor-org.hs.eg.db bioconductor-sva \
+    && conda install -c bioconda bioconductor-gsva r-devtools bioconductor-org.hs.eg.db bioconductor-sva r-r.utils \
     && R -e "install.packages(c('optparse', 'MM2S', 'tidyverse'), dependencies=TRUE, repos='http://cran.us.r-project.org')" \
 	&& R -e "devtools::install_github('d3b-center/medullo-classifier-package')" \
     && apt remove curl -y && apt autoclean -y && apt autoremove -y && conda clean -a -y
