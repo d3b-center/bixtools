@@ -796,14 +796,6 @@ workflows:
         path: peddy/v0.4.2/
         docker-context: peddy/v0.4.2/
     - docker/publish:
-        name: pbta_spliced_0.1_monthly
-        deploy: false
-        registry: pgc-images.sbgenomics.com
-        image: d3b-bixu/pbta_spliced
-        tag: '0.1'
-        path: pbta_spliced/0.1/
-        docker-context: pbta_spliced/0.1/
-    - docker/publish:
         name: fastqc_v0.11.9_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -2397,22 +2389,6 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: peddy/v0.4.2/Dockerfile
-    - docker/publish:
-        filters:
-          branches:
-            ignore:
-            - master
-        context: dockerhub-vars
-        name: pbta_spliced_0.1_diff
-        deploy: false
-        registry: pgc-images.sbgenomics.com
-        image: d3b-bixu/pbta_spliced
-        tag: '0.1'
-        path: pbta_spliced/0.1/
-        docker-context: pbta_spliced/0.1/
-        before_build:
-        - run_if_modified:
-            pattern: pbta_spliced/0.1/Dockerfile
     - docker/publish:
         filters:
           branches:
@@ -4263,23 +4239,6 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: peddy/v0.4.2/Dockerfile
-            check-last-commit-on-base-branch: true
-    - docker/publish:
-        filters:
-          branches:
-            only:
-            - master
-        name: pbta_spliced_0.1_merge
-        context: dockerhub-vars
-        deploy: true
-        registry: pgc-images.sbgenomics.com
-        image: d3b-bixu/pbta_spliced
-        tag: '0.1'
-        path: pbta_spliced/0.1/
-        docker-context: pbta_spliced/0.1/
-        before_build:
-        - run_if_modified:
-            pattern: pbta_spliced/0.1/Dockerfile
             check-last-commit-on-base-branch: true
     - docker/publish:
         filters:
