@@ -1,6 +1,6 @@
 FROM ubuntu:20.04
 LABEL maintainer="Daniel Miller <millerd15@chop.edu>"
-LABEL description="annotsv 3.1.1"
+LABEL description="annotsv"
 
 RUN apt update && \
   DEBIAN_FRONTEND=noninteractive apt install -y wget \
@@ -27,12 +27,16 @@ WORKDIR /opt
 RUN git clone --branch $SAMTOOLS_VERSION --recurse-submodules git://github.com/samtools/htslib.git && \
   git clone --branch $SAMTOOLS_VERSION git://github.com/samtools/bcftools.git
 WORKDIR /opt/bcftools
-RUN make
+RUN make && \
+  ln -s /opt/bcftools/bcftools /usr/bin
 
 ENV ANNOTSV_VERSION=v3.1.1
 WORKDIR /opt
 RUN git clone --branch $ANNOTSV_VERSION https://github.com/lgmgeo/AnnotSV.git
 WORKDIR /opt/AnnotSV
 RUN make PREFIX=. install
+ENV ANNOTSV=/opt/AnnotSV
+ENV PATH=$PATH:/opt/AnnotSV/bin/
 
 RUN apt remove -y git wget
+WORKDIR /
