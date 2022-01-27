@@ -40,3 +40,4 @@ ENV PATH=$PATH:/opt/AnnotSV/bin/
 
 RUN apt remove -y git wget
 WORKDIR /
+ADD Dockerfile /
