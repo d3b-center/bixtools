@@ -892,6 +892,14 @@ workflows:
         path: pizzly/latest/
         docker-context: pizzly/latest/
     - docker/publish:
+        name: annotsv_3.1.1_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/annotsv
+        tag: 3.1.1
+        path: annotsv/3.1.1/
+        docker-context: annotsv/3.1.1/
+    - docker/publish:
         name: BIC-seq2_0.7.2_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -2581,6 +2589,22 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: pizzly/latest/Dockerfile
+    - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
+        context: dockerhub-vars
+        name: annotsv_3.1.1_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/annotsv
+        tag: 3.1.1
+        path: annotsv/3.1.1/
+        docker-context: annotsv/3.1.1/
+        before_build:
+        - run_if_modified:
+            pattern: annotsv/3.1.1/Dockerfile
     - docker/publish:
         filters:
           branches:
@@ -4443,6 +4467,23 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: pizzly/latest/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
+        name: annotsv_3.1.1_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/annotsv
+        tag: 3.1.1
+        path: annotsv/3.1.1/
+        docker-context: annotsv/3.1.1/
+        before_build:
+        - run_if_modified:
+            pattern: annotsv/3.1.1/Dockerfile
             check-last-commit-on-base-branch: true
     - docker/publish:
         filters:
