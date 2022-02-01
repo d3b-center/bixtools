@@ -316,6 +316,14 @@ workflows:
         path: bcbio/variation_recall-0.2.4/
         docker-context: bcbio/variation_recall-0.2.4/
     - docker/publish:
+        name: pyspark_3.1.2_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/pyspark
+        tag: 3.1.2
+        path: pyspark/3.1.2/
+        docker-context: pyspark/3.1.2/
+    - docker/publish:
         name: bwa-bundle_0.1.17_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -1437,6 +1445,22 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: bcbio/variation_recall-0.2.4/Dockerfile
+    - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
+        context: dockerhub-vars
+        name: pyspark_3.1.2_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/pyspark
+        tag: 3.1.2
+        path: pyspark/3.1.2/
+        docker-context: pyspark/3.1.2/
+        before_build:
+        - run_if_modified:
+            pattern: pyspark/3.1.2/Dockerfile
     - docker/publish:
         filters:
           branches:
@@ -3243,6 +3267,23 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: bcbio/variation_recall-0.2.4/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
+        name: pyspark_3.1.2_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/pyspark
+        tag: 3.1.2
+        path: pyspark/3.1.2/
+        docker-context: pyspark/3.1.2/
+        before_build:
+        - run_if_modified:
+            pattern: pyspark/3.1.2/Dockerfile
             check-last-commit-on-base-branch: true
     - docker/publish:
         filters:
