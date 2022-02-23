@@ -11,7 +11,7 @@ ENV BLAST_VERSION 2.9.0
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt update; \
-apt install --yes wget pigz build-essential libgomp1 libz-dev zlib1g-dev libncurses5-dev libbz2-dev liblzma-dev libcurl4-openssl-dev libdb-dev littler libxml2-dev libssl-dev \
+apt install --yes wget build-essential libgomp1 libz-dev zlib1g-dev libncurses5-dev libbz2-dev liblzma-dev libcurl4-openssl-dev libdb-dev littler libxml2-dev libssl-dev \
 && apt clean
 RUN wget -O - http://cpanmin.us | perl - --self-upgrade; \
 cpanm DB_File URI::Escape Set::IntervalTree Carp::Assert JSON::XS PerlIO::gzip
@@ -36,7 +36,7 @@ mv STAR-Fusion.v${STAR_FUSION_VERSION} STAR-Fusion \
 && rm STAR-Fusion.v${STAR_FUSION_VERSION}.tar.gz; \
 cd /; \
 wget -q https://github.com/samtools/samtools/releases/download/${SAMTOOLS_VERSION}/samtools-${SAMTOOLS_VERSION}.tar.bz2; \
-tar xjf samtools-${SAMTOOLS_VERSION}.tar.bz2; \
+tar -xjf samtools-${SAMTOOLS_VERSION}.tar.bz2; \
 cd /samtools-${SAMTOOLS_VERSION}/ && ./configure && make; \
 mv /samtools-${SAMTOOLS_VERSION}/samtools /bin/; \
 cd htslib-${HTSLIB_VERSION}/ && ./configure && make; \
