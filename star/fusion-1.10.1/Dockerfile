@@ -32,7 +32,7 @@ RUN Rscript -e 'install.packages(c("ranger", "tidyverse"))'
 RUN wget -q https://github.com/STAR-Fusion/STAR-Fusion/releases/download/STAR-Fusion-v${STAR_FUSION_VERSION}/STAR-Fusion.v${STAR_FUSION_VERSION}.tar.gz; \
 tar -xzf STAR-Fusion.v${STAR_FUSION_VERSION}.tar.gz; \
 mv STAR-Fusion.v${STAR_FUSION_VERSION} STAR-Fusion \
-&& cd STAR-Fusion && make \
+&& cd STAR-Fusion && make && make install \
 && rm STAR-Fusion.v${STAR_FUSION_VERSION}.tar.gz; \
 cd /; \
 wget -q https://github.com/samtools/samtools/releases/download/${SAMTOOLS_VERSION}/samtools-${SAMTOOLS_VERSION}.tar.bz2; \
@@ -42,6 +42,6 @@ mv /samtools-${SAMTOOLS_VERSION}/samtools /bin/; \
 cd htslib-${HTSLIB_VERSION}/ && ./configure && make; \
 mv htsfile libhts.so* tabix bgzip /bin; \
 rm -rf /samtools*; \
-apt clean build-essential zlib1g-dev wget && apt -y autoclean && apt -y autoremove
+apt remove build-essential wget && apt -y autoclean && apt -y autoremove
 
 ADD Dockerfile .
