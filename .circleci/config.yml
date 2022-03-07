@@ -132,6 +132,14 @@ workflows:
         path: arriba/1.1.0/
         docker-context: arriba/1.1.0/
     - docker/publish:
+        name: arriba_2.2.1_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/arriba
+        tag: 2.2.1
+        path: arriba/2.2.1/
+        docker-context: arriba/2.2.1/
+    - docker/publish:
         name: picard_2.14.0_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -556,6 +564,14 @@ workflows:
         path: star/2.7.5a/
         docker-context: star/2.7.5a/
     - docker/publish:
+        name: star_2.7.10a_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/star
+        tag: 2.7.10a
+        path: star/2.7.10a/
+        docker-context: star/2.7.10a/
+    - docker/publish:
         name: star_2.6.1d_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -563,6 +579,14 @@ workflows:
         tag: 2.6.1d
         path: star/2.6.1d/
         docker-context: star/2.6.1d/
+    - docker/publish:
+        name: star_fusion-1.10.1_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/star
+        tag: fusion-1.10.1
+        path: star/fusion-1.10.1/
+        docker-context: star/fusion-1.10.1/
     - docker/publish:
         name: star_fusion-1.5.0_monthly
         deploy: false
@@ -1085,6 +1109,22 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: arriba/1.1.0/Dockerfile
+    - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
+        context: dockerhub-vars
+        name: arriba_2.2.1_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/arriba
+        tag: 2.2.1
+        path: arriba/2.2.1/
+        docker-context: arriba/2.2.1/
+        before_build:
+        - run_if_modified:
+            pattern: arriba/2.2.1/Dockerfile
     - docker/publish:
         filters:
           branches:
@@ -1939,6 +1979,22 @@ workflows:
             ignore:
             - master
         context: dockerhub-vars
+        name: star_2.7.10a_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/star
+        tag: 2.7.10a
+        path: star/2.7.10a/
+        docker-context: star/2.7.10a/
+        before_build:
+        - run_if_modified:
+            pattern: star/2.7.10a/Dockerfile
+    - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
+        context: dockerhub-vars
         name: star_2.6.1d_diff
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -1949,6 +2005,22 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: star/2.6.1d/Dockerfile
+    - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
+        context: dockerhub-vars
+        name: star_fusion-1.10.1_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/star
+        tag: fusion-1.10.1
+        path: star/fusion-1.10.1/
+        docker-context: star/fusion-1.10.1/
+        before_build:
+        - run_if_modified:
+            pattern: star/fusion-1.10.1/Dockerfile
     - docker/publish:
         filters:
           branches:
@@ -2906,6 +2978,23 @@ workflows:
           branches:
             only:
             - master
+        name: arriba_2.2.1_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/arriba
+        tag: 2.2.1
+        path: arriba/2.2.1/
+        docker-context: arriba/2.2.1/
+        before_build:
+        - run_if_modified:
+            pattern: arriba/2.2.1/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
         name: picard_2.14.0_merge
         context: dockerhub-vars
         deploy: true
@@ -3807,6 +3896,23 @@ workflows:
           branches:
             only:
             - master
+        name: star_2.7.10a_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/star
+        tag: 2.7.10a
+        path: star/2.7.10a/
+        docker-context: star/2.7.10a/
+        before_build:
+        - run_if_modified:
+            pattern: star/2.7.10a/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
         name: star_2.6.1d_merge
         context: dockerhub-vars
         deploy: true
@@ -3818,6 +3924,23 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: star/2.6.1d/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
+        name: star_fusion-1.10.1_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/star
+        tag: fusion-1.10.1
+        path: star/fusion-1.10.1/
+        docker-context: star/fusion-1.10.1/
+        before_build:
+        - run_if_modified:
+            pattern: star/fusion-1.10.1/Dockerfile
             check-last-commit-on-base-branch: true
     - docker/publish:
         filters:
