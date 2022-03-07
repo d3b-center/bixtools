@@ -1,7 +1,8 @@
 FROM migbro/star:2.7.10a AS build-env
 LABEL maintainer="Miguel Browm (brownm28@email.chop.edu)"
 LABEL description="Creates docker for STAR Fusion using some commands from  \
-https://github.com/STAR-Fusion/STAR-Fusion/blob/master/Docker/Dockerfile, leverages existing STAR docker"
+https://github.com/STAR-Fusion/STAR-Fusion/blob/master/Docker/Dockerfile, leverages existing STAR docker. \
+Main STAR-Fusion at root in /STAR-Fusion as sofwatre relies on subdir software"
 
 ENV STAR_VERSION 2.7.10a
 ENV STAR_FUSION_VERSION 1.10.1
@@ -29,19 +30,18 @@ RUN wget https://dfam.org/releases/Dfam_3.1/infrastructure/dfamscan.pl.gz && \
      mv dfamscan.pl /usr/local/bin
 RUN wget https://github.com/broadinstitute/picard/releases/download/2.20.3/picard.jar && mv picard.jar /usr/local/bin/
 RUN Rscript -e 'install.packages(c("ranger", "tidyverse"))'
-RUN wget -q https://github.com/STAR-Fusion/STAR-Fusion/releases/download/STAR-Fusion-v${STAR_FUSION_VERSION}/STAR-Fusion.v${STAR_FUSION_VERSION}.tar.gz; \
-tar -xzf STAR-Fusion.v${STAR_FUSION_VERSION}.tar.gz; \
-mv STAR-Fusion.v${STAR_FUSION_VERSION} STAR-Fusion \
+RUN wget -q https://github.com/STAR-Fusion/STAR-Fusion/releases/download/STAR-Fusion-v${STAR_FUSION_VERSION}/STAR-Fusion.v${STAR_FUSION_VERSION}.tar.gz \
+&& tar -xzf STAR-Fusion.v${STAR_FUSION_VERSION}.tar.gz \
+&& rm STAR-Fusion.v${STAR_FUSION_VERSION}.tar.gz \
+&& mv STAR-Fusion.v${STAR_FUSION_VERSION} STAR-Fusion \
 && cd STAR-Fusion && make && make install \
-&& rm STAR-Fusion.v${STAR_FUSION_VERSION}.tar.gz; \
-cd /; \
-wget -q https://github.com/samtools/samtools/releases/download/${SAMTOOLS_VERSION}/samtools-${SAMTOOLS_VERSION}.tar.bz2; \
-tar -xjf samtools-${SAMTOOLS_VERSION}.tar.bz2; \
-cd /samtools-${SAMTOOLS_VERSION}/ && ./configure && make; \
-mv /samtools-${SAMTOOLS_VERSION}/samtools /bin/; \
-cd htslib-${HTSLIB_VERSION}/ && ./configure && make; \
-mv htsfile libhts.so* tabix bgzip /bin; \
-rm -rf /samtools*; \
-apt remove build-essential wget && apt -y autoclean && apt -y autoremove
+&& cd / \
+&& wget -q https://github.com/samtools/samtools/releases/download/${SAMTOOLS_VERSION}/samtools-${SAMTOOLS_VERSION}.tar.bz2 \
+&& tar -xjf samtools-${SAMTOOLS_VERSION}.tar.bz2 \
+&& cd /samtools-${SAMTOOLS_VERSION}/ && ./configure && make && make install \
+&& cd htslib-${HTSLIB_VERSION}/ && ./configure && make \
+&& mv htsfile libhts.so* tabix bgzip /bin \
+&& rm -rf /samtools* \
+&& apt remove build-essential wget && apt -y autoclean && apt -y autoremove
 
 ADD Dockerfile .
