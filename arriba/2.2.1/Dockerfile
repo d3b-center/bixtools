@@ -26,3 +26,5 @@ chmod a+x /usr/local/bin/download_references.sh
 RUN echo '#!/bin/bash\n\
 Rscript /arriba*/draw_fusions.R --annotation=$(ls /references/*.gtf) --fusions=/fusions.tsv --output=/output/fusions.pdf --proteinDomains=$(ls /references/protein_domains_*.gff3) --alignments=/Aligned.sortedByCoord.out.bam --cytobands=$(ls /references/cytobands_*.tsv)' > /usr/local/bin/draw_fusions.sh && \
 chmod a+x /usr/local/bin/draw_fusions.sh
+
+ADD Dockerfile .
