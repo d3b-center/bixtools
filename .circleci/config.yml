@@ -108,6 +108,14 @@ workflows:
         path: verifybamid/1.0.2/
         docker-context: verifybamid/1.0.2/
     - docker/publish:
+        name: cutesv_1.0.13_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/cutesv
+        tag: 1.0.13
+        path: cutesv/1.0.13/
+        docker-context: cutesv/1.0.13/
+    - docker/publish:
         name: arriba_latest_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -1061,6 +1069,22 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: verifybamid/1.0.2/Dockerfile
+    - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
+        context: dockerhub-vars
+        name: cutesv_1.0.13_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/cutesv
+        tag: 1.0.13
+        path: cutesv/1.0.13/
+        docker-context: cutesv/1.0.13/
+        before_build:
+        - run_if_modified:
+            pattern: cutesv/1.0.13/Dockerfile
     - docker/publish:
         filters:
           branches:
@@ -2921,6 +2945,23 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: verifybamid/1.0.2/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
+        name: cutesv_1.0.13_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/cutesv
+        tag: 1.0.13
+        path: cutesv/1.0.13/
+        docker-context: cutesv/1.0.13/
+        before_build:
+        - run_if_modified:
+            pattern: cutesv/1.0.13/Dockerfile
             check-last-commit-on-base-branch: true
     - docker/publish:
         filters:
