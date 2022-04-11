@@ -8,7 +8,7 @@ import ruamel.yaml as yaml
 header = """
 version: 2.1
 orbs:
-  docker: circleci/docker@1.3.0
+  docker: circleci/docker@2.0.3
 commands:
   run_if_modified:
     description: Run steps if files are modified
