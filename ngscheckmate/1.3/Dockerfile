@@ -10,6 +10,6 @@ RUN apt update && apt install -y wget git python pkg-config build-essential auto
 && wget https://github.com/vcftools/vcftools/releases/download/v${VCFTOOLS_VERSION}/vcftools-${VCFTOOLS_VERSION}.tar.gz \
 && tar -xzf vcftools-${VCFTOOLS_VERSION}.tar.gz && cd vcftools-${VCFTOOLS_VERSION} && ./autogen.sh && ./configure && make && make install \
 && cd / && rm -rf /vcftools-${VCFTOOLS_VERSION}/ \
-&& apt -y remove wget git build-essential automake && apt -y autoclean && apt -y autoremove
+&& apt -y remove wget git pkg-config build-essential automake && apt -y autoclean && apt -y autoremove
 
 ADD Dockerfile .
