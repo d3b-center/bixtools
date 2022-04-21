@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  docker: circleci/docker@1.3.0
+  docker: circleci/docker@2.0.3
 commands:
   run_if_modified:
     description: Run steps if files are modified
@@ -899,6 +899,14 @@ workflows:
         tag: latest
         path: samtools/latest/
         docker-context: samtools/latest/
+    - docker/publish:
+        name: sentieon_202112.01_hifi_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/sentieon
+        tag: 202112.01_hifi
+        path: sentieon/202112.01_hifi/
+        docker-context: sentieon/202112.01_hifi/
     - docker/publish:
         name: annovar_latest_monthly
         deploy: false
@@ -2653,6 +2661,22 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: samtools/latest/Dockerfile
+    - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
+        context: dockerhub-vars
+        name: sentieon_202112.01_hifi_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/sentieon
+        tag: 202112.01_hifi
+        path: sentieon/202112.01_hifi/
+        docker-context: sentieon/202112.01_hifi/
+        before_build:
+        - run_if_modified:
+            pattern: sentieon/202112.01_hifi/Dockerfile
     - docker/publish:
         filters:
           branches:
@@ -4628,6 +4652,23 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: samtools/latest/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
+        name: sentieon_202112.01_hifi_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/sentieon
+        tag: 202112.01_hifi
+        path: sentieon/202112.01_hifi/
+        docker-context: sentieon/202112.01_hifi/
+        before_build:
+        - run_if_modified:
+            pattern: sentieon/202112.01_hifi/Dockerfile
             check-last-commit-on-base-branch: true
     - docker/publish:
         filters:
