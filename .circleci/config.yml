@@ -284,6 +284,14 @@ workflows:
         path: bwa-picard/broad/
         docker-context: bwa-picard/broad/
     - docker/publish:
+        name: sniffles_2.0.3_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/sniffles
+        tag: 2.0.3
+        path: sniffles/2.0.3/
+        docker-context: sniffles/2.0.3/
+    - docker/publish:
         name: python_2.7.13_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -1445,6 +1453,22 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: bwa-picard/broad/Dockerfile
+    - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
+        context: dockerhub-vars
+        name: sniffles_2.0.3_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/sniffles
+        tag: 2.0.3
+        path: sniffles/2.0.3/
+        docker-context: sniffles/2.0.3/
+        before_build:
+        - run_if_modified:
+            pattern: sniffles/2.0.3/Dockerfile
     - docker/publish:
         filters:
           branches:
@@ -3391,6 +3415,23 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: bwa-picard/broad/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
+        name: sniffles_2.0.3_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/sniffles
+        tag: 2.0.3
+        path: sniffles/2.0.3/
+        docker-context: sniffles/2.0.3/
+        before_build:
+        - run_if_modified:
+            pattern: sniffles/2.0.3/Dockerfile
             check-last-commit-on-base-branch: true
     - docker/publish:
         filters:
