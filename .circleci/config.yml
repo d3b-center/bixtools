@@ -868,6 +868,14 @@ workflows:
         path: samtools/1.7-11-g041220d/
         docker-context: samtools/1.7-11-g041220d/
     - docker/publish:
+        name: samtools_1.15.1_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/samtools
+        tag: 1.15.1
+        path: samtools/1.15.1/
+        docker-context: samtools/1.15.1/
+    - docker/publish:
         name: samtools_1.9_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -2597,6 +2605,22 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: samtools/1.7-11-g041220d/Dockerfile
+    - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
+        context: dockerhub-vars
+        name: samtools_1.15.1_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/samtools
+        tag: 1.15.1
+        path: samtools/1.15.1/
+        docker-context: samtools/1.15.1/
+        before_build:
+        - run_if_modified:
+            pattern: samtools/1.15.1/Dockerfile
     - docker/publish:
         filters:
           branches:
@@ -4584,6 +4608,23 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: samtools/1.7-11-g041220d/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
+        name: samtools_1.15.1_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/samtools
+        tag: 1.15.1
+        path: samtools/1.15.1/
+        docker-context: samtools/1.15.1/
+        before_build:
+        - run_if_modified:
+            pattern: samtools/1.15.1/Dockerfile
             check-last-commit-on-base-branch: true
     - docker/publish:
         filters:
