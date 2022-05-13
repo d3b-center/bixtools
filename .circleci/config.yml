@@ -244,6 +244,14 @@ workflows:
         path: SVTyper/0.7.1/
         docker-context: SVTyper/0.7.1/
     - docker/publish:
+        name: cutadapt_3.4_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/cutadapt
+        tag: '3.4'
+        path: cutadapt/3.4/
+        docker-context: cutadapt/3.4/
+    - docker/publish:
         name: cutadapt_latest_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -1373,6 +1381,22 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: SVTyper/0.7.1/Dockerfile
+    - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
+        context: dockerhub-vars
+        name: cutadapt_3.4_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/cutadapt
+        tag: '3.4'
+        path: cutadapt/3.4/
+        docker-context: cutadapt/3.4/
+        before_build:
+        - run_if_modified:
+            pattern: cutadapt/3.4/Dockerfile
     - docker/publish:
         filters:
           branches:
@@ -3330,6 +3354,23 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: SVTyper/0.7.1/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
+        name: cutadapt_3.4_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/cutadapt
+        tag: '3.4'
+        path: cutadapt/3.4/
+        docker-context: cutadapt/3.4/
+        before_build:
+        - run_if_modified:
+            pattern: cutadapt/3.4/Dockerfile
             check-last-commit-on-base-branch: true
     - docker/publish:
         filters:
