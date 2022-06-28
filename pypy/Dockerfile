@@ -1,4 +1,4 @@
-FROM pypy:latest
+FROM pypy:3
 LABEL maintainer="Saksham Phul <phuls@chop.edu>"
 LABEL description="PyPy docker image with numpy, pandas, and scipy with their dependencies"
 
