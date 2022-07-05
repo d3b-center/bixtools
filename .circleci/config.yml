@@ -588,6 +588,14 @@ workflows:
         path: strelka/v2.9.10/
         docker-context: strelka/v2.9.10/
     - docker/publish:
+        name: pypy_3.9-7.3.9-bullseye_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/pypy
+        tag: 3.9-7.3.9-bullseye
+        path: pypy/3.9-7.3.9-bullseye/
+        docker-context: pypy/3.9-7.3.9-bullseye/
+    - docker/publish:
         name: star_2.7.5a_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -2069,6 +2077,22 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: strelka/v2.9.10/Dockerfile
+    - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
+        context: dockerhub-vars
+        name: pypy_3.9-7.3.9-bullseye_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/pypy
+        tag: 3.9-7.3.9-bullseye
+        path: pypy/3.9-7.3.9-bullseye/
+        docker-context: pypy/3.9-7.3.9-bullseye/
+        before_build:
+        - run_if_modified:
+            pattern: pypy/3.9-7.3.9-bullseye/Dockerfile
     - docker/publish:
         filters:
           branches:
@@ -4085,6 +4109,23 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: strelka/v2.9.10/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
+        name: pypy_3.9-7.3.9-bullseye_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/pypy
+        tag: 3.9-7.3.9-bullseye
+        path: pypy/3.9-7.3.9-bullseye/
+        docker-context: pypy/3.9-7.3.9-bullseye/
+        before_build:
+        - run_if_modified:
+            pattern: pypy/3.9-7.3.9-bullseye/Dockerfile
             check-last-commit-on-base-branch: true
     - docker/publish:
         filters:
