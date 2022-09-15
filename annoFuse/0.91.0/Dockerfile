@@ -8,7 +8,7 @@ ENV ANNOFUSE_VER Add-Custom-Type-Annotation
 
 RUN apt-get update && apt-get install -y --no-install-recommends apt-utils \
 && apt-get install dialog apt-utils libbz2-dev -y \
-&& R -e "install.packages(c('optparse', 'rjson', 'gdata', 'ggpubr', 'remotes'), dependencies = TRUE)" \
+&& R -e "install.packages(c('optparse', 'rjson', 'gdata', 'ggpubr', 'remotes', 'data.table'), dependencies = TRUE)" \
 && R -e "BiocManager::install(c('Rhtslib', 'Rsamtools', 'EnsDb.Hsapiens.v86', 'ensembldb','ggthemes','qdapRegex','shinyBS', 'shinydashboard', 'shinycssloaders', 'rintrojs', 'shinythemes', 'DT', 'reshape2'))" \
 && R -e "remotes::install_github('federicomarini/annoFuseData')"
 
