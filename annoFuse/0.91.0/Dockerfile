@@ -3,8 +3,8 @@ LABEL maintainer="Alex Sickler (sicklera@email.chop.edu)"
 
 WORKDIR /rocker-build/
 
-ENV ANNOFUSE_URI https://github.com/d3b-center/annoFuse/tarball/
-ENV ANNOFUSE_VER Add-Custom-Type-Annotation
+ENV ANNOFUSE_URI https://github.com/d3b-center/annoFuse/archive/refs/tags/
+ENV ANNOFUSE_VER v0.91.0
 
 RUN apt-get update && apt-get install -y --no-install-recommends apt-utils \
 && apt-get install dialog apt-utils libbz2-dev -y \
@@ -18,5 +18,5 @@ ADD Dockerfile .
 
 WORKDIR /opt/formatFusionCalls
 
-RUN wget -O annoFuse_${ANNOFUSE_VER}.tar.gz "${ANNOFUSE_URI}/${ANNOFUSE_VER}" \
+RUN wget -O annoFuse_${ANNOFUSE_VER}.tar.gz "${ANNOFUSE_URI}/${ANNOFUSE_VER}.tar.gz" \
 && R -e "install.packages(\"annoFuse_${ANNOFUSE_VER}.tar.gz\", repos = NULL)"
