@@ -1,4 +1,4 @@
-install.packages("/opt/formatFusionCalls/annoFuse_0.90.0.tar.gz",repos = NULL)
+#install.packages("/opt/formatFusionCalls/annoFuse_0.90.0.tar.gz",repos = NULL)
 library("annoFuse")
 
 suppressPackageStartupMessages(library("readr"))
