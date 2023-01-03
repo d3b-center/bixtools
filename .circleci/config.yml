@@ -684,6 +684,14 @@ workflows:
         path: LinkedSV/latest/
         docker-context: LinkedSV/latest/
     - docker/publish:
+        name: LOH_1.0.0_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/loh
+        tag: 1.0.0
+        path: LOH/1.0.0/
+        docker-context: LOH/1.0.0/
+    - docker/publish:
         name: add-strelka2-fields_1.0.0_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -2277,6 +2285,22 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: LinkedSV/latest/Dockerfile
+    - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
+        context: dockerhub-vars
+        name: LOH_1.0.0_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/loh
+        tag: 1.0.0
+        path: LOH/1.0.0/
+        docker-context: LOH/1.0.0/
+        before_build:
+        - run_if_modified:
+            pattern: LOH/1.0.0/Dockerfile
     - docker/publish:
         filters:
           branches:
@@ -4337,6 +4361,23 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: LinkedSV/latest/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
+        name: LOH_1.0.0_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/loh
+        tag: 1.0.0
+        path: LOH/1.0.0/
+        docker-context: LOH/1.0.0/
+        before_build:
+        - run_if_modified:
+            pattern: LOH/1.0.0/Dockerfile
             check-last-commit-on-base-branch: true
     - docker/publish:
         filters:
