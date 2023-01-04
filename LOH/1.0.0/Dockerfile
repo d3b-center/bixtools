@@ -4,15 +4,13 @@ LABEL maintainer="Saksham Phul (phuls@chop.edu)"
 WORKDIR home/
 
 RUN apt update && apt upgrade -y && \
-        apt install -y wget && \
-        apt install -y python3.10 && \
+        apt install -y wget python3.10 bzip2 pip && \
         wget https://github.com/samtools/bcftools/releases/download/1.16/bcftools-1.16.tar.bz2 && \
-        apt install bzip2 && \
         tar -axf bcftools*.tar.bz2 && rm bcftools*.tar.bz2 && bash && \
-        cd bcftools* && apt install -y gcc make liblzma-dev zlib1g-dev libbz2-dev && \
+        cd bcftools-1.16 && \
+	apt install -y gcc make liblzma-dev zlib1g-dev libbz2-dev && \
         sh configure --prefix=/home && \
         make && make install && \
-        apt install pip -y && \
         python3 -m pip install pysam regex pandas
 
 
