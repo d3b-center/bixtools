@@ -691,7 +691,7 @@ workflows:
         tag: 1.0.0
         path: LOH/1.0.0/
         docker-context: LOH/1.0.0/
-	executor: docker
+        executor: docker
         remote-docker-version: 20.10.14
         use-buildkit: true
         use-remote-docker: true
@@ -2302,7 +2302,7 @@ workflows:
         tag: 1.0.0
         path: LOH/1.0.0/
         docker-context: LOH/1.0.0/
-	executor: docker
+        executor: docker
         remote-docker-version: 20.10.14
         use-buildkit: true
         use-remote-docker: true
@@ -4384,7 +4384,7 @@ workflows:
         path: LOH/1.0.0/
         docker-context: LOH/1.0.0/
         remote-docker-version: 20.10.14
-	executor: docker 
+        executor: docker 
         use-buildkit: true
         use-remote-docker: true
         before_build:
