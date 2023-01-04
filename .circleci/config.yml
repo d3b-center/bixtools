@@ -4381,6 +4381,9 @@ workflows:
         tag: 1.0.0
         path: LOH/1.0.0/
         docker-context: LOH/1.0.0/
+        remote-docker-version: 20.10.14 
+        use-buildkit: true
+        use-remote-docker: true
         before_build:
         - run_if_modified:
             pattern: LOH/1.0.0/Dockerfile
