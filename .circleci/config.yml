@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  docker: circleci/docker@2.2.0
+  docker: circleci/docker@2.0.3
 commands:
   run_if_modified:
     description: Run steps if files are modified
@@ -691,10 +691,6 @@ workflows:
         tag: 1.0.0
         path: LOH/1.0.0/
         docker-context: LOH/1.0.0/
-        executor: docker
-        remote-docker-version: 20.10.14
-        use-buildkit: true
-        use-remote-docker: true
     - docker/publish:
         name: add-strelka2-fields_1.0.0_monthly
         deploy: false
@@ -2302,10 +2298,6 @@ workflows:
         tag: 1.0.0
         path: LOH/1.0.0/
         docker-context: LOH/1.0.0/
-        executor: docker
-        remote-docker-version: 20.10.14
-        use-buildkit: true
-        use-remote-docker: true
         before_build:
         - run_if_modified:
             pattern: LOH/1.0.0/Dockerfile
@@ -4383,10 +4375,6 @@ workflows:
         tag: 1.0.0
         path: LOH/1.0.0/
         docker-context: LOH/1.0.0/
-        remote-docker-version: 20.10.14
-        executor: docker 
-        use-buildkit: true
-        use-remote-docker: true
         before_build:
         - run_if_modified:
             pattern: LOH/1.0.0/Dockerfile
