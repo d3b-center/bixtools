@@ -1,14 +1,14 @@
 FROM ubuntu:20.04
 LABEL maintainer="brownm28@chop.edu"
-LABEL description:="Ported over from https://github.com/kgaonkar6/tools/blob/master/FusionAnnotator/Dockerfile. Release installed from commit between releases, so release version bumped"
+LABEL description="Ported over from https://github.com/kgaonkar6/tools/blob/master/FusionAnnotator/Dockerfile. Release installed from commit between releases, so release version bumped"
 
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt update && apt install -y \
     autoconf \
     automake \
-    wget \
     build-essential \
+    curl \
     tar \
     pigz \
     git \
@@ -32,37 +32,31 @@ RUN git clone https://github.com/FusionAnnotator/FusionAnnotator.git && \
     git checkout 9cd889a 
 
 RUN cd FusionAnnotator/PerlLib
-RUN wget "https://cpan.metacpan.org/authors/id/M/ML/MLEHMANN/common-sense-3.74.tar.gz"
-RUN wget "https://cpan.metacpan.org/authors/id/M/ML/MLEHMANN/Types-Serialiser-1.0.tar.gz"
-RUN wget "https://cpan.metacpan.org/authors/id/M/ML/MLEHMANN/Canary-Stability-2013.tar.gz"
-RUN wget "https://cpan.metacpan.org/authors/id/M/ML/MLEHMANN/JSON-XS-4.02.tar.gz"
 
-RUN tar -zxvf Canary-Stability-2013.tar.gz && \
+RUN curl -SL "https://cpan.metacpan.org/authors/id/M/ML/MLEHMANN/Canary-Stability-2013.tar.gz" | tar -zx && \
     cd Canary-Stability-2013 && \
     perl Makefile.PL && \
     make && \
     make install 
  
-RUN tar -zxvf common-sense-3.74.tar.gz && \
+RUN curl -SL "https://cpan.metacpan.org/authors/id/M/ML/MLEHMANN/common-sense-3.74.tar.gz" | tar -zx && \
     cd common-sense-3.74 && \
     perl Makefile.PL && \
     make && \
     make install 
 
-RUN tar -zxvf Types-Serialiser-1.0.tar.gz && \
+RUN curl -SL "https://cpan.metacpan.org/authors/id/M/ML/MLEHMANN/Types-Serialiser-1.0.tar.gz" |  tar -zx && \
     cd Types-Serialiser-1.0 && \
     perl Makefile.PL && \
     make && \
     make install 
 
-RUN tar -zxvf JSON-XS-4.02.tar.gz && \
+RUN curl -SL "https://cpan.metacpan.org/authors/id/M/ML/MLEHMANN/JSON-XS-4.02.tar.gz" | tar -zx && \
     cd JSON-XS-4.02 && \
     perl Makefile.PL && \
     make && \
     make install
 
-RUN rm *.tar.gz
-
-RUN apt remove -y build-essential wget git && apt autoclean -y
+RUN apt remove -y build-essential curl git && apt autoclean -y
 WORKDIR /opt/FusionAnnotator/
 ENV FUSION_ANNOTATOR /opt/FusionAnnotator/FusionAnnotator
