@@ -660,6 +660,14 @@ workflows:
         path: sv2/latest/
         docker-context: sv2/latest/
     - docker/publish:
+        name: FusionAnnotator_0.1.1_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/fusionannotator
+        tag: 0.1.1
+        path: FusionAnnotator/0.1.1/
+        docker-context: FusionAnnotator/0.1.1/
+    - docker/publish:
         name: FusionCatcher_latest_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -2245,6 +2253,22 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: sv2/latest/Dockerfile
+    - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
+        context: dockerhub-vars
+        name: FusionAnnotator_0.1.1_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/fusionannotator
+        tag: 0.1.1
+        path: FusionAnnotator/0.1.1/
+        docker-context: FusionAnnotator/0.1.1/
+        before_build:
+        - run_if_modified:
+            pattern: FusionAnnotator/0.1.1/Dockerfile
     - docker/publish:
         filters:
           branches:
@@ -4334,6 +4358,23 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: sv2/latest/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
+        name: FusionAnnotator_0.1.1_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/fusionannotator
+        tag: 0.1.1
+        path: FusionAnnotator/0.1.1/
+        docker-context: FusionAnnotator/0.1.1/
+        before_build:
+        - run_if_modified:
+            pattern: FusionAnnotator/0.1.1/Dockerfile
             check-last-commit-on-base-branch: true
     - docker/publish:
         filters:
