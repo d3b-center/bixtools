@@ -60,3 +60,5 @@ RUN curl -SL "https://cpan.metacpan.org/authors/id/M/ML/MLEHMANN/JSON-XS-4.02.ta
 RUN apt remove -y build-essential curl git && apt autoclean -y
 WORKDIR /opt/FusionAnnotator/
 ENV FUSION_ANNOTATOR /opt/FusionAnnotator/FusionAnnotator
+
+ADD Dockerfile .
