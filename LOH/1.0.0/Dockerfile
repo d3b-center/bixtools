@@ -18,8 +18,15 @@ RUN apt install -y curl gcc make liblzma-dev zlib1g-dev libbz2-dev wget python3.
         sh configure --prefix=/home && \
         make && make install && \
         python3 -m pip install pysam regex pandas
- 
-ENV PATH="$PATH:/home/bin/"
+
+# setup bam-readcount
+RUN apt update && apt upgrade -y && apt install -y git g++ cmake && git clone https://github.com/genome/bam-readcount && \
+	cd bam-readcount && \
+	mkdir build && cd build && \
+	cmake .. && make && \
+	cp /home/bam-readcount/build/bin/bam-readcount /home/bin/
+
+ENV PATH=$PATH:"/home/bin/"
 ENV BCFTOOLS_PLUGINS="/home/bcftools-1.16/plugins"
 
 ADD Dockerfile .
