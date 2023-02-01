@@ -14,16 +14,13 @@ RUN apt update && apt upgrade -y && \
 RUN apt install -y curl gcc make liblzma-dev zlib1g-dev libbz2-dev wget python3.10 python3.10-distutils bzip2 g++ cmake git && \
 	curl -sS https://bootstrap.pypa.io/get-pip.py | python3.10  && \
 	update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 1 && \
-        wget https://github.com/samtools/bcftools/releases/download/${BCFTOOLS_VERSION}/bcftools-${BCFTOOLS_VERSION}.tar.bz2 && \
-        tar -axf bcftools-${BCFTOOLS_VERSION}.tar.bz2 && \
-        rm bcftools-${BCFTOOLS_VERSION}.tar.bz2 && \
+        curl -SL https://github.com/samtools/bcftools/releases/download/${BCFTOOLS_VERSION}/bcftools-${BCFTOOLS_VERSION}.tar.bz2 | tar -jx && \
 	cd bcftools-${BCFTOOLS_VERSION} && \
         sh configure --prefix=/home && \
         make && make install && \
         python3 -m pip install regex pandas && \
 	cd ../ && \
-	wget https://github.com/genome/bam-readcount/archive/refs/tags/v${BAM_READCOUNT_VERSION}.tar.gz && \
-	tar -axf v${BAM_READCOUNT_VERSION}.tar.gz && rm v${BAM_READCOUNT_VERSION}.tar.gz && \ 
+	curl -SL https://github.com/genome/bam-readcount/archive/refs/tags/v1.0.1.tar.gz | tar -xz && \
 	cd bam-readcount-${BAM_READCOUNT_VERSION} && \
 	mkdir build && cd build && \
 	cmake .. && make && \
