@@ -1,32 +1,36 @@
 FROM ubuntu:20.04
 LABEL maintainer="Saksham Phul (phuls@chop.edu)"
-LABEL description="Install gcc, bcftools with plugins, python 3.10, pandas, pysam"
+LABEL description="Install gcc, bcftools with plugins, python 3.10, pandas, g++, cmake, bam-readcount for LOH app"
 
 WORKDIR home/
+
+ENV BCFTOOLS_VERSION 1.16
+ENV BAM_READCOUNT_VERSION 1.0.1
 
 RUN apt update && apt upgrade -y && \
         apt install -y software-properties-common -y && add-apt-repository ppa:deadsnakes/ppa
 
 #apt install cannot be combined, need to link repo to OS to find required packages
-RUN apt install -y curl gcc make liblzma-dev zlib1g-dev libbz2-dev wget python3.10 python3.10-distutils bzip2 && \
+RUN apt install -y curl gcc make liblzma-dev zlib1g-dev libbz2-dev wget python3.10 python3.10-distutils bzip2 g++ cmake git && \
 	curl -sS https://bootstrap.pypa.io/get-pip.py | python3.10  && \
 	update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 1 && \
-        wget https://github.com/samtools/bcftools/releases/download/1.16/bcftools-1.16.tar.bz2 && \
-        tar -axf bcftools-1.16.tar.bz2 && \
-        rm bcftools-1.16.tar.bz2 && \
-	cd bcftools-1.16 && \
+        wget https://github.com/samtools/bcftools/releases/download/${BCFTOOLS_VERSION}/bcftools-${BCFTOOLS_VERSION}.tar.bz2 && \
+        tar -axf bcftools-${BCFTOOLS_VERSION}.tar.bz2 && \
+        rm bcftools-${BCFTOOLS_VERSION}.tar.bz2 && \
+	cd bcftools-${BCFTOOLS_VERSION} && \
         sh configure --prefix=/home && \
         make && make install && \
-        python3 -m pip install pysam regex pandas
-
-# setup bam-readcount
-RUN apt update && apt upgrade -y && apt install -y git g++ cmake && git clone https://github.com/genome/bam-readcount && \
-	cd bam-readcount && \
+        python3 -m pip install regex pandas && \
+	cd ../ && \
+	wget https://github.com/genome/bam-readcount/archive/refs/tags/v${BAM_READCOUNT_VERSION}.tar.gz && \
+	tar -axf v${BAM_READCOUNT_VERSION}.tar.gz && rm v${BAM_READCOUNT_VERSION}.tar.gz && \ 
+	cd bam-readcount-${BAM_READCOUNT_VERSION} && \
 	mkdir build && cd build && \
 	cmake .. && make && \
-	cp /home/bam-readcount/build/bin/bam-readcount /home/bin/
+	cp /home/bam-readcount-${BAM_READCOUNT_VERSION}/build/bin/bam-readcount /home/bin/ && \
+	cd ../
 
 ENV PATH=$PATH:"/home/bin/"
-ENV BCFTOOLS_PLUGINS="/home/bcftools-1.16/plugins"
+ENV BCFTOOLS_PLUGINS="/home/bcftools-${BCFTOOLS_VERSION}/plugins"
 
 ADD Dockerfile .
