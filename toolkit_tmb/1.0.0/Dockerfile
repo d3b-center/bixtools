@@ -7,8 +7,6 @@ ENV BIOC_VERSION 3.16
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-SHELL ["/bin/bash", "-o", "pipefail", "-c"]
-
 RUN apt-get update -y \
     && R -e "BiocManager::install(version = \"${BIOC_VERSION}\")" \
     && R -e "BiocManager::install('GenomicRanges', version = \"${BIOC_VERSION}\")" \
