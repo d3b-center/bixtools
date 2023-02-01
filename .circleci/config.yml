@@ -292,6 +292,14 @@ workflows:
         path: bwa-picard/broad/
         docker-context: bwa-picard/broad/
     - docker/publish:
+        name: toolkit_tmb_1.0.0_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/toolkit_tmb
+        tag: 1.0.0
+        path: toolkit_tmb/1.0.0/
+        docker-context: toolkit_tmb/1.0.0/
+    - docker/publish:
         name: sniffles_2.0.3_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -1517,6 +1525,22 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: bwa-picard/broad/Dockerfile
+    - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
+        context: dockerhub-vars
+        name: toolkit_tmb_1.0.0_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/toolkit_tmb
+        tag: 1.0.0
+        path: toolkit_tmb/1.0.0/
+        docker-context: toolkit_tmb/1.0.0/
+        before_build:
+        - run_if_modified:
+            pattern: toolkit_tmb/1.0.0/Dockerfile
     - docker/publish:
         filters:
           branches:
@@ -3576,6 +3600,23 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: bwa-picard/broad/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
+        name: toolkit_tmb_1.0.0_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/toolkit_tmb
+        tag: 1.0.0
+        path: toolkit_tmb/1.0.0/
+        docker-context: toolkit_tmb/1.0.0/
+        before_build:
+        - run_if_modified:
+            pattern: toolkit_tmb/1.0.0/Dockerfile
             check-last-commit-on-base-branch: true
     - docker/publish:
         filters:
