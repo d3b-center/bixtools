@@ -1,4 +1,4 @@
-FROM migbro/star:2.7.10a AS build-env
+FROM pgc-images.sbgenomics.com/d3b-bixu/star:2.7.10a AS build-env
 LABEL maintainer="Miguel Browm (brownm28@email.chop.edu)"
 LABEL description="Creates docker for STAR Fusion using some commands from  \
 https://github.com/STAR-Fusion/STAR-Fusion/blob/master/Docker/Dockerfile, leverages existing STAR docker. \

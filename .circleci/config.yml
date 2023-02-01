@@ -492,6 +492,14 @@ workflows:
         path: toolkit_subtyping/pyreader0.4.4/
         docker-context: toolkit_subtyping/pyreader0.4.4/
     - docker/publish:
+        name: toolkit_subtyping_subtyping_v1.0_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/toolkit_subtyping
+        tag: subtyping_v1.0
+        path: toolkit_subtyping/subtyping_v1.0/
+        docker-context: toolkit_subtyping/subtyping_v1.0/
+    - docker/publish:
         name: loompy_2.0.16_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -652,6 +660,14 @@ workflows:
         path: sv2/latest/
         docker-context: sv2/latest/
     - docker/publish:
+        name: FusionAnnotator_0.1.1_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/fusionannotator
+        tag: 0.1.1
+        path: FusionAnnotator/0.1.1/
+        docker-context: FusionAnnotator/0.1.1/
+    - docker/publish:
         name: FusionCatcher_latest_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -683,6 +699,14 @@ workflows:
         tag: latest
         path: LinkedSV/latest/
         docker-context: LinkedSV/latest/
+    - docker/publish:
+        name: LOH_1.0.0_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/loh
+        tag: 1.0.0
+        path: LOH/1.0.0/
+        docker-context: LOH/1.0.0/
     - docker/publish:
         name: add-strelka2-fields_1.0.0_monthly
         deploy: false
@@ -1899,6 +1923,22 @@ workflows:
             ignore:
             - master
         context: dockerhub-vars
+        name: toolkit_subtyping_subtyping_v1.0_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/toolkit_subtyping
+        tag: subtyping_v1.0
+        path: toolkit_subtyping/subtyping_v1.0/
+        docker-context: toolkit_subtyping/subtyping_v1.0/
+        before_build:
+        - run_if_modified:
+            pattern: toolkit_subtyping/subtyping_v1.0/Dockerfile
+    - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
+        context: dockerhub-vars
         name: loompy_2.0.16_diff
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -2219,6 +2259,22 @@ workflows:
             ignore:
             - master
         context: dockerhub-vars
+        name: FusionAnnotator_0.1.1_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/fusionannotator
+        tag: 0.1.1
+        path: FusionAnnotator/0.1.1/
+        docker-context: FusionAnnotator/0.1.1/
+        before_build:
+        - run_if_modified:
+            pattern: FusionAnnotator/0.1.1/Dockerfile
+    - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
+        context: dockerhub-vars
         name: FusionCatcher_latest_diff
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -2277,6 +2333,22 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: LinkedSV/latest/Dockerfile
+    - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
+        context: dockerhub-vars
+        name: LOH_1.0.0_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/loh
+        tag: 1.0.0
+        path: LOH/1.0.0/
+        docker-context: LOH/1.0.0/
+        before_build:
+        - run_if_modified:
+            pattern: LOH/1.0.0/Dockerfile
     - docker/publish:
         filters:
           branches:
@@ -3935,6 +4007,23 @@ workflows:
           branches:
             only:
             - master
+        name: toolkit_subtyping_subtyping_v1.0_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/toolkit_subtyping
+        tag: subtyping_v1.0
+        path: toolkit_subtyping/subtyping_v1.0/
+        docker-context: toolkit_subtyping/subtyping_v1.0/
+        before_build:
+        - run_if_modified:
+            pattern: toolkit_subtyping/subtyping_v1.0/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
         name: loompy_2.0.16_merge
         context: dockerhub-vars
         deploy: true
@@ -4275,6 +4364,23 @@ workflows:
           branches:
             only:
             - master
+        name: FusionAnnotator_0.1.1_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/fusionannotator
+        tag: 0.1.1
+        path: FusionAnnotator/0.1.1/
+        docker-context: FusionAnnotator/0.1.1/
+        before_build:
+        - run_if_modified:
+            pattern: FusionAnnotator/0.1.1/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
         name: FusionCatcher_latest_merge
         context: dockerhub-vars
         deploy: true
@@ -4337,6 +4443,23 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: LinkedSV/latest/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
+        name: LOH_1.0.0_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/loh
+        tag: 1.0.0
+        path: LOH/1.0.0/
+        docker-context: LOH/1.0.0/
+        before_build:
+        - run_if_modified:
+            pattern: LOH/1.0.0/Dockerfile
             check-last-commit-on-base-branch: true
     - docker/publish:
         filters:
