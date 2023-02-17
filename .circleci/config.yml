@@ -308,6 +308,14 @@ workflows:
         path: sniffles/2.0.3/
         docker-context: sniffles/2.0.3/
     - docker/publish:
+        name: python_3.9-canine-util_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/python
+        tag: 3.9-canine-util
+        path: python/3.9-canine-util/
+        docker-context: python/3.9-canine-util/
+    - docker/publish:
         name: python_2.7.13_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -1557,6 +1565,22 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: sniffles/2.0.3/Dockerfile
+    - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
+        context: dockerhub-vars
+        name: python_3.9-canine-util_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/python
+        tag: 3.9-canine-util
+        path: python/3.9-canine-util/
+        docker-context: python/3.9-canine-util/
+        before_build:
+        - run_if_modified:
+            pattern: python/3.9-canine-util/Dockerfile
     - docker/publish:
         filters:
           branches:
@@ -3634,6 +3658,23 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: sniffles/2.0.3/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
+        name: python_3.9-canine-util_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/python
+        tag: 3.9-canine-util
+        path: python/3.9-canine-util/
+        docker-context: python/3.9-canine-util/
+        before_build:
+        - run_if_modified:
+            pattern: python/3.9-canine-util/Dockerfile
             check-last-commit-on-base-branch: true
     - docker/publish:
         filters:
