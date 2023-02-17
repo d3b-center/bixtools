@@ -260,6 +260,14 @@ workflows:
         path: cutadapt/latest/
         docker-context: cutadapt/latest/
     - docker/publish:
+        name: tidyverse_3.6.1-canine-util_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/tidyverse
+        tag: 3.6.1-canine-util
+        path: tidyverse/3.6.1-canine-util/
+        docker-context: tidyverse/3.6.1-canine-util/
+    - docker/publish:
         name: VarDictJava_1.7.0_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -1525,6 +1533,22 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: cutadapt/latest/Dockerfile
+    - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
+        context: dockerhub-vars
+        name: tidyverse_3.6.1-canine-util_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/tidyverse
+        tag: 3.6.1-canine-util
+        path: tidyverse/3.6.1-canine-util/
+        docker-context: tidyverse/3.6.1-canine-util/
+        before_build:
+        - run_if_modified:
+            pattern: tidyverse/3.6.1-canine-util/Dockerfile
     - docker/publish:
         filters:
           branches:
@@ -3724,6 +3748,23 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: cutadapt/latest/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
+        name: tidyverse_3.6.1-canine-util_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/tidyverse
+        tag: 3.6.1-canine-util
+        path: tidyverse/3.6.1-canine-util/
+        docker-context: tidyverse/3.6.1-canine-util/
+        before_build:
+        - run_if_modified:
+            pattern: tidyverse/3.6.1-canine-util/Dockerfile
             check-last-commit-on-base-branch: true
     - docker/publish:
         filters:
