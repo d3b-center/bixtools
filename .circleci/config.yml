@@ -1020,6 +1020,14 @@ workflows:
         path: annoFuse/0.1.8/
         docker-context: annoFuse/0.1.8/
     - docker/publish:
+        name: annoFuse_0.92.0_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/annofuse
+        tag: 0.92.0
+        path: annoFuse/0.92.0/
+        docker-context: annoFuse/0.92.0/
+    - docker/publish:
         name: pizzly_latest_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -2981,6 +2989,22 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: annoFuse/0.1.8/Dockerfile
+    - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
+        context: dockerhub-vars
+        name: annoFuse_0.92.0_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/annofuse
+        tag: 0.92.0
+        path: annoFuse/0.92.0/
+        docker-context: annoFuse/0.92.0/
+        before_build:
+        - run_if_modified:
+            pattern: annoFuse/0.92.0/Dockerfile
     - docker/publish:
         filters:
           branches:
@@ -5147,6 +5171,23 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: annoFuse/0.1.8/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
+        name: annoFuse_0.92.0_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/annofuse
+        tag: 0.92.0
+        path: annoFuse/0.92.0/
+        docker-context: annoFuse/0.92.0/
+        before_build:
+        - run_if_modified:
+            pattern: annoFuse/0.92.0/Dockerfile
             check-last-commit-on-base-branch: true
     - docker/publish:
         filters:
