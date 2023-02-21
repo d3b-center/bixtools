@@ -1,4 +1,4 @@
-FROM rocker/tidyverse:4.2
+FROM rocker/tidyverse:4.0
 LABEL maintainer="Miguel Browm (brownm28@chop.edu)"
 
 WORKDIR /rocker-build/
