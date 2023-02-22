@@ -436,6 +436,14 @@ workflows:
         path: hotspots/0.1.0/
         docker-context: hotspots/0.1.0/
     - docker/publish:
+        name: lancet_1.1.x_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/lancet
+        tag: 1.1.x
+        path: lancet/1.1.x/
+        docker-context: lancet/1.1.x/
+    - docker/publish:
         name: lancet_1.0.7_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -1821,6 +1829,22 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: hotspots/0.1.0/Dockerfile
+    - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
+        context: dockerhub-vars
+        name: lancet_1.1.x_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/lancet
+        tag: 1.1.x
+        path: lancet/1.1.x/
+        docker-context: lancet/1.1.x/
+        before_build:
+        - run_if_modified:
+            pattern: lancet/1.1.x/Dockerfile
     - docker/publish:
         filters:
           branches:
@@ -3930,6 +3954,23 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: hotspots/0.1.0/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
+        name: lancet_1.1.x_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/lancet
+        tag: 1.1.x
+        path: lancet/1.1.x/
+        docker-context: lancet/1.1.x/
+        before_build:
+        - run_if_modified:
+            pattern: lancet/1.1.x/Dockerfile
             check-last-commit-on-base-branch: true
     - docker/publish:
         filters:
