@@ -572,6 +572,14 @@ workflows:
         path: ngscheckmate/1.3/
         docker-context: ngscheckmate/1.3/
     - docker/publish:
+        name: snpEff_4.3t_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/snpeff
+        tag: 4.3t
+        path: snpEff/4.3t/
+        docker-context: snpEff/4.3t/
+    - docker/publish:
         name: bwa_0.7.15-r1140_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -2093,6 +2101,22 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: ngscheckmate/1.3/Dockerfile
+    - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
+        context: dockerhub-vars
+        name: snpEff_4.3t_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/snpeff
+        tag: 4.3t
+        path: snpEff/4.3t/
+        docker-context: snpEff/4.3t/
+        before_build:
+        - run_if_modified:
+            pattern: snpEff/4.3t/Dockerfile
     - docker/publish:
         filters:
           branches:
@@ -4219,6 +4243,23 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: ngscheckmate/1.3/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
+        name: snpEff_4.3t_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/snpeff
+        tag: 4.3t
+        path: snpEff/4.3t/
+        docker-context: snpEff/4.3t/
+        before_build:
+        - run_if_modified:
+            pattern: snpEff/4.3t/Dockerfile
             check-last-commit-on-base-branch: true
     - docker/publish:
         filters:
