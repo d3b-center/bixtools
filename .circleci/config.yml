@@ -924,6 +924,14 @@ workflows:
         path: fastqc/v0.11.9/
         docker-context: fastqc/v0.11.9/
     - docker/publish:
+        name: octopus_0.6.3-beta_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/octopus
+        tag: 0.6.3-beta
+        path: octopus/0.6.3-beta/
+        docker-context: octopus/0.6.3-beta/
+    - docker/publish:
         name: soupx_R_4.1.0_SoupX_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -2805,6 +2813,22 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: fastqc/v0.11.9/Dockerfile
+    - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
+        context: dockerhub-vars
+        name: octopus_0.6.3-beta_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/octopus
+        tag: 0.6.3-beta
+        path: octopus/0.6.3-beta/
+        docker-context: octopus/0.6.3-beta/
+        before_build:
+        - run_if_modified:
+            pattern: octopus/0.6.3-beta/Dockerfile
     - docker/publish:
         filters:
           branches:
@@ -4991,6 +5015,23 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: fastqc/v0.11.9/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
+        name: octopus_0.6.3-beta_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/octopus
+        tag: 0.6.3-beta
+        path: octopus/0.6.3-beta/
+        docker-context: octopus/0.6.3-beta/
+        before_build:
+        - run_if_modified:
+            pattern: octopus/0.6.3-beta/Dockerfile
             check-last-commit-on-base-branch: true
     - docker/publish:
         filters:
