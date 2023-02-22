@@ -348,6 +348,14 @@ workflows:
         path: cellranger/3.1/
         docker-context: cellranger/3.1/
     - docker/publish:
+        name: msisensor_1.1.a_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/msisensor
+        tag: 1.1.a
+        path: msisensor/1.1.a/
+        docker-context: msisensor/1.1.a/
+    - docker/publish:
         name: bcbio_variation_recall-0.2.4_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -1661,6 +1669,22 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: cellranger/3.1/Dockerfile
+    - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
+        context: dockerhub-vars
+        name: msisensor_1.1.a_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/msisensor
+        tag: 1.1.a
+        path: msisensor/1.1.a/
+        docker-context: msisensor/1.1.a/
+        before_build:
+        - run_if_modified:
+            pattern: msisensor/1.1.a/Dockerfile
     - docker/publish:
         filters:
           branches:
@@ -3791,6 +3815,23 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: cellranger/3.1/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
+        name: msisensor_1.1.a_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/msisensor
+        tag: 1.1.a
+        path: msisensor/1.1.a/
+        docker-context: msisensor/1.1.a/
+        before_build:
+        - run_if_modified:
+            pattern: msisensor/1.1.a/Dockerfile
             check-last-commit-on-base-branch: true
     - docker/publish:
         filters:
