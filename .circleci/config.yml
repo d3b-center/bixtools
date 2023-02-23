@@ -708,6 +708,14 @@ workflows:
         path: FusionAnnotator/0.1.1/
         docker-context: FusionAnnotator/0.1.1/
     - docker/publish:
+        name: sequenza_3.0.0_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/sequenza
+        tag: 3.0.0
+        path: sequenza/3.0.0/
+        docker-context: sequenza/3.0.0/
+    - docker/publish:
         name: FusionCatcher_latest_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -2405,6 +2413,22 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: FusionAnnotator/0.1.1/Dockerfile
+    - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
+        context: dockerhub-vars
+        name: sequenza_3.0.0_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/sequenza
+        tag: 3.0.0
+        path: sequenza/3.0.0/
+        docker-context: sequenza/3.0.0/
+        before_build:
+        - run_if_modified:
+            pattern: sequenza/3.0.0/Dockerfile
     - docker/publish:
         filters:
           branches:
@@ -4628,6 +4652,23 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: FusionAnnotator/0.1.1/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
+        name: sequenza_3.0.0_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/sequenza
+        tag: 3.0.0
+        path: sequenza/3.0.0/
+        docker-context: sequenza/3.0.0/
+        before_build:
+        - run_if_modified:
+            pattern: sequenza/3.0.0/Dockerfile
             check-last-commit-on-base-branch: true
     - docker/publish:
         filters:
