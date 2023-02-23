@@ -260,6 +260,14 @@ workflows:
         path: cutadapt/latest/
         docker-context: cutadapt/latest/
     - docker/publish:
+        name: VarDictJava_1.7.0_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/vardictjava
+        tag: 1.7.0
+        path: VarDictJava/1.7.0/
+        docker-context: VarDictJava/1.7.0/
+    - docker/publish:
         name: VarDictJava_fp_filter_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -1501,6 +1509,22 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: cutadapt/latest/Dockerfile
+    - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
+        context: dockerhub-vars
+        name: VarDictJava_1.7.0_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/vardictjava
+        tag: 1.7.0
+        path: VarDictJava/1.7.0/
+        docker-context: VarDictJava/1.7.0/
+        before_build:
+        - run_if_modified:
+            pattern: VarDictJava/1.7.0/Dockerfile
     - docker/publish:
         filters:
           branches:
@@ -3652,6 +3676,23 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: cutadapt/latest/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
+        name: VarDictJava_1.7.0_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/vardictjava
+        tag: 1.7.0
+        path: VarDictJava/1.7.0/
+        docker-context: VarDictJava/1.7.0/
+        before_build:
+        - run_if_modified:
+            pattern: VarDictJava/1.7.0/Dockerfile
             check-last-commit-on-base-branch: true
     - docker/publish:
         filters:
