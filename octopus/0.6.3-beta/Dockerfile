@@ -61,7 +61,7 @@ RUN cd /tmp \
     && cd octopus \
     && ./scripts/install.py --threads=$(nproc) \
     && ldconfig \
-    && cp /bin/octopus /usr/bin
+    && cp bin/octopus /usr/bin
 
 WORKDIR /
 
