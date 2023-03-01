@@ -22,53 +22,47 @@ RUN apt-get -y install \
     zlib1g-dev \
     openssl \
     libssl-dev \
+    libgmp3-dev \
     libcrypto++-dev
 ENV CC gcc-8
 ENV CXX g++-8
 
 # Install CMake
-WORKDIR /tmp
-RUN wget https://cmake.org/files/v3.11/cmake-3.11.4.tar.gz
-RUN tar -xzvf cmake-3.11.4.tar.gz
-WORKDIR /tmp/cmake-3.11.4
-RUN ./bootstrap --prefix=/usr/local
-RUN make -j2
-RUN make install
+RUN cd /tmp \
+    && curl -L https://cmake.org/files/v3.11/cmake-3.11.4.tar.gz | tar -xzv \
+    && cd cmake-3.11.4 \
+    && ./bootstrap --prefix=/usr/local \
+    && make -j$(nproc) \
+    && make install
 
 # Install Boost
-WORKDIR /tmp
-RUN wget -O boost_1_68_0.tar.gz http://sourceforge.net/projects/boost/files/boost/1.68.0/boost_1_68_0.tar.gz/download
-RUN tar xzvf boost_1_68_0.tar.gz
-WORKDIR /tmp/boost_1_68_0
-RUN ./bootstrap.sh --prefix=/usr/local --without-libraries=python,mpi
-RUN ./b2 -j2 toolset=gcc-8 cxxflags="-std=c++14"
-RUN ./b2 install
+RUN cd /tmp \
+    && curl -L http://sourceforge.net/projects/boost/files/boost/1.68.0/boost_1_68_0.tar.gz/download | tar -xzv \
+    && cd boost_1_68_0 \
+    && ./bootstrap.sh --prefix=/usr/local --without-libraries=python,mpi \
+    && ./b2 -j$(nproc) toolset=gcc-8 cxxflags="-std=c++14" \
+    && ./b2 install
 
 # Install htslib
-ENV HTSLIB_VERSION=1.10.2
-WORKDIR /tmp
-RUN git clone --recursive -b $HTSLIB_VERSION https://github.com/samtools/htslib.git
-WORKDIR /tmp/htslib
-RUN autoheader
-RUN autoconf
-RUN ./configure
-RUN make -j2
-RUN make install
-
-# Install GMP
-WORKDIR /tmp
-RUN curl -L https://ftp.gnu.org/gnu/gmp/gmp-6.2.0.tar.xz | tar -xJ
-RUN cd gmp-6.2.0 && ./configure && make -j$(nproc) && make -j$(nproc) install 
+ENV HTSLIB_VERSION 1.10.2
+RUN cd /tmp \
+    && git clone --recursive -b $HTSLIB_VERSION https://github.com/samtools/htslib.git \
+    && cd htslib \
+    && autoheader \
+    && autoconf \
+    && ./configure \
+    && make -j$(nproc) \
+    && make install
 
 # Install Octopus
-ENV OCTOPUS_VERSION=v0.6.3-beta
-WORKDIR /tmp
-RUN git clone -b $OCTOPUS_VERSION https://github.com/luntergroup/octopus.git
-WORKDIR /tmp/octopus
-RUN ./scripts/install.py --threads 4 
-RUN ldconfig
+ENV OCTOPUS_VERSION v0.6.3-beta
+RUN cd /tmp \
+    && git clone -b ${OCTOPUS_VERSION} https://github.com/luntergroup/octopus.git \
+    && cd octopus \
+    && ./scripts/install.py --threads=$(nproc) \
+    && ldconfig \
+    && cp bin/octopus /usr/bin
 
-WORKDIR /home
-ENV PATH $PATH:/tmp/octopus/bin/
+WORKDIR /
 
 COPY Dockerfile .
