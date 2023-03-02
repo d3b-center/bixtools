@@ -44,7 +44,7 @@ RUN cd /tmp \
     && ./b2 install
 
 # Install htslib
-ENV HTSLIB_VERSION 1.10.2
+ENV HTSLIB_VERSION 1.17
 RUN cd /tmp \
     && git clone --recursive -b $HTSLIB_VERSION https://github.com/samtools/htslib.git \
     && cd htslib \
@@ -62,6 +62,9 @@ RUN cd /tmp \
     && ./scripts/install.py --threads=$(nproc) \
     && ldconfig \
     && cp bin/octopus /usr/bin
+
+RUN cd /opt \
+    && wget https://raw.githubusercontent.com/samtools/samtools/develop/misc/seq_cache_populate.pl
 
 WORKDIR /
 
