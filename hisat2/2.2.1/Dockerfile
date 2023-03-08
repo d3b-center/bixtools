@@ -1,5 +1,5 @@
 FROM pgc-images.sbgenomics.com/d3b-bixu/samtools:1.15.1
-LABEL maintainer="Miguel Browm <brownm28@chop.edu>"
+LABEL maintainer="Miguel Brown <brownm28@chop.edu>"
 
 ENV PATH="${PATH}:/hisat2-2.2.1"
 
