@@ -340,6 +340,14 @@ workflows:
         path: python/2.7.13/
         docker-context: python/2.7.13/
     - docker/publish:
+        name: hisat2_2.2.1_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/hisat2
+        tag: 2.2.1
+        path: hisat2/2.2.1/
+        docker-context: hisat2/2.2.1/
+    - docker/publish:
         name: smoove_0.2.5_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -1693,6 +1701,22 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: python/2.7.13/Dockerfile
+    - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
+        context: dockerhub-vars
+        name: hisat2_2.2.1_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/hisat2
+        tag: 2.2.1
+        path: hisat2/2.2.1/
+        docker-context: hisat2/2.2.1/
+        before_build:
+        - run_if_modified:
+            pattern: hisat2/2.2.1/Dockerfile
     - docker/publish:
         filters:
           branches:
@@ -3918,6 +3942,23 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: python/2.7.13/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
+        name: hisat2_2.2.1_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/hisat2
+        tag: 2.2.1
+        path: hisat2/2.2.1/
+        docker-context: hisat2/2.2.1/
+        before_build:
+        - run_if_modified:
+            pattern: hisat2/2.2.1/Dockerfile
             check-last-commit-on-base-branch: true
     - docker/publish:
         filters:
