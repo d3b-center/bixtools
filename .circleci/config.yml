@@ -228,6 +228,14 @@ workflows:
         path: cnvnator/v0.4.1/
         docker-context: cnvnator/v0.4.1/
     - docker/publish:
+        name: toolkit_immune_deconvolution_1.0.0_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/toolkit_immune_deconvolution
+        tag: 1.0.0
+        path: toolkit_immune_deconvolution/1.0.0/
+        docker-context: toolkit_immune_deconvolution/1.0.0/
+    - docker/publish:
         name: zumis_2.9.4_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -1485,6 +1493,22 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: cnvnator/v0.4.1/Dockerfile
+    - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
+        context: dockerhub-vars
+        name: toolkit_immune_deconvolution_1.0.0_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/toolkit_immune_deconvolution
+        tag: 1.0.0
+        path: toolkit_immune_deconvolution/1.0.0/
+        docker-context: toolkit_immune_deconvolution/1.0.0/
+        before_build:
+        - run_if_modified:
+            pattern: toolkit_immune_deconvolution/1.0.0/Dockerfile
     - docker/publish:
         filters:
           branches:
@@ -3728,6 +3752,23 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: cnvnator/v0.4.1/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
+        name: toolkit_immune_deconvolution_1.0.0_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/toolkit_immune_deconvolution
+        tag: 1.0.0
+        path: toolkit_immune_deconvolution/1.0.0/
+        docker-context: toolkit_immune_deconvolution/1.0.0/
+        before_build:
+        - run_if_modified:
+            pattern: toolkit_immune_deconvolution/1.0.0/Dockerfile
             check-last-commit-on-base-branch: true
     - docker/publish:
         filters:
