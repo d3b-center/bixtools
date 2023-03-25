@@ -1,20 +1,10 @@
 FROM ubuntu:20.04
 
-ENV PATH="/root/miniconda3/bin:${PATH}"
-ARG PATH="/root/miniconda3/bin:${PATH}"
-RUN apt-get update
+RUN apt update && apt install -y curl
 
-RUN apt-get install -y wget && rm -rf /var/lib/apt/lists/*
+WORKDIR /opt
+ENV SEQKIT_VERSION 2.4.0
+RUN curl -sL https://github.com/shenwei356/seqkit/releases/download/v${SEQKIT_VERSION}/seqkit_linux_amd64.tar.gz | tar -xz && cp seqkit /usr/local/bin
 
-RUN wget \
-    https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
-    && mkdir /root/.conda \
-    && bash Miniconda3-latest-Linux-x86_64.sh -b \
-    && rm -f Miniconda3-latest-Linux-x86_64.sh 
-RUN conda --version
- 
-# Configure Services and Port
-COPY start.sh /start.sh
-CMD ["./start.sh"]
-
-RUN conda install -c bioconda seqkit
+WORKDIR / 
+COPY Dockerfile .
