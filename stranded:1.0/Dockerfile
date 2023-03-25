@@ -1,23 +1,12 @@
-FROM ubuntu:20.04
+FROM staphb/samtools:1.16.1
 
-ENV PATH="/root/miniconda3/bin:${PATH}"
-ARG PATH="/root/miniconda3/bin:${PATH}"
-RUN apt-get update
-RUN apt-get -y install gcc git wget
-RUN rm -rf /var/lib/apt/lists/*
+RUN apt update && apt install -y curl python-is-python3 python3-pip git
 
-RUN wget \
-    https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
-    && mkdir /root/.conda \
-    && bash Miniconda3-latest-Linux-x86_64.sh -b \
-    && rm -f Miniconda3-latest-Linux-x86_64.sh 
-RUN conda --version
- 
-# Configure Services and Port
-COPY start.sh /start.sh
-CMD ["./start.sh"]
+RUN python -m pip install --upgrade pip && python -m pip install git+https://github.com/zoomzoom1011/how_are_we_stranded_here.git
 
-RUN conda install -c bioconda samtools
-RUN conda install -c bioconda kallisto=0.44.0
-RUN pip install RSeQC
-RUN pip install git+https://github.com/zoomzoom1011/how_are_we_stranded_here.git
+WORKDIR /opt
+ENV KALLISTO_VERSION 0.44.0
+RUN curl -sL https://github.com/pachterlab/kallisto/releases/download/v${KALLISTO_VERSION}/kallisto_linux-v${KALLISTO_VERSION}.tar.gz | tar -xz && cp kallisto_linux-v${KALLISTO_VERSION}/kallisto /usr/local/bin
+
+WORKDIR /
+COPY Dockerfile .
