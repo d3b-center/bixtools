@@ -84,13 +84,13 @@ workflows:
             - master
     jobs:
     - docker/publish:
-        name: bixtools_bvcftools_monthly
+        name: bixtools_gistic_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/bixtools
-        tag: bvcftools
-        path: bixtools/bvcftools/
-        docker-context: bixtools/bvcftools/
+        tag: gistic
+        path: bixtools/gistic/
+        docker-context: bixtools/gistic/
     - docker/publish:
         name: bixtools_bwa-samtools_monthly
         deploy: false
@@ -100,29 +100,13 @@ workflows:
         path: bixtools/bwa-samtools/
         docker-context: bixtools/bwa-samtools/
     - docker/publish:
-        name: bixtools_gistic_monthly
+        name: bixtools_WGSA_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/bixtools
-        tag: gistic
-        path: bixtools/gistic/
-        docker-context: bixtools/gistic/
-    - docker/publish:
-        name: bixtools_mend_qc_monthly
-        deploy: false
-        registry: pgc-images.sbgenomics.com
-        image: d3b-bixu/bixtools
-        tag: mend_qc
-        path: bixtools/mend_qc/
-        docker-context: bixtools/mend_qc/
-    - docker/publish:
-        name: bixtools_PureCN_monthly
-        deploy: false
-        registry: pgc-images.sbgenomics.com
-        image: d3b-bixu/bixtools
-        tag: PureCN
-        path: bixtools/PureCN/
-        docker-context: bixtools/PureCN/
+        tag: WGSA
+        path: bixtools/WGSA/
+        docker-context: bixtools/WGSA/
     - docker/publish:
         name: bixtools_seqkit:2.3.1_monthly
         deploy: false
@@ -132,6 +116,14 @@ workflows:
         path: bixtools/seqkit:2.3.1/
         docker-context: bixtools/seqkit:2.3.1/
     - docker/publish:
+        name: bixtools_mend_qc_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/bixtools
+        tag: mend_qc
+        path: bixtools/mend_qc/
+        docker-context: bixtools/mend_qc/
+    - docker/publish:
         name: bixtools_snpEff_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -139,14 +131,6 @@ workflows:
         tag: snpEff
         path: bixtools/snpEff/
         docker-context: bixtools/snpEff/
-    - docker/publish:
-        name: bixtools_stranded:1.0_monthly
-        deploy: false
-        registry: pgc-images.sbgenomics.com
-        image: d3b-bixu/bixtools
-        tag: stranded:1.0
-        path: bixtools/stranded:1.0/
-        docker-context: bixtools/stranded:1.0/
     - docker/publish:
         name: bixtools_vcf_utils_monthly
         deploy: false
@@ -156,47 +140,31 @@ workflows:
         path: bixtools/vcf_utils/
         docker-context: bixtools/vcf_utils/
     - docker/publish:
-        name: bixtools_WGSA_monthly
+        name: bixtools_PureCN_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/bixtools
-        tag: WGSA
-        path: bixtools/WGSA/
-        docker-context: bixtools/WGSA/
-  diff:
-    jobs:
+        tag: PureCN
+        path: bixtools/PureCN/
+        docker-context: bixtools/PureCN/
     - docker/publish:
-        filters:
-          branches:
-            ignore:
-            - master
-        context: dockerhub-vars
-        name: bixtools_bvcftools_diff
+        name: bixtools_stranded:1.0_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/bixtools
+        tag: stranded:1.0
+        path: bixtools/stranded:1.0/
+        docker-context: bixtools/stranded:1.0/
+    - docker/publish:
+        name: bixtools_bvcftools_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/bixtools
         tag: bvcftools
         path: bixtools/bvcftools/
         docker-context: bixtools/bvcftools/
-        before_build:
-        - run_if_modified:
-            pattern: bixtools/bvcftools/Dockerfile
-    - docker/publish:
-        filters:
-          branches:
-            ignore:
-            - master
-        context: dockerhub-vars
-        name: bixtools_bwa-samtools_diff
-        deploy: false
-        registry: pgc-images.sbgenomics.com
-        image: d3b-bixu/bixtools
-        tag: bwa-samtools
-        path: bixtools/bwa-samtools/
-        docker-context: bixtools/bwa-samtools/
-        before_build:
-        - run_if_modified:
-            pattern: bixtools/bwa-samtools/Dockerfile
+  diff:
+    jobs:
     - docker/publish:
         filters:
           branches:
@@ -219,32 +187,32 @@ workflows:
             ignore:
             - master
         context: dockerhub-vars
-        name: bixtools_mend_qc_diff
+        name: bixtools_bwa-samtools_diff
         deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/bixtools
-        tag: mend_qc
-        path: bixtools/mend_qc/
-        docker-context: bixtools/mend_qc/
+        tag: bwa-samtools
+        path: bixtools/bwa-samtools/
+        docker-context: bixtools/bwa-samtools/
         before_build:
         - run_if_modified:
-            pattern: bixtools/mend_qc/Dockerfile
+            pattern: bixtools/bwa-samtools/Dockerfile
     - docker/publish:
         filters:
           branches:
             ignore:
             - master
         context: dockerhub-vars
-        name: bixtools_PureCN_diff
+        name: bixtools_WGSA_diff
         deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/bixtools
-        tag: PureCN
-        path: bixtools/PureCN/
-        docker-context: bixtools/PureCN/
+        tag: WGSA
+        path: bixtools/WGSA/
+        docker-context: bixtools/WGSA/
         before_build:
         - run_if_modified:
-            pattern: bixtools/PureCN/Dockerfile
+            pattern: bixtools/WGSA/Dockerfile
     - docker/publish:
         filters:
           branches:
@@ -267,6 +235,22 @@ workflows:
             ignore:
             - master
         context: dockerhub-vars
+        name: bixtools_mend_qc_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/bixtools
+        tag: mend_qc
+        path: bixtools/mend_qc/
+        docker-context: bixtools/mend_qc/
+        before_build:
+        - run_if_modified:
+            pattern: bixtools/mend_qc/Dockerfile
+    - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
+        context: dockerhub-vars
         name: bixtools_snpEff_diff
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -277,22 +261,6 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: bixtools/snpEff/Dockerfile
-    - docker/publish:
-        filters:
-          branches:
-            ignore:
-            - master
-        context: dockerhub-vars
-        name: bixtools_stranded:1.0_diff
-        deploy: false
-        registry: pgc-images.sbgenomics.com
-        image: d3b-bixu/bixtools
-        tag: stranded:1.0
-        path: bixtools/stranded:1.0/
-        docker-context: bixtools/stranded:1.0/
-        before_build:
-        - run_if_modified:
-            pattern: bixtools/stranded:1.0/Dockerfile
     - docker/publish:
         filters:
           branches:
@@ -315,26 +283,40 @@ workflows:
             ignore:
             - master
         context: dockerhub-vars
-        name: bixtools_WGSA_diff
+        name: bixtools_PureCN_diff
         deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/bixtools
-        tag: WGSA
-        path: bixtools/WGSA/
-        docker-context: bixtools/WGSA/
+        tag: PureCN
+        path: bixtools/PureCN/
+        docker-context: bixtools/PureCN/
         before_build:
         - run_if_modified:
-            pattern: bixtools/WGSA/Dockerfile
-  merge:
-    jobs:
+            pattern: bixtools/PureCN/Dockerfile
     - docker/publish:
         filters:
           branches:
-            only:
+            ignore:
             - master
-        name: bixtools_bvcftools_merge
         context: dockerhub-vars
-        deploy: true
+        name: bixtools_stranded:1.0_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/bixtools
+        tag: stranded:1.0
+        path: bixtools/stranded:1.0/
+        docker-context: bixtools/stranded:1.0/
+        before_build:
+        - run_if_modified:
+            pattern: bixtools/stranded:1.0/Dockerfile
+    - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
+        context: dockerhub-vars
+        name: bixtools_bvcftools_diff
+        deploy: false
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/bixtools
         tag: bvcftools
@@ -343,6 +325,24 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: bixtools/bvcftools/Dockerfile
+  merge:
+    jobs:
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
+        name: bixtools_gistic_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/bixtools
+        tag: gistic
+        path: bixtools/gistic/
+        docker-context: bixtools/gistic/
+        before_build:
+        - run_if_modified:
+            pattern: bixtools/gistic/Dockerfile
             check-last-commit-on-base-branch: true
     - docker/publish:
         filters:
@@ -366,51 +366,17 @@ workflows:
           branches:
             only:
             - master
-        name: bixtools_gistic_merge
+        name: bixtools_WGSA_merge
         context: dockerhub-vars
         deploy: true
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/bixtools
-        tag: gistic
-        path: bixtools/gistic/
-        docker-context: bixtools/gistic/
+        tag: WGSA
+        path: bixtools/WGSA/
+        docker-context: bixtools/WGSA/
         before_build:
         - run_if_modified:
-            pattern: bixtools/gistic/Dockerfile
-            check-last-commit-on-base-branch: true
-    - docker/publish:
-        filters:
-          branches:
-            only:
-            - master
-        name: bixtools_mend_qc_merge
-        context: dockerhub-vars
-        deploy: true
-        registry: pgc-images.sbgenomics.com
-        image: d3b-bixu/bixtools
-        tag: mend_qc
-        path: bixtools/mend_qc/
-        docker-context: bixtools/mend_qc/
-        before_build:
-        - run_if_modified:
-            pattern: bixtools/mend_qc/Dockerfile
-            check-last-commit-on-base-branch: true
-    - docker/publish:
-        filters:
-          branches:
-            only:
-            - master
-        name: bixtools_PureCN_merge
-        context: dockerhub-vars
-        deploy: true
-        registry: pgc-images.sbgenomics.com
-        image: d3b-bixu/bixtools
-        tag: PureCN
-        path: bixtools/PureCN/
-        docker-context: bixtools/PureCN/
-        before_build:
-        - run_if_modified:
-            pattern: bixtools/PureCN/Dockerfile
+            pattern: bixtools/WGSA/Dockerfile
             check-last-commit-on-base-branch: true
     - docker/publish:
         filters:
@@ -434,6 +400,23 @@ workflows:
           branches:
             only:
             - master
+        name: bixtools_mend_qc_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/bixtools
+        tag: mend_qc
+        path: bixtools/mend_qc/
+        docker-context: bixtools/mend_qc/
+        before_build:
+        - run_if_modified:
+            pattern: bixtools/mend_qc/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
         name: bixtools_snpEff_merge
         context: dockerhub-vars
         deploy: true
@@ -445,23 +428,6 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: bixtools/snpEff/Dockerfile
-            check-last-commit-on-base-branch: true
-    - docker/publish:
-        filters:
-          branches:
-            only:
-            - master
-        name: bixtools_stranded:1.0_merge
-        context: dockerhub-vars
-        deploy: true
-        registry: pgc-images.sbgenomics.com
-        image: d3b-bixu/bixtools
-        tag: stranded:1.0
-        path: bixtools/stranded:1.0/
-        docker-context: bixtools/stranded:1.0/
-        before_build:
-        - run_if_modified:
-            pattern: bixtools/stranded:1.0/Dockerfile
             check-last-commit-on-base-branch: true
     - docker/publish:
         filters:
@@ -485,15 +451,49 @@ workflows:
           branches:
             only:
             - master
-        name: bixtools_WGSA_merge
+        name: bixtools_PureCN_merge
         context: dockerhub-vars
         deploy: true
         registry: pgc-images.sbgenomics.com
         image: d3b-bixu/bixtools
-        tag: WGSA
-        path: bixtools/WGSA/
-        docker-context: bixtools/WGSA/
+        tag: PureCN
+        path: bixtools/PureCN/
+        docker-context: bixtools/PureCN/
         before_build:
         - run_if_modified:
-            pattern: bixtools/WGSA/Dockerfile
+            pattern: bixtools/PureCN/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
+        name: bixtools_stranded:1.0_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/bixtools
+        tag: stranded:1.0
+        path: bixtools/stranded:1.0/
+        docker-context: bixtools/stranded:1.0/
+        before_build:
+        - run_if_modified:
+            pattern: bixtools/stranded:1.0/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
+        name: bixtools_bvcftools_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/bixtools
+        tag: bvcftools
+        path: bixtools/bvcftools/
+        docker-context: bixtools/bvcftools/
+        before_build:
+        - run_if_modified:
+            pattern: bixtools/bvcftools/Dockerfile
             check-last-commit-on-base-branch: true
