@@ -236,6 +236,14 @@ workflows:
         path: toolkit_immune_deconvolution/1.0.0/
         docker-context: toolkit_immune_deconvolution/1.0.0/
     - docker/publish:
+        name: stranded_1.0.0_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/stranded
+        tag: 1.0.0
+        path: stranded/1.0.0/
+        docker-context: stranded/1.0.0/
+    - docker/publish:
         name: zumis_2.9.4_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -1140,6 +1148,14 @@ workflows:
         path: BIC-seq2/0.7.2/
         docker-context: BIC-seq2/0.7.2/
     - docker/publish:
+        name: seqkit_2.3.1_monthly
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/seqkit
+        tag: 2.3.1
+        path: seqkit/2.3.1/
+        docker-context: seqkit/2.3.1/
+    - docker/publish:
         name: freebayes_v1.3.1_monthly
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -1509,6 +1525,22 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: toolkit_immune_deconvolution/1.0.0/Dockerfile
+    - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
+        context: dockerhub-vars
+        name: stranded_1.0.0_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/stranded
+        tag: 1.0.0
+        path: stranded/1.0.0/
+        docker-context: stranded/1.0.0/
+        before_build:
+        - run_if_modified:
+            pattern: stranded/1.0.0/Dockerfile
     - docker/publish:
         filters:
           branches:
@@ -3323,6 +3355,22 @@ workflows:
             ignore:
             - master
         context: dockerhub-vars
+        name: seqkit_2.3.1_diff
+        deploy: false
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/seqkit
+        tag: 2.3.1
+        path: seqkit/2.3.1/
+        docker-context: seqkit/2.3.1/
+        before_build:
+        - run_if_modified:
+            pattern: seqkit/2.3.1/Dockerfile
+    - docker/publish:
+        filters:
+          branches:
+            ignore:
+            - master
+        context: dockerhub-vars
         name: freebayes_v1.3.1_diff
         deploy: false
         registry: pgc-images.sbgenomics.com
@@ -3769,6 +3817,23 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: toolkit_immune_deconvolution/1.0.0/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
+        name: stranded_1.0.0_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/stranded
+        tag: 1.0.0
+        path: stranded/1.0.0/
+        docker-context: stranded/1.0.0/
+        before_build:
+        - run_if_modified:
+            pattern: stranded/1.0.0/Dockerfile
             check-last-commit-on-base-branch: true
     - docker/publish:
         filters:
@@ -5690,6 +5755,23 @@ workflows:
         before_build:
         - run_if_modified:
             pattern: BIC-seq2/0.7.2/Dockerfile
+            check-last-commit-on-base-branch: true
+    - docker/publish:
+        filters:
+          branches:
+            only:
+            - master
+        name: seqkit_2.3.1_merge
+        context: dockerhub-vars
+        deploy: true
+        registry: pgc-images.sbgenomics.com
+        image: d3b-bixu/seqkit
+        tag: 2.3.1
+        path: seqkit/2.3.1/
+        docker-context: seqkit/2.3.1/
+        before_build:
+        - run_if_modified:
+            pattern: seqkit/2.3.1/Dockerfile
             check-last-commit-on-base-branch: true
     - docker/publish:
         filters:
