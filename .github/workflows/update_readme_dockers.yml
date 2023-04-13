@@ -9,8 +9,6 @@ jobs:
       - id: checkout
         uses: actions/checkout@v3
         name: Checkout Repo
-        with:
-          fetch-depth: 0
       - id: make-updated-readme
         name: Remake Docker Table
         run: |
