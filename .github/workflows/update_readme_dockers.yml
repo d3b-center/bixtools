@@ -1,0 +1,32 @@
+name: Update README Docker Table
+
+on: [pull_request]
+
+jobs:
+  sync:
+    runs-on: ubuntu-22.04
+    steps:
+      - id: checkout
+        uses: actions/checkout@v3
+        name: Checkout Repo
+        with:
+          fetch-depth: 0
+      - id: make-updated-readme
+        name: Remake Docker Table
+        run: |
+          awk '1;/^-------/{exit}' README.md > newREADME.md
+          find * -name Dockerfile | xargs -I{} dirname {} | awk -F'/' -v OFS='|' 'ver=($2 == "") ? "latest" : $2 {print $1, ver, "docker pull pgc-images.sbgenomics.com/d3b-bixu/"tolower($1)":"ver}' | sort -t '|' -k 3,3 >> newREADMe.md
+          mv newREADME.md README.md
+      - id: cpr
+        name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          commit-message: update docker table
+          title: Update README Docker Table
+          body: |
+            Automated changes by [create-pull-request](https://github.com/peter-evans/create-pull-request) GitHub action.
+
+            Docker table in README now has most up-to-date and complete list of Dockers.
+          delete-branch: true
+          branch: gha-update-readme-dockers
+          branch-suffix: timestamp
