@@ -9,6 +9,8 @@ jobs:
       - id: checkout
         uses: actions/checkout@v3
         name: Checkout Repo
+        with:
+          ref: ${{ github.head_ref }}
       - id: make-updated-readme
         name: Remake Docker Table
         run: |
@@ -26,5 +28,4 @@ jobs:
 
             Docker table in README now has most up-to-date and complete list of Dockers.
           delete-branch: true
-          branch: gha-update-readme-dockers
-          branch-suffix: timestamp
+          branch: ${{ github.head_ref }}-adjust-readme
