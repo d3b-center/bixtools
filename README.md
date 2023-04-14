@@ -5,6 +5,9 @@ This repo contains build instructions that we use at the Center for Data-Driven 
 Legacy versions of some images are stored in the [KFDRC Dockerhub](https://hub.docker.com/u/kfdrc/). The images on Dockerhub are deprecated and will not be updated.
 
 # Current Dockers
+
+[![Last Monthly Build](https://github.com/d3b-center/bixtools/actions/workflows/monthly_build_check_dockers.yml/badge.svg)](https://github.com/d3b-center/bixtools/actions/workflows/monthly_build_check_dockers.yml)
+
 Below is a list of the current docker images the command to pull them.
 
 [![Last Monthly Pull](https://github.com/d3b-center/bixtools/actions/workflows/monthly_pull_check_dockers.yml/badge.svg)](https://github.com/d3b-center/bixtools/actions/workflows/monthly_pull_check_dockers.yml)
