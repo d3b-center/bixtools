@@ -1,0 +1,40 @@
+name: Monthly Docker Build Validation
+
+on:
+  schedule:
+    - cron: '57 0 1 * *'
+
+jobs:
+  get-dockerfiles:
+    name: Get Changed Dockerfiles Matrix
+    runs-on: ubuntu-22.04
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+      - id: checkout
+        uses: actions/checkout@v3
+        name: Checkout Repo
+        with:
+          fetch-depth: 0
+      - id: set-matrix
+        name: Changed Dockerfiles String to Matrix
+        run: |
+          MATRIX=$(find * -name Dockerfile | xargs -I{} dirname {} | jq -Rrs 'split("\n") | map(select(. != "")) | map(rtrimstr("/Dockerfile")) | map({"path": ., "image": (. | split("/")[0] | ascii_downcase), "tag": (. | split("/")[1] // "latest")}) | @json')
+          echo "matrix=$MATRIX" >> $GITHUB_OUTPUT
+  build-dockerfiles:
+    name: Build ${{ matrix.docker_path }}
+    needs: changed-dockerfiles
+    runs-on: ubuntu-22.04
+    strategy:
+      fail-fast: false
+      matrix:
+        include: ${{ fromJSON(needs.get-dockerfiles.outputs.matrix) }}
+    steps:
+      - id: docker-buildx-setup
+        name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      - id: test-build
+        name: Test Build Dockerfile
+        uses: docker/build-push-action@v4
+        with:
+          context: "{{defaultContext}}:${{ matrix.path }}"
