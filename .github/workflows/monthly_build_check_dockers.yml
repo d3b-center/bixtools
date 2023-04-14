@@ -3,6 +3,7 @@ name: Monthly Docker Build Validation
 on:
   schedule:
     - cron: '57 0 1 * *'
+  workflow_dispatch:
 
 jobs:
   get-dockerfiles:
