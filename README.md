@@ -8,9 +8,10 @@ Legacy versions of some images are stored in the [KFDRC Dockerhub](https://hub.d
 
 [![Last Monthly Build](https://github.com/d3b-center/bixtools/actions/workflows/monthly_build_check_dockers.yml/badge.svg)](https://github.com/d3b-center/bixtools/actions/workflows/monthly_build_check_dockers.yml)
 
+[![Last Monthly Pull](https://github.com/d3b-center/bixtools/actions/workflows/monthly_pull_check_dockers.yml/badge.svg)](https://github.com/d3b-center/bixtools/actions/workflows/monthly_pull_check_dockers.yml)
+
 Below is a list of the current docker images the command to pull them.
 
-[![Last Monthly Pull](https://github.com/d3b-center/bixtools/actions/workflows/monthly_pull_check_dockers.yml/badge.svg)](https://github.com/d3b-center/bixtools/actions/workflows/monthly_pull_check_dockers.yml)
 
 image | version | pull command
 ------- | ------ | ------------
