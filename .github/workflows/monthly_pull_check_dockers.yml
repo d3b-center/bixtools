@@ -22,9 +22,9 @@ jobs:
         run: |
           MATRIX=$(find * -name Dockerfile | xargs -I{} dirname {} | jq -Rrs 'split("\n") | map(select(. != "")) | map(rtrimstr("/Dockerfile")) | map({"path": ., "image": (. | split("/")[0] | ascii_downcase), "tag": (. | split("/")[1] // "latest")}) | @json')
           echo "matrix=$MATRIX" >> $GITHUB_OUTPUT
-  build-dockerfiles:
-    name: Build ${{ matrix.docker_path }}
-    needs: changed-dockerfiles
+  pull-dockerfiles:
+    name: Pull ${{ matrix.path }}
+    needs: get-dockerfiles
     runs-on: ubuntu-22.04
     strategy:
       fail-fast: false
