@@ -29,4 +29,4 @@ RUN apt-get update -y && apt-get install -y curl \
     && pip install numpy==$NUMPY_VERSION scipy==$SCIPY_VERSION pandas==$PANDAS_VERSION pyreadr==$PYREADR_VERSION pytest==$PYTEST_VERSION rpy2==$RPY2_VERSION \
     && apt-get remove curl -y && apt-get autoclean -y && apt-get autoremove -y && conda clean -a -y
 
-ADD Dockerfile .
+COPY Dockerfile .
