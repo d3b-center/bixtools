@@ -128,6 +128,7 @@ sequenza|3.0.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/sequenza:3.0.0
 seurat|latest|docker pull pgc-images.sbgenomics.com/d3b-bixu/seurat:latest
 smoove|0.2.5|docker pull pgc-images.sbgenomics.com/d3b-bixu/smoove:0.2.5
 sniffles|2.0.3|docker pull pgc-images.sbgenomics.com/d3b-bixu/sniffles:2.0.3
+sniffles|2.0.7|docker pull pgc-images.sbgenomics.com/d3b-bixu/sniffles:2.0.7
 snpEff|4.3t|docker pull pgc-images.sbgenomics.com/d3b-bixu/snpeff:4.3t
 snpEff|latest|docker pull pgc-images.sbgenomics.com/d3b-bixu/snpeff:latest
 soupx_R|4.1.0_SoupX|docker pull pgc-images.sbgenomics.com/d3b-bixu/soupx_r:4.1.0_SoupX
