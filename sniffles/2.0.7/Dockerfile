@@ -8,4 +8,4 @@ RUN apt update && \
 ENV SNIFFLES_VERSION 2.0.7
 RUN python -m pip install --upgrade pip && python -m pip install sniffles==${SNIFFLES_VERSION}
 
-ADD Dockerfile .
+COPY Dockerfile .
