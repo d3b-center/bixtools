@@ -8,4 +8,4 @@ RUN apt update && \
 ENV CUTESV_VERSION 2.0.3
 RUN python -m pip install --upgrade pip && python -m pip install cuteSV==${CUTESV_VERSION}
 
-ADD Dockerfile .
+COPY Dockerfile .
