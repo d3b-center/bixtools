@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 LABEL maintainer="Saksham Phul (phuls@chop.edu)"
 LABEL description="RTG tool for benchmarking vcf files"
 
