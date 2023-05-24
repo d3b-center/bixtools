@@ -1,11 +1,11 @@
-FROM ubuntu:22.04
+FROM ubuntu:20.04
 LABEL maintainer="Saksham Phul (phuls@chop.edu)"
 LABEL description="RTG tool for benchmarking vcf files"
 
-#RUN export ant="home/apache-ant-1.9.16/bin/ant"
+ENV DEBIAN_FRONTEND noninteractive
 
-RUN apt update -y && apt install default-jre wget -y && apt install apache2 git -y && cd home/
-RUN wget -c https://dlcdn.apache.org//ant/binaries/apache-ant-1.9.16-bin.tar.gz -O - | tar -xz 
+ENV RTG_VERSION 3.12.1
 
-RUN cp apache-ant-1.9.16/bin/ant /bin/ && cp -R apache-ant-1.9.16/lib/* /lib/
-RUN git clone https://github.com/RealTimeGenomics/rtg-tools.git && cd rtg-tools && ant zip-nojre
+RUN apt update && apt upgrade -y && apt install default-jre wget unzip apache2 ant git -y && apt install build-essential libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev libffi-dev zlib1g-dev software-properties-common -y && add-apt-repository ppa:deadsnakes/ppa -y && apt install python3.11 pip -y && python3 -m pip install pandas regex && wget https://github.com/RealTimeGenomics/rtg-tools/archive/refs/tags/${RTG_VERSION}.tar.gz -O - | tar -xz && cd rtg-tools-${RTG_VERSION} && ant zip-nojre && mkdir /home/RTG && cd /home/RTG/ && unzip /rtg-tools-${RTG_VERSION}/dist/rtg-tools-${RTG_VERSION}-*zip
+
+ENV PATH=$PATH:"/home/RTG/rtg-tools-${RTG_VERSION}-unknown/"
