@@ -153,7 +153,7 @@ toolkit_subtyping|pyreader0.4.4|docker pull pgc-images.sbgenomics.com/d3b-bixu/t
 toolkit_subtyping|subtyping_v1.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/toolkit_subtyping:subtyping_v1.0
 toolkit_subtyping|subtyping_v1.1|docker pull pgc-images.sbgenomics.com/d3b-bixu/toolkit_subtyping:subtyping_v1.1
 toolkit_tmb|1.0.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/toolkit_tmb:1.0.0
-tumor-only-benchmarking|latest|docker pull pgc-images.sbgenomics.com/d3b-bixu/tumor-only-benchmarking:latest
+tumor-only-benchmarking|1.0.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/tumor-only-benchmarking:1.0.0
 VarDictJava|1.5.8|docker pull pgc-images.sbgenomics.com/d3b-bixu/vardictjava:1.5.8
 VarDictJava|1.7.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/vardictjava:1.7.0
 VarDictJava|fp_filter|docker pull pgc-images.sbgenomics.com/d3b-bixu/vardictjava:fp_filter
