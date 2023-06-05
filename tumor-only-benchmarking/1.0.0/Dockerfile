@@ -14,4 +14,7 @@ ENV PATH=$PATH:"/home/RTG/rtg-tools-${RTG_VERSION}-unknown/"
 ENV PATH=$PATH:"/home/bin/"
 ENV BCFTOOLS_PLUGINS="/home/bcftools-${BCFTOOLS_VERSION}/plugins"
 
+#run rtg to config, only required for 1st run
+RUN rtg --help
+
 COPY Dockerfile .
