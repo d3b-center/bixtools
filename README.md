@@ -25,6 +25,7 @@ arriba|1.0.1|docker pull pgc-images.sbgenomics.com/d3b-bixu/arriba:1.0.1
 arriba|1.1.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/arriba:1.1.0
 arriba|2.2.1|docker pull pgc-images.sbgenomics.com/d3b-bixu/arriba:2.2.1
 arriba|latest|docker pull pgc-images.sbgenomics.com/d3b-bixu/arriba:latest
+autopvs1|v0.2.0a|docker pull pgc-images.sbgenomics.com/d3b-bixu/autopvs1:v0.2.0a
 bcbio|variation_recall-0.2.4|docker pull pgc-images.sbgenomics.com/d3b-bixu/bcbio:variation_recall-0.2.4
 bed_tools|bedopsv2.4.36_plus_bedtools|docker pull pgc-images.sbgenomics.com/d3b-bixu/bed_tools:bedopsv2.4.36_plus_bedtools
 BIC-seq2|0.7.2|docker pull pgc-images.sbgenomics.com/d3b-bixu/bic-seq2:0.7.2
@@ -77,6 +78,7 @@ gatk|latest|docker pull pgc-images.sbgenomics.com/d3b-bixu/gatk:latest
 gistic|latest|docker pull pgc-images.sbgenomics.com/d3b-bixu/gistic:latest
 hisat2|2.2.1|docker pull pgc-images.sbgenomics.com/d3b-bixu/hisat2:2.2.1
 hotspots|0.1.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/hotspots:0.1.0
+intervar|v2.2.1|docker pull pgc-images.sbgenomics.com/d3b-bixu/intervar:v2.2.1
 kf_vcf2maf|v1.0.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/kf_vcf2maf:v1.0.0
 kf_vcf2maf|v1.0.1|docker pull pgc-images.sbgenomics.com/d3b-bixu/kf_vcf2maf:v1.0.1
 kf_vcf2maf|v1.0.2|docker pull pgc-images.sbgenomics.com/d3b-bixu/kf_vcf2maf:v1.0.2
