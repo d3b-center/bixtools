@@ -10,3 +10,5 @@ RUN apt update && apt install -y wget python3 perl pigz \
 && wget https://raw.githubusercontent.com/WGLab/InterVar/${INTERVAR_VERSION}/Intervar.py \
 && wget https://raw.githubusercontent.com/WGLab/InterVar/${INTERVAR_VERSION}/config.ini \
 && apt autoremove -y
+
+COPY Dockerfile .

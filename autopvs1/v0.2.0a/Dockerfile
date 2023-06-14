@@ -10,3 +10,5 @@ RUN apt update -y && apt install -y wget python3 python3-pip pigz git libbz2-dev
 && mv autopvs1 ../autopvs1 && cd ../ && rm -rf D3b-Pathogenicity-Preprocessing \ 
 && pip3 install pysam==0.17.0 pyfaidx && \
 apt remove -y wget git
+
+COPY Dockerfile .
