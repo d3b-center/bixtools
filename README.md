@@ -41,6 +41,7 @@ canvas|1.11.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/canvas:1.11.0
 cellranger|3.1|docker pull pgc-images.sbgenomics.com/d3b-bixu/cellranger:3.1
 cellranger|5.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/cellranger:5.0
 cellranger|6.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/cellranger:6.0
+cellranger|6.1.2|docker pull pgc-images.sbgenomics.com/d3b-bixu/cellranger:6.1.2
 cnvnator|v0.4.1|docker pull pgc-images.sbgenomics.com/d3b-bixu/cnvnator:v0.4.1
 codex2|3.8|docker pull pgc-images.sbgenomics.com/d3b-bixu/codex2:3.8
 consensus-merge|1.0.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/consensus-merge:1.0.0
