@@ -20,12 +20,9 @@ RUN apt-get update -y && apt-get install -y curl \
     && sh /tmp/miniconda.sh -bfp /usr \
     && conda config --add channels conda-forge \
     && conda install -y -c conda-forge r-base=${R_VERSION} \
-    && conda install -c bioconda bioconductor-gsva r-devtools bioconductor-org.hs.eg.db bioconductor-sva r-r.utils \
-    && R -e "install.packages('processx', repos = 'http://cran.us.r-project.org')" \
-    && R -e "install.packages('cli', repos = 'http://cran.us.r-project.org')" \
-    && R -e "install.packages('rlang', repos = 'http://cran.us.r-project.org')" \
+    && conda install -c bioconda bioconductor-gsva r-devtools bioconductor-org.hs.eg.db bioconductor-sva r-r.utils\
+    && R -e "install.packages(c('processx', 'cli', 'rlang'), repos = 'http://cran.us.r-project.org')" \
     && R -e "devtools::install_version('optparse', version = \"${OPTPARSE_VERSION}\", dependencies=TRUE, repos='http://cran.us.r-project.org')" \
-    && R -e "devtools::install_version('MM2S', dependencies=TRUE, repos='http://cran.us.r-project.org')" \
     && R -e "devtools::install_version('tidyverse', version = \"${TIDYVERSE_VERSION}\" ,dependencies=TRUE, repos='http://cran.us.r-project.org')" \
     && R -e "devtools::install_github(\"d3b-center/medullo-classifier-package@${MEDULLO_CLASSIFIER_VERSION}\")" \
     && pip install numpy==$NUMPY_VERSION scipy==$SCIPY_VERSION pandas==$PANDAS_VERSION pyreadr==$PYREADR_VERSION pytest==$PYTEST_VERSION rpy2==$RPY2_VERSION pandarallel==$PANDARALLEL_VERSION \
