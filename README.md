@@ -150,6 +150,7 @@ toolkit_subtyping|4.1.0R|docker pull pgc-images.sbgenomics.com/d3b-bixu/toolkit_
 toolkit_subtyping|pyreader0.4.4|docker pull pgc-images.sbgenomics.com/d3b-bixu/toolkit_subtyping:pyreader0.4.4
 toolkit_subtyping|subtyping_v1.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/toolkit_subtyping:subtyping_v1.0
 toolkit_subtyping|subtyping_v1.1|docker pull pgc-images.sbgenomics.com/d3b-bixu/toolkit_subtyping:subtyping_v1.1
+toolkit_subtyping|subtyping_v2.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/toolkit_subtyping:subtyping_v2.0
 toolkit_tmb|1.0.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/toolkit_tmb:1.0.0
 VarDictJava|1.5.8|docker pull pgc-images.sbgenomics.com/d3b-bixu/vardictjava:1.5.8
 VarDictJava|1.7.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/vardictjava:1.7.0
