@@ -13,7 +13,6 @@ ENV OPTPARSE_VERSION 1.7.3
 ENV TIDYVERSE_VERSION 1.3.2
 ENV RPY2_VERSION 3.5.10
 ENV MEDULLO_CLASSIFIER_VERSION v0.1.1
-ENV PANDARALLEL_VERSION 1.6.5
 
 RUN apt-get update -y && apt-get install -y curl \
     && curl -sL https://repo.anaconda.com/miniconda/Miniconda3-${MINICONDA_VERSION}-Linux-x86_64.sh -o /tmp/miniconda.sh \
@@ -25,7 +24,7 @@ RUN apt-get update -y && apt-get install -y curl \
     && R -e "devtools::install_version('optparse', version = \"${OPTPARSE_VERSION}\", dependencies=TRUE, repos='http://cran.us.r-project.org')" \
     && R -e "devtools::install_version('tidyverse', version = \"${TIDYVERSE_VERSION}\" ,dependencies=TRUE, repos='http://cran.us.r-project.org')" \
     && R -e "devtools::install_github(\"d3b-center/medullo-classifier-package@${MEDULLO_CLASSIFIER_VERSION}\")" \
-    && pip install numpy==$NUMPY_VERSION scipy==$SCIPY_VERSION pandas==$PANDAS_VERSION pyreadr==$PYREADR_VERSION pytest==$PYTEST_VERSION rpy2==$RPY2_VERSION pandarallel==$PANDARALLEL_VERSION \
+    && pip install numpy==$NUMPY_VERSION scipy==$SCIPY_VERSION pandas==$PANDAS_VERSION pyreadr==$PYREADR_VERSION pytest==$PYTEST_VERSION rpy2==$RPY2_VERSION \
     && apt-get remove curl -y && apt-get autoclean -y && apt-get autoremove -y && conda clean -a -y
 
 COPY Dockerfile .
