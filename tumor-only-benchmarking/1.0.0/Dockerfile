@@ -1,6 +1,6 @@
-FROM ubuntu:22.04
+FROM ubuntu:20.04
 LABEL maintainer="Saksham Phul (phuls@chop.edu)"
-LABEL description="RTG tool for benchmarking vcf files & bcftools to play with VCFs, pandarallel to speed up pandas dataframes"
+LABEL description="RTG tool for benchmarking vcf files & bcftools to play with VCFs, pandarallel to speed up pandas dataframes and matplotlib for plotting"
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV BCFTOOLS_VERSION 1.17
@@ -12,8 +12,6 @@ RUN apt update && apt upgrade -y && apt install default-jre wget unzip apache2 a
 RUN apt install -y bzip2 liblzma-dev && curl -SL https://github.com/samtools/bcftools/releases/download/${BCFTOOLS_VERSION}/bcftools-${BCFTOOLS_VERSION}.tar.bz2 | tar -jx  && cd bcftools-${BCFTOOLS_VERSION} && sh configure --prefix=/home && make && make install && apt install python3.11-dev -y && python3.11 -m pip install -U psutil pandarallel matplotlib
 
 RUN curl -SL https://github.com/samtools/htslib/releases/download/${HTSLIB_VERSION}/htslib-${HTSLIB_VERSION}.tar.bz2 | tar -jx  && cd htslib-${HTSLIB_VERSION} && sh configure --prefix=/home && make && make install
-
-RUN apt-get remove unzip git wget curl tar -y
 
 ENV PATH=$PATH:"/home/RTG/rtg-tools-${RTG_VERSION}-unknown/"
 ENV PATH=$PATH:"/home/bin/"
