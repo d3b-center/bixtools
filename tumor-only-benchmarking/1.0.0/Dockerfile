@@ -21,4 +21,6 @@ ENV BCFTOOLS_PLUGINS="/home/bcftools-${BCFTOOLS_VERSION}/plugins"
 #run rtg to config, only required for 1st run
 RUN rtg --help
 
+RUN apt remove -y wget curl unzip git && apt clean -y && apt autoremove -y
+
 COPY Dockerfile .
