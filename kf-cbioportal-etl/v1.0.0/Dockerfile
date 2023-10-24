@@ -3,7 +3,7 @@ LABEL maintainer="Miguel Brown (brownm28@chop.edu)"
 LABEL description="Kids First cBioportal Load ETL"
 
 ENV DEBIAN_FRONTEND=noninteractive
-RUN apt update && apt upgrade -y && apt install -y python-is-python3 python3-pip cpanminus r-base libxml2-dev \
+RUN apt update && apt upgrade -y && apt install -y python-is-python3 python3-pip cpanminus r-base git libxml2-dev \
  libharfbuzz-dev \
  libfontconfig1-dev \
  libfribidi-dev \
@@ -22,3 +22,5 @@ RUN R -e "install.packages('tidyr', repos='http://cran.rstudio.com/')"
 RUN R -e "install.packages('tidyverse', repos='http://cran.rstudio.com/')"
 RUN R -e "install.packages('data.table', repos='http://cran.rstudio.com/')"
 RUN R -e "install.packages('funr', repos='http://cran.rstudio.com/')"
+
+RUN git clone https://github.com/kids-first/kf-cbioportal-etl && git clone https://github.com/cBioPortal/cbioportal
