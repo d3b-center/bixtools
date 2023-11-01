@@ -26,6 +26,7 @@ arriba|1.1.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/arriba:1.1.0
 arriba|2.2.1|docker pull pgc-images.sbgenomics.com/d3b-bixu/arriba:2.2.1
 arriba|latest|docker pull pgc-images.sbgenomics.com/d3b-bixu/arriba:latest
 autopvs1|v1.0.1|docker pull pgc-images.sbgenomics.com/d3b-bixu/autopvs1:v1.0.1
+autopvs1|v2.0.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/autopvs1:v2.0.0
 bcbio|variation_recall-0.2.4|docker pull pgc-images.sbgenomics.com/d3b-bixu/bcbio:variation_recall-0.2.4
 bed_tools|bedopsv2.4.36_plus_bedtools|docker pull pgc-images.sbgenomics.com/d3b-bixu/bed_tools:bedopsv2.4.36_plus_bedtools
 BIC-seq2|0.7.2|docker pull pgc-images.sbgenomics.com/d3b-bixu/bic-seq2:0.7.2
@@ -51,6 +52,7 @@ cutadapt|3.4|docker pull pgc-images.sbgenomics.com/d3b-bixu/cutadapt:3.4
 cutadapt|latest|docker pull pgc-images.sbgenomics.com/d3b-bixu/cutadapt:latest
 cutesv|1.0.13|docker pull pgc-images.sbgenomics.com/d3b-bixu/cutesv:1.0.13
 cutesv|2.0.3|docker pull pgc-images.sbgenomics.com/d3b-bixu/cutesv:2.0.3
+echtvar|0.1.9|docker pull pgc-images.sbgenomics.com/d3b-bixu/echtvar:0.1.9
 fastqc|v0.11.9|docker pull pgc-images.sbgenomics.com/d3b-bixu/fastqc:v0.11.9
 freebayes|v1.3.1|docker pull pgc-images.sbgenomics.com/d3b-bixu/freebayes:v1.3.1
 freebayes|v1.3.2|docker pull pgc-images.sbgenomics.com/d3b-bixu/freebayes:v1.3.2
@@ -101,6 +103,7 @@ octopus|0.6.3-beta|docker pull pgc-images.sbgenomics.com/d3b-bixu/octopus:0.6.3-
 pbta-splicing|0.1|docker pull pgc-images.sbgenomics.com/d3b-bixu/pbta-splicing:0.1
 peddy|v0.4.2|docker pull pgc-images.sbgenomics.com/d3b-bixu/peddy:v0.4.2
 peddy|v0.4.7|docker pull pgc-images.sbgenomics.com/d3b-bixu/peddy:v0.4.7
+phlat|1.0.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/phlat:1.0.0
 picard-r|picard2.15.0-r.3.3.3|docker pull pgc-images.sbgenomics.com/d3b-bixu/picard-r:picard2.15.0-r.3.3.3
 picard-r|picard2.8.3-r3.3.3|docker pull pgc-images.sbgenomics.com/d3b-bixu/picard-r:picard2.8.3-r3.3.3
 picard|2.14.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/picard:2.14.0
@@ -147,6 +150,7 @@ strelka|v2.9.10|docker pull pgc-images.sbgenomics.com/d3b-bixu/strelka:v2.9.10
 sv2|latest|docker pull pgc-images.sbgenomics.com/d3b-bixu/sv2:latest
 svaba|1.1.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/svaba:1.1.0
 SVTyper|0.7.1|docker pull pgc-images.sbgenomics.com/d3b-bixu/svtyper:0.7.1
+t1k|v1.0.2|docker pull pgc-images.sbgenomics.com/d3b-bixu/t1k:v1.0.2
 THetA2|0.7.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/theta2:0.7.0
 THetA2|0.7.1|docker pull pgc-images.sbgenomics.com/d3b-bixu/theta2:0.7.1
 tidyverse|3.6.1-canine-util|docker pull pgc-images.sbgenomics.com/d3b-bixu/tidyverse:3.6.1-canine-util
@@ -155,6 +159,7 @@ toolkit_subtyping|4.1.0R|docker pull pgc-images.sbgenomics.com/d3b-bixu/toolkit_
 toolkit_subtyping|pyreader0.4.4|docker pull pgc-images.sbgenomics.com/d3b-bixu/toolkit_subtyping:pyreader0.4.4
 toolkit_subtyping|subtyping_v1.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/toolkit_subtyping:subtyping_v1.0
 toolkit_subtyping|subtyping_v1.1|docker pull pgc-images.sbgenomics.com/d3b-bixu/toolkit_subtyping:subtyping_v1.1
+toolkit_subtyping|subtyping_v2.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/toolkit_subtyping:subtyping_v2.0
 toolkit_tmb|1.0.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/toolkit_tmb:1.0.0
 tumor-only-benchmarking|1.0.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/tumor-only-benchmarking:1.0.0
 VarDictJava|1.5.8|docker pull pgc-images.sbgenomics.com/d3b-bixu/vardictjava:1.5.8
