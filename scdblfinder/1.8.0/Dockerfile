@@ -1,4 +1,4 @@
-FROM pgc-images.sbgenomics.com/brownm28/scrna_qc:v1.0.0
+FROM pgc-images.sbgenomics.com/d3b-bixu/scrna_qc:v1.0.0
 
 LABEL maintainer="Miguel Brown (brownm28@chop.edu)"
 LABEL description="scDblFinder - use qc docker as base image as usage in workflow os wrapped in an R markdown notebook. Heavy stuff"
