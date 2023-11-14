@@ -129,6 +129,7 @@ samtools|1.9|docker pull pgc-images.sbgenomics.com/d3b-bixu/samtools:1.9
 samtools|latest|docker pull pgc-images.sbgenomics.com/d3b-bixu/samtools:latest
 sanger|caveman-pindel|docker pull pgc-images.sbgenomics.com/d3b-bixu/sanger:caveman-pindel
 scdblfinder|1.8.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/scdblfinder:1.8.0
+scdblfinder|v1.12.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/scdblfinder:v1.12.0
 scRNA_qc|v1.0.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/scrna_qc:v1.0.0
 scRNA_qc|v1.0.1|docker pull pgc-images.sbgenomics.com/d3b-bixu/scrna_qc:v1.0.1
 scrublet|0.2.3|docker pull pgc-images.sbgenomics.com/d3b-bixu/scrublet:0.2.3
