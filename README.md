@@ -142,10 +142,13 @@ sniffles|2.0.3|docker pull pgc-images.sbgenomics.com/d3b-bixu/sniffles:2.0.3
 sniffles|2.0.7|docker pull pgc-images.sbgenomics.com/d3b-bixu/sniffles:2.0.7
 snpEff|4.3t|docker pull pgc-images.sbgenomics.com/d3b-bixu/snpeff:4.3t
 snpEff|latest|docker pull pgc-images.sbgenomics.com/d3b-bixu/snpeff:latest
+soupx_R|1.6.2|docker pull pgc-images.sbgenomics.com/d3b-bixu/soupx_r:1.6.2
 soupx_R|4.1.0_SoupX|docker pull pgc-images.sbgenomics.com/d3b-bixu/soupx_r:4.1.0_SoupX
 speedseq|latest|docker pull pgc-images.sbgenomics.com/d3b-bixu/speedseq:latest
 star|2.6.1d|docker pull pgc-images.sbgenomics.com/d3b-bixu/star:2.6.1d
 star|2.7.10a|docker pull pgc-images.sbgenomics.com/d3b-bixu/star:2.7.10a
+star|2.7.10b|docker pull pgc-images.sbgenomics.com/d3b-bixu/star:2.7.10b
+star|2.7.11a|docker pull pgc-images.sbgenomics.com/d3b-bixu/star:2.7.11a
 star|2.7.5a|docker pull pgc-images.sbgenomics.com/d3b-bixu/star:2.7.5a
 star|fusion-1.10.1|docker pull pgc-images.sbgenomics.com/d3b-bixu/star:fusion-1.10.1
 star|fusion-1.5.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/star:fusion-1.5.0
