@@ -1,7 +1,7 @@
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 LABEL maintainer="Miguel Brown (brownm28@chop.edu)"
 
-ENV STAR_VERSION 2.7.10a
+ENV STAR_VERSION 2.7.11a
 
 RUN apt update && apt install -y wget pigz \
 && cd /usr/local && wget https://github.com/alexdobin/STAR/archive/${STAR_VERSION}.tar.gz \
@@ -10,4 +10,4 @@ RUN apt update && apt install -y wget pigz \
 && rm ${STAR_VERSION}.tar.gz \
 && apt -y remove wget
 
-ADD Dockerfile .
+COPY Dockerfile .
