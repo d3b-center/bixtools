@@ -132,6 +132,7 @@ scdblfinder|1.8.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/scdblfinder:1.8
 scdblfinder|v1.12.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/scdblfinder:v1.12.0
 scRNA_qc|v1.0.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/scrna_qc:v1.0.0
 scRNA_qc|v1.0.1|docker pull pgc-images.sbgenomics.com/d3b-bixu/scrna_qc:v1.0.1
+scRNA_qc|v1.1.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/scrna_qc:v1.1.0
 scrublet|0.2.3|docker pull pgc-images.sbgenomics.com/d3b-bixu/scrublet:0.2.3
 sentieon|202112.01_hifi|docker pull pgc-images.sbgenomics.com/d3b-bixu/sentieon:202112.01_hifi
 seqkit|2.3.1|docker pull pgc-images.sbgenomics.com/d3b-bixu/seqkit:2.3.1
