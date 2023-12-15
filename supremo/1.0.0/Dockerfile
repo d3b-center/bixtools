@@ -3,7 +3,7 @@ LABEL maintainer="Daniel Miller (millerd15@chop.edu)"
 LABEL descrption="SuPreMo - Pipeline for scoring simple and structural variants using Akita"
 
 RUN apt update \
-    && apt install -y build-essential
+    && apt install -y build-essential curl
 
 WORKDIR /opt
 
@@ -18,8 +18,8 @@ ENV BASENJIDIR /opt/basenji
 ENV PATH $BASENJIDIR/bin:$PATH
 ENV PYTHONPATH $BASENJIDIR/bin:$PYTHONPATH
 
-ENV SUPREMO_VERSION 0.1.0
-RUN git clone https://github.com/ketringjoni/SuPreMo.git
+ENV SUPREMO_VERSION 1.0
+RUN curl -sL https://github.com/ketringjoni/SuPreMo/archive/refs/tags/v${SUPREMO_VERSION}.tar.gz | tar xf && mv SuPreMo-${SUPREMO_VERSION} SuPreMo
 
 RUN cd /opt/SuPreMo \
     && conda env update --name base --file get_Akita_scores_env.yml
