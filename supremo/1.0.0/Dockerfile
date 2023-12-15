@@ -19,7 +19,7 @@ ENV PATH $BASENJIDIR/bin:$PATH
 ENV PYTHONPATH $BASENJIDIR/bin:$PYTHONPATH
 
 ENV SUPREMO_VERSION 1.0
-RUN curl -sL https://github.com/ketringjoni/SuPreMo/archive/refs/tags/v${SUPREMO_VERSION}.tar.gz | tar xf && mv SuPreMo-${SUPREMO_VERSION} SuPreMo
+RUN curl -sL https://github.com/ketringjoni/SuPreMo/archive/refs/tags/v${SUPREMO_VERSION}.tar.gz | tar -xz && mv SuPreMo-${SUPREMO_VERSION} SuPreMo
 
 RUN cd /opt/SuPreMo \
     && conda env update --name base --file get_Akita_scores_env.yml
