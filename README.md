@@ -154,6 +154,7 @@ star|2.7.5a|docker pull pgc-images.sbgenomics.com/d3b-bixu/star:2.7.5a
 star|fusion-1.10.1|docker pull pgc-images.sbgenomics.com/d3b-bixu/star:fusion-1.10.1
 star|fusion-1.5.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/star:fusion-1.5.0
 stranded|1.0.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/stranded:1.0.0
+stranded|1.1.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/stranded:1.1.0
 strelka|v2.9.10|docker pull pgc-images.sbgenomics.com/d3b-bixu/strelka:v2.9.10
 supremo|1.0.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/supremo:1.0.0
 sv2|latest|docker pull pgc-images.sbgenomics.com/d3b-bixu/sv2:latest
