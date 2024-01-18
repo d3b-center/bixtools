@@ -1,4 +1,4 @@
-FROM staphb/samtools:1.19
+FROM staphb/samtools:1.17
 
 RUN apt update && apt install -y curl python-is-python3 python3-pip git
 
