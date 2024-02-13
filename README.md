@@ -53,6 +53,7 @@ cutadapt|latest|docker pull pgc-images.sbgenomics.com/d3b-bixu/cutadapt:latest
 cutesv|1.0.13|docker pull pgc-images.sbgenomics.com/d3b-bixu/cutesv:1.0.13
 cutesv|2.0.3|docker pull pgc-images.sbgenomics.com/d3b-bixu/cutesv:2.0.3
 echtvar|0.1.9|docker pull pgc-images.sbgenomics.com/d3b-bixu/echtvar:0.1.9
+echtvar|0.2.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/echtvar:0.2.0
 echtvar|0.2.0-rc|docker pull pgc-images.sbgenomics.com/d3b-bixu/echtvar:0.2.0-rc
 fastqc|v0.11.9|docker pull pgc-images.sbgenomics.com/d3b-bixu/fastqc:v0.11.9
 freebayes|v1.3.1|docker pull pgc-images.sbgenomics.com/d3b-bixu/freebayes:v1.3.1
