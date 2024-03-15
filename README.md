@@ -116,6 +116,7 @@ picard|2.18.9R|docker pull pgc-images.sbgenomics.com/d3b-bixu/picard:2.18.9R
 picard|2.8.3|docker pull pgc-images.sbgenomics.com/d3b-bixu/picard:2.8.3
 picard|latest|docker pull pgc-images.sbgenomics.com/d3b-bixu/picard:latest
 pizzly|latest|docker pull pgc-images.sbgenomics.com/d3b-bixu/pizzly:latest
+plink|1.90b7.2|docker pull pgc-images.sbgenomics.com/d3b-bixu/plink:1.90b7.2
 PureCN|latest|docker pull pgc-images.sbgenomics.com/d3b-bixu/purecn:latest
 pypy|3|docker pull pgc-images.sbgenomics.com/d3b-bixu/pypy:3
 pyspark|3.1.2|docker pull pgc-images.sbgenomics.com/d3b-bixu/pyspark:3.1.2
