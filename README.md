@@ -84,13 +84,14 @@ gistic|latest|docker pull pgc-images.sbgenomics.com/d3b-bixu/gistic:latest
 hisat2|2.2.1|docker pull pgc-images.sbgenomics.com/d3b-bixu/hisat2:2.2.1
 hotspots|0.1.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/hotspots:0.1.0
 intervar|v2.2.1|docker pull pgc-images.sbgenomics.com/d3b-bixu/intervar:v2.2.1
-isoseq|v4.1.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/isoseq:v4.1.0
+isoseq|v4.0.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/isoseq:v4.0.0
 kf_vcf2maf|v1.0.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/kf_vcf2maf:v1.0.0
 kf_vcf2maf|v1.0.1|docker pull pgc-images.sbgenomics.com/d3b-bixu/kf_vcf2maf:v1.0.1
 kf_vcf2maf|v1.0.2|docker pull pgc-images.sbgenomics.com/d3b-bixu/kf_vcf2maf:v1.0.2
 kf_vcf2maf|v1.0.3|docker pull pgc-images.sbgenomics.com/d3b-bixu/kf_vcf2maf:v1.0.3
 lancet|1.0.7|docker pull pgc-images.sbgenomics.com/d3b-bixu/lancet:1.0.7
 lancet|1.1.x|docker pull pgc-images.sbgenomics.com/d3b-bixu/lancet:1.1.x
+lima|v2.9.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/lima:v2.9.0
 LinkedSV|latest|docker pull pgc-images.sbgenomics.com/d3b-bixu/linkedsv:latest
 LOH|1.0.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/loh:1.0.0
 LOH|1.0.1|docker pull pgc-images.sbgenomics.com/d3b-bixu/loh:1.0.1
@@ -116,6 +117,7 @@ picard|2.18.9|docker pull pgc-images.sbgenomics.com/d3b-bixu/picard:2.18.9
 picard|2.18.9R|docker pull pgc-images.sbgenomics.com/d3b-bixu/picard:2.18.9R
 picard|2.8.3|docker pull pgc-images.sbgenomics.com/d3b-bixu/picard:2.8.3
 picard|latest|docker pull pgc-images.sbgenomics.com/d3b-bixu/picard:latest
+pigeon|v1.2.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/pigeon:v1.2.0
 pizzly|latest|docker pull pgc-images.sbgenomics.com/d3b-bixu/pizzly:latest
 plink|1.90b7.2|docker pull pgc-images.sbgenomics.com/d3b-bixu/plink:1.90b7.2
 PureCN|latest|docker pull pgc-images.sbgenomics.com/d3b-bixu/purecn:latest
