@@ -84,6 +84,7 @@ gistic|latest|docker pull pgc-images.sbgenomics.com/d3b-bixu/gistic:latest
 hisat2|2.2.1|docker pull pgc-images.sbgenomics.com/d3b-bixu/hisat2:2.2.1
 hotspots|0.1.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/hotspots:0.1.0
 intervar|v2.2.1|docker pull pgc-images.sbgenomics.com/d3b-bixu/intervar:v2.2.1
+isoseq|v4.1.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/isoseq:v4.1.0
 kf_vcf2maf|v1.0.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/kf_vcf2maf:v1.0.0
 kf_vcf2maf|v1.0.1|docker pull pgc-images.sbgenomics.com/d3b-bixu/kf_vcf2maf:v1.0.1
 kf_vcf2maf|v1.0.2|docker pull pgc-images.sbgenomics.com/d3b-bixu/kf_vcf2maf:v1.0.2
