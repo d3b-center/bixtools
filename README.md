@@ -101,7 +101,9 @@ lumpy-sv|0.3.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/lumpy-sv:0.3.0
 manta|1.4|docker pull pgc-images.sbgenomics.com/d3b-bixu/manta:1.4
 manta|1.6.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/manta:1.6.0
 mend_qc|latest|docker pull pgc-images.sbgenomics.com/d3b-bixu/mend_qc:latest
+minimap2|v2.28|docker pull pgc-images.sbgenomics.com/d3b-bixu/minimap2:v2.28
 msisensor|1.1.a|docker pull pgc-images.sbgenomics.com/d3b-bixu/msisensor:1.1.a
+nanocount|v1.1.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/nanocount:v1.1.0
 ngscheckmate|1.3|docker pull pgc-images.sbgenomics.com/d3b-bixu/ngscheckmate:1.3
 octopus|0.6.3-beta|docker pull pgc-images.sbgenomics.com/d3b-bixu/octopus:0.6.3-beta
 pbta-splicing|0.1|docker pull pgc-images.sbgenomics.com/d3b-bixu/pbta-splicing:0.1
