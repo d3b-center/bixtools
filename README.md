@@ -28,6 +28,7 @@ arriba|latest|docker pull pgc-images.sbgenomics.com/d3b-bixu/arriba:latest
 autopvs1|v1.0.1|docker pull pgc-images.sbgenomics.com/d3b-bixu/autopvs1:v1.0.1
 autopvs1|v2.0.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/autopvs1:v2.0.0
 bcbio|variation_recall-0.2.4|docker pull pgc-images.sbgenomics.com/d3b-bixu/bcbio:variation_recall-0.2.4
+bcftools|1.20|docker pull pgc-images.sbgenomics.com/d3b-bixu/bcftools:1.20
 bed_tools|bedopsv2.4.36_plus_bedtools|docker pull pgc-images.sbgenomics.com/d3b-bixu/bed_tools:bedopsv2.4.36_plus_bedtools
 BIC-seq2|0.7.2|docker pull pgc-images.sbgenomics.com/d3b-bixu/bic-seq2:0.7.2
 bvcftools|latest|docker pull pgc-images.sbgenomics.com/d3b-bixu/bvcftools:latest
