@@ -107,6 +107,7 @@ msisensor|1.1.a|docker pull pgc-images.sbgenomics.com/d3b-bixu/msisensor:1.1.a
 nanocount|v1.1.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/nanocount:v1.1.0
 ngscheckmate|1.3|docker pull pgc-images.sbgenomics.com/d3b-bixu/ngscheckmate:1.3
 octopus|0.6.3-beta|docker pull pgc-images.sbgenomics.com/d3b-bixu/octopus:0.6.3-beta
+pbfusion|v0.4.1|docker pull pgc-images.sbgenomics.com/d3b-bixu/pbfusion:v0.4.1
 pbta-splicing|0.1|docker pull pgc-images.sbgenomics.com/d3b-bixu/pbta-splicing:0.1
 peddy|v0.4.2|docker pull pgc-images.sbgenomics.com/d3b-bixu/peddy:v0.4.2
 peddy|v0.4.7|docker pull pgc-images.sbgenomics.com/d3b-bixu/peddy:v0.4.7
