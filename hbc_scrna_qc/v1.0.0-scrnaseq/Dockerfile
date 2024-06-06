@@ -11,5 +11,5 @@ ENV SEURATOBJECT_URL=https://cran.r-project.org/src/contrib/Archive/SeuratObject
 
 RUN apt update -y && apt install -y libbz2-dev libglpk40
 RUN  mkdir ~/.R && echo MAKEFLAGS = -j8 > ~/.R/Makevars && R -e "BiocManager::install(c('AnnotationHub', 'ensembldb', 'multtest', 'glmGamPoi'))"
-RUN R -e "install.packages(c('cowplot', 'fitdistrplus', 'future', 'future.apply', 'ggrepel', 'ggridges', 'ica', 'igraph', 'irlba', 'leiden', 'lmtest', 'matrixStats', 'patchwork', 'pbapply', 'plotly', 'png', 'progressr', 'RANN', 'RcppAnnoy', 'reticulate', 'ROCR', 'Rtsne', 'scattermore', 'sctransform', 'spatstat.explore', 'spatstat.geom', 'uwot', 'RcppEigen', 'RcppProgress', 'sp', 'metap'), type='source', Ncpus=8)"
+RUN R -e "install.packages(c('optparse', 'cowplot', 'fitdistrplus', 'future', 'future.apply', 'ggrepel', 'ggridges', 'ica', 'igraph', 'irlba', 'leiden', 'lmtest', 'matrixStats', 'patchwork', 'pbapply', 'plotly', 'png', 'progressr', 'RANN', 'RcppAnnoy', 'reticulate', 'ROCR', 'Rtsne', 'scattermore', 'sctransform', 'spatstat.explore', 'spatstat.geom', 'uwot', 'RcppEigen', 'RcppProgress', 'sp', 'metap'), type='source', Ncpus=8)"
 RUN R -e "install.packages(c('${SEURATOBJECT_URL}','${SEURAT_URL}'), repos=NULL, type='source', Ncpus=8)"
