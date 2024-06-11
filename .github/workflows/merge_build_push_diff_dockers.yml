@@ -58,5 +58,6 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
+          provenance: false
           context: "{{defaultContext}}:${{ matrix.path }}"
           tags: pgc-images.sbgenomics.com/${{ secrets.CAVATICA_USERNAME }}/${{ matrix.image }}:${{ matrix.tag }}
