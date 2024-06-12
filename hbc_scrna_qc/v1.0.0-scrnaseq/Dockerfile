@@ -1,6 +1,6 @@
 FROM rocker/tidyverse:4.4.0
 LABEL maintainer="Miguel Brown (brownm28@chop.edu)"
-LABEL description="Docker image to run Harvard Bioinformatics Core scRNA QC. Install specific version of Seurat for downstream compatibility"
+LABEL description="Docker image to run Harvard Bioinformatics Core (HBC) scRNA QC as defined here: https://github.com/hbctraining/scRNA-seq_online?tab=readme-ov-file#installation-requirements. Install specific version of Seurat for downstream compatibility"
 
 ENV DEBIAN_FRONTEND=noninteractive
 # Install dependencies so that a specific version of Seurat can be installed
