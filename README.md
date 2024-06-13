@@ -82,6 +82,7 @@ gatk|4.beta.6|docker pull pgc-images.sbgenomics.com/d3b-bixu/gatk:4.beta.6
 gatk|4.beta.6-tabix|docker pull pgc-images.sbgenomics.com/d3b-bixu/gatk:4.beta.6-tabix
 gatk|latest|docker pull pgc-images.sbgenomics.com/d3b-bixu/gatk:latest
 gistic|latest|docker pull pgc-images.sbgenomics.com/d3b-bixu/gistic:latest
+hbc_scrna_qc|scrnaseq|docker pull pgc-images.sbgenomics.com/d3b-bixu/hbc_scrna_qc:scrnaseq
 hisat2|2.2.1|docker pull pgc-images.sbgenomics.com/d3b-bixu/hisat2:2.2.1
 hotspots|0.1.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/hotspots:0.1.0
 intervar|v2.2.1|docker pull pgc-images.sbgenomics.com/d3b-bixu/intervar:v2.2.1
