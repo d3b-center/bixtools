@@ -4,7 +4,7 @@ LABEL maintainer="Miguel Browm (brownm28@chop.edu)"
 WORKDIR /rocker-build/
 
 ENV ANNOFUSE_VER v0.92.0
-ENV ANNOFUSE_DATA_VER v0.1.0
+ENV ANNOFUSE_DATA_VER v1.0.0
 
 RUN apt-get update && apt-get install -y --no-install-recommends apt-utils \
 && apt-get install dialog apt-utils libbz2-dev -y \
