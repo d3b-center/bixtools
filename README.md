@@ -178,6 +178,7 @@ THetA2|0.7.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/theta2:0.7.0
 THetA2|0.7.1|docker pull pgc-images.sbgenomics.com/d3b-bixu/theta2:0.7.1
 tidyverse|3.6.1-canine-util|docker pull pgc-images.sbgenomics.com/d3b-bixu/tidyverse:3.6.1-canine-util
 toolkit_immune_deconvolution|1.0.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/toolkit_immune_deconvolution:1.0.0
+toolkit_python|3.0.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/toolkit_python:3.0.0
 toolkit_subtyping|4.1.0R|docker pull pgc-images.sbgenomics.com/d3b-bixu/toolkit_subtyping:4.1.0R
 toolkit_subtyping|pyreader0.4.4|docker pull pgc-images.sbgenomics.com/d3b-bixu/toolkit_subtyping:pyreader0.4.4
 toolkit_subtyping|subtyping_v1.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/toolkit_subtyping:subtyping_v1.0
