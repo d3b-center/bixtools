@@ -177,6 +177,7 @@ t1k|v1.0.5|docker pull pgc-images.sbgenomics.com/d3b-bixu/t1k:v1.0.5
 THetA2|0.7.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/theta2:0.7.0
 THetA2|0.7.1|docker pull pgc-images.sbgenomics.com/d3b-bixu/theta2:0.7.1
 tidyverse|3.6.1-canine-util|docker pull pgc-images.sbgenomics.com/d3b-bixu/tidyverse:3.6.1-canine-util
+tidyverse|4.4.2-gatk-plotter|docker pull pgc-images.sbgenomics.com/d3b-bixu/tidyverse:4.4.2-gatk-plotter
 toolkit_immune_deconvolution|1.0.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/toolkit_immune_deconvolution:1.0.0
 toolkit_immune_deconvolution|1.1.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/toolkit_immune_deconvolution:1.1.0
 toolkit_python|3.0.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/toolkit_python:3.0.0
