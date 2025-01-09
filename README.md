@@ -180,6 +180,7 @@ tidyverse|3.6.1-canine-util|docker pull pgc-images.sbgenomics.com/d3b-bixu/tidyv
 toolkit_immune_deconvolution|1.0.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/toolkit_immune_deconvolution:1.0.0
 toolkit_immune_deconvolution|1.1.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/toolkit_immune_deconvolution:1.1.0
 toolkit_python|3.0.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/toolkit_python:3.0.0
+toolkit_splicing_data_products|1.0.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/toolkit_splicing_data_products:1.0.0
 toolkit_subtyping|4.1.0R|docker pull pgc-images.sbgenomics.com/d3b-bixu/toolkit_subtyping:4.1.0R
 toolkit_subtyping|pyreader0.4.4|docker pull pgc-images.sbgenomics.com/d3b-bixu/toolkit_subtyping:pyreader0.4.4
 toolkit_subtyping|subtyping_v1.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/toolkit_subtyping:subtyping_v1.0
