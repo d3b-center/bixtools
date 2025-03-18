@@ -18,11 +18,11 @@ RUN apt-get update && apt-get install -y \
     bedtools \
     && rm -rf /var/lib/apt/lists/*
 
-ENV CBIO_ETL_VERSION 1.0.0
+ENV CBIO_ETL_VERSION 2.2.0
 
 WORKDIR /
 
-RUN git clone https://github.com/kids-first/kf-cbioportal-etl.git /kf-cbioportal-etl \
+RUN git clone --branch v${CBIO_ETL_VERSION} https://github.com/kids-first/kf-cbioportal-etl.git /kf-cbioportal-etl \
     && pip install /kf-cbioportal-etl/
     
 COPY Dockerfile .
