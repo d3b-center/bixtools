@@ -4,7 +4,6 @@ LABEL maintainer="Jessica Wong <wongj4@chop.edu>"
 LABEL description="cbio-etl"
 
 RUN apt-get update && apt-get install -y \
-    wget \
     apt-utils \
     curl \
     git \
@@ -23,8 +22,7 @@ ENV CBIO_ETL_VERSION 2.2.0
 
 WORKDIR /
 
-RUN wget https://github.com/kids-first/kf-cbioportal-etl/archive/refs/tags/v${CBIO_ETL_VERSION}.tar.gz \
-    && tar -xzf v${CBIO_ETL_VERSION}.tar.gz \
+RUN curl -L https://github.com/kids-first/kf-cbioportal-etl/archive/refs/tags/v${CBIO_ETL_VERSION}.tar.gz | tar xz \
     && pip install /kf-cbioportal-etl-${CBIO_ETL_VERSION}/
     
 COPY Dockerfile .
