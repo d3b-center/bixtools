@@ -22,7 +22,7 @@ ENV CBIO_ETL_VERSION 2.2.0
 
 WORKDIR /
 
-RUN git clone --branch v${CBIO_ETL_VERSION} https://github.com/kids-first/kf-cbioportal-etl.git /kf-cbioportal-etl \
+RUN git clone --branch v${CBIO_ETL_VERSION} --single-branch https://github.com/kids-first/kf-cbioportal-etl.git /kf-cbioportal-etl \
     && pip install /kf-cbioportal-etl/
     
 COPY Dockerfile .
