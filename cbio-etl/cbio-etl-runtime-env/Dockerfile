@@ -14,8 +14,6 @@ RUN apt-get update && apt-get install -y \
     pkg-config \
     libmysqlclient-dev \
     build-essential \
-    perl \
-    libtry-tiny-perl \
     bedtools \
     && rm -rf /var/lib/apt/lists/*
 
