@@ -18,11 +18,18 @@ jobs:
         with:
           fetch-depth: 0
       - id: changed-files-docker
-        uses: tj-actions/changed-files@v46
         name: Get Changed Dockerfiles
-        with:
-          files: |
-            **/Dockerfile
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            git fetch origin ${{ github.event.pull_request.base.ref }}
+            CHANGED_FILES=$(git diff --name-only origin/${{ github.event.pull_request.base.ref }} HEAD)
+          else
+            CHANGED_FILES=$(git diff --name-only HEAD^ HEAD)
+          fi
+
+          DOCKERFILES=$(echo "$CHANGED_FILES" | grep -E '^.+/Dockerfile$' || true)
+          DOCKERFILES_SPACE=$(echo "$DOCKERFILES" | tr '\n' ' ')
+          echo "all_changed_files=$DOCKERFILES_SPACE" >> $GITHUB_OUTPUT
       - id: set-matrix
         name: Changed Dockerfiles String to Matrix
         run: |
