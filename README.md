@@ -40,7 +40,6 @@ bwa|0.7.15-r1140|docker pull pgc-images.sbgenomics.com/d3b-bixu/bwa:0.7.15-r1140
 bwa|0.7.17-r1188|docker pull pgc-images.sbgenomics.com/d3b-bixu/bwa:0.7.17-r1188
 bwa|latest|docker pull pgc-images.sbgenomics.com/d3b-bixu/bwa:latest
 canvas|1.11.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/canvas:1.11.0
-cbio-etl|cbio-etl-runtime-env|docker pull pgc-images.sbgenomics.com/d3b-bixu/cbio-etl:cbio-etl-runtime-env
 cbio-etl|v2.2.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/cbio-etl:v2.2.0
 cellranger|3.1|docker pull pgc-images.sbgenomics.com/d3b-bixu/cellranger:3.1
 cellranger|5.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/cellranger:5.0
