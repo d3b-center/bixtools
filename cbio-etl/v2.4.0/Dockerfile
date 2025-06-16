@@ -20,5 +20,15 @@ RUN apt-get update && apt-get install -y \
 RUN python3 -m pip install --upgrade pip setuptools wheel
 
 WORKDIR /
+
+ENV CBIO_ETL_VERSION 2.4.0
+ENV CBIO_REFS_VERSION 1.0.0
+
+RUN git clone https://github.com/kids-first/kf-cbioportal-etl.git \
+    && cd kf-cbioportal-etl \
+    && git checkout v${CBIO_ETL_VERSION} \
+    && curl -L https://github.com/kids-first/kf-cbioportal-etl-refs/archive/refs/tags/v${CBIO_REFS_VERSION}.tar.gz | tar -xz -C cbioportal_etl/ --wildcards '*REFS/*' --strip-components=1 \
+    && curl -L https://github.com/kids-first/kf-cbioportal-etl-refs/archive/refs/tags/v${CBIO_REFS_VERSION}.tar.gz | tar -xz -C cbioportal_etl/ --wildcards '*STUDY_CONFIGS/*' --strip-components=1 \
+    && pip install .
     
 COPY Dockerfile .
