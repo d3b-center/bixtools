@@ -23,13 +23,7 @@ jobs:
       - id: changed-files-docker
         name: Get Changed Dockerfiles
         run: |
-          if [ "${{ github.event_name }}" = "pull_request" ]; then
-            git fetch origin ${{ github.event.pull_request.base.ref }}
-            CHANGED_FILES=$(git diff --name-only origin/${{ github.event.pull_request.base.ref }} HEAD)
-          else
-            CHANGED_FILES=$(git diff --name-only HEAD^ HEAD)
-          fi
-
+          CHANGED_FILES=$(git diff --name-only HEAD^ HEAD)
           DOCKERFILES=$(echo "$CHANGED_FILES" | grep -E '^.+/Dockerfile$' || true)
           DOCKERFILES_SPACE=$(echo "$DOCKERFILES" | tr '\n' ' ')
           echo "all_changed_files=$DOCKERFILES_SPACE" >> $GITHUB_OUTPUT
