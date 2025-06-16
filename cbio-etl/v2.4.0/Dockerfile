@@ -20,9 +20,5 @@ RUN apt-get update && apt-get install -y \
 RUN python3 -m pip install --upgrade pip setuptools wheel
 
 WORKDIR /
-
-ENV CBIO_ETL_VERSION 2.4.0
-
-RUN git clone --branch ${CBIO_ETL_VERSION} --depth 1 https://github.com/kids-first/kf-cbioportal-etl.git
     
 COPY Dockerfile .
