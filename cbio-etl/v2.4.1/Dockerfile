@@ -21,8 +21,8 @@ RUN python3 -m pip install --upgrade pip setuptools wheel
 
 WORKDIR /
 
-ENV CBIO_ETL_VERSION 2.4.0
-ENV CBIO_REFS_VERSION 1.0.0
+ENV CBIO_ETL_VERSION 2.4.1
+ENV CBIO_REFS_VERSION 1.1.0
 
 RUN git clone https://github.com/kids-first/kf-cbioportal-etl.git \
     && cd kf-cbioportal-etl \
