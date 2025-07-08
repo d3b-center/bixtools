@@ -31,7 +31,7 @@ bcbio|variation_recall-0.2.4|docker pull pgc-images.sbgenomics.com/d3b-bixu/bcbi
 bcftools|1.20|docker pull pgc-images.sbgenomics.com/d3b-bixu/bcftools:1.20
 bed_tools|bedopsv2.4.36_plus_bedtools|docker pull pgc-images.sbgenomics.com/d3b-bixu/bed_tools:bedopsv2.4.36_plus_bedtools
 BIC-seq2|0.7.2|docker pull pgc-images.sbgenomics.com/d3b-bixu/bic-seq2:0.7.2
-bvcftools|24.04|docker pull pgc-images.sbgenomics.com/d3b-bixu/bvcftools:24.04
+bvcftools|latest|docker pull pgc-images.sbgenomics.com/d3b-bixu/bvcftools:latest
 bwa-bundle|0.1.17|docker pull pgc-images.sbgenomics.com/d3b-bixu/bwa-bundle:0.1.17
 bwa-picard|broad|docker pull pgc-images.sbgenomics.com/d3b-bixu/bwa-picard:broad
 bwa-picard|latest|docker pull pgc-images.sbgenomics.com/d3b-bixu/bwa-picard:latest
@@ -188,7 +188,7 @@ tumor-only-benchmarking|1.0.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/tum
 VarDictJava|1.5.8|docker pull pgc-images.sbgenomics.com/d3b-bixu/vardictjava:1.5.8
 VarDictJava|1.7.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/vardictjava:1.7.0
 VarDictJava|fp_filter|docker pull pgc-images.sbgenomics.com/d3b-bixu/vardictjava:fp_filter
-vcfutils|24.04|docker pull pgc-images.sbgenomics.com/d3b-bixu/vcfutils:24.04
+vcfutils|latest|docker pull pgc-images.sbgenomics.com/d3b-bixu/vcfutils:latest
 velocyto|0.17.17|docker pull pgc-images.sbgenomics.com/d3b-bixu/velocyto:0.17.17
 VEP|r93|docker pull pgc-images.sbgenomics.com/d3b-bixu/vep:r93
 VEP|r93.7|docker pull pgc-images.sbgenomics.com/d3b-bixu/vep:r93.7
