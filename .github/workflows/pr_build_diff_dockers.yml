@@ -20,10 +20,9 @@ jobs:
       - id: changed-files-docker
         name: Get Changed Dockerfiles
         run: |
-          CHANGED_FILES=$(git diff --name-only HEAD^ HEAD)
-          DOCKERFILES=$(echo "$CHANGED_FILES" | grep -E '^.+/Dockerfile$' || true)
-          DOCKERFILES_SPACE=$(echo "$DOCKERFILES" | tr '\n' ' ')
-          echo "all_changed_files=$DOCKERFILES_SPACE" >> $GITHUB_OUTPUT
+          # Git diff the paths of the Dockerfiles that have undergone a non-deletion change and convert to a space separated list
+          CHANGED_DOCKERFILES=$(git diff --name-only --diff-filter=d HEAD^ HEAD **/Dockerfile | tr '\n' ' ')
+          echo "all_changed_files=$CHANGED_DOCKERFILES" >> $GITHUB_OUTPUT
       - id: set-matrix
         name: Changed Dockerfiles String to Matrix
         run: |
