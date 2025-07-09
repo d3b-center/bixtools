@@ -132,6 +132,7 @@ pypy|3|docker pull pgc-images.sbgenomics.com/d3b-bixu/pypy:3
 pyspark|3.1.2|docker pull pgc-images.sbgenomics.com/d3b-bixu/pyspark:3.1.2
 python|2.7.13|docker pull pgc-images.sbgenomics.com/d3b-bixu/python:2.7.13
 python|3.9-canine-util|docker pull pgc-images.sbgenomics.com/d3b-bixu/python:3.9-canine-util
+rnaseqc|v2.4.2|docker pull pgc-images.sbgenomics.com/d3b-bixu/rnaseqc:v2.4.2
 sambamba|0.6.3|docker pull pgc-images.sbgenomics.com/d3b-bixu/sambamba:0.6.3
 sambamba|0.7.1|docker pull pgc-images.sbgenomics.com/d3b-bixu/sambamba:0.7.1
 samtools|1.15.1|docker pull pgc-images.sbgenomics.com/d3b-bixu/samtools:1.15.1
