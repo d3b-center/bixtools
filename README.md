@@ -95,6 +95,7 @@ kf_vcf2maf|v1.0.2|docker pull pgc-images.sbgenomics.com/d3b-bixu/kf_vcf2maf:v1.0
 kf_vcf2maf|v1.0.3|docker pull pgc-images.sbgenomics.com/d3b-bixu/kf_vcf2maf:v1.0.3
 lancet|1.0.7|docker pull pgc-images.sbgenomics.com/d3b-bixu/lancet:1.0.7
 lancet|1.1.x|docker pull pgc-images.sbgenomics.com/d3b-bixu/lancet:1.1.x
+lgg_xcell|0.1.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/lgg_xcell:0.1.0
 lima|v2.9.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/lima:v2.9.0
 LinkedSV|latest|docker pull pgc-images.sbgenomics.com/d3b-bixu/linkedsv:latest
 LOH|1.0.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/loh:1.0.0
