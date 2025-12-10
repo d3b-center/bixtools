@@ -6,5 +6,4 @@ RUN install2.r optparse R.utils caret glmnet
 
 RUN R -e 'remotes::install_github("igordot/msigdbr", ref = "v25.1.1")'
 
-COPY 11-predict_immune_cluster.R .
 COPY Dockerfile .
