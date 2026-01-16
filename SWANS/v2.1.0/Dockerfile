@@ -6,4 +6,8 @@ LABEL description="Single-entity Workflow ANalysiS Pipeline (SWANS)"
 
 ENV SWANS_VERSION=2.1.0
 
+WORKDIR /SWANS
+
 RUN curl -L https://github.com/FrancoResearchLab/SWANS/archive/refs/tags/v${SWANS_VERSION}.tar.gz | tar -xz  --wildcards '*/scripts/' --strip-components=3
+WORKDIR /
+COPY Dockerfile .
