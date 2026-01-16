@@ -28,6 +28,6 @@ RUN git clone https://github.com/kids-first/kf-cbioportal-etl.git \
     && git checkout v${CBIO_ETL_VERSION} \
     && curl -L https://github.com/kids-first/kf-cbioportal-etl-refs/archive/refs/tags/v${CBIO_REFS_VERSION}.tar.gz | tar -xz -C cbioportal_etl/ --wildcards '*REFS/*' --strip-components=1 \
     && curl -L https://github.com/kids-first/kf-cbioportal-etl-refs/archive/refs/tags/v${CBIO_REFS_VERSION}.tar.gz | tar -xz -C cbioportal_etl/ --wildcards '*STUDY_CONFIGS/*' --strip-components=1 \
-    && pip install .
+    && pip install --break-system-packages .
     
 COPY Dockerfile .
