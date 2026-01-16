@@ -1,4 +1,5 @@
-FROM --platform=linux/amd64 ubuntu:24.04
+ARG PLATFORM=linux/amd64
+FROM --platform=${PLATFORM} ubuntu:24.04
 
 LABEL maintainer="Miguel Brown <brownm28@chop.edu>"
 LABEL description="cbio-etl"
