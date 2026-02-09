@@ -177,6 +177,7 @@ supremo|1.0.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/supremo:1.0.0
 sv2|latest|docker pull pgc-images.sbgenomics.com/d3b-bixu/sv2:latest
 svaba|1.1.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/svaba:1.1.0
 SVTyper|0.7.1|docker pull pgc-images.sbgenomics.com/d3b-bixu/svtyper:0.7.1
+SWANS|v2.1.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/swans:v2.1.0
 t1k|v1.0.2|docker pull pgc-images.sbgenomics.com/d3b-bixu/t1k:v1.0.2
 t1k|v1.0.5|docker pull pgc-images.sbgenomics.com/d3b-bixu/t1k:v1.0.5
 THetA2|0.7.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/theta2:0.7.0
