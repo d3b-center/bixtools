@@ -1,23 +1,10 @@
 ARG PLATFORM=linux/amd64
-FROM --platform=${PLATFORM} ubuntu:24.04
+FROM --platform=${PLATFORM} pgc-images.sbgenomics.com/d3b-bixu/cbio-etl-base:v1.0.0
 
 LABEL maintainer="Miguel Brown <brownm28@chop.edu>"
 LABEL description="cbio-etl"
 
 ENV DEBIAN_FRONTEND=noninteractive
-
-RUN apt update && apt install -y \
-    apt-utils \
-    git \
-    curl \
-    vim \
-    python3 \
-    python3-pip \
-    python3-dev \
-    pkg-config \
-    build-essential \
-    bedtools \
-    && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /
 
