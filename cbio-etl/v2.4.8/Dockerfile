@@ -8,7 +8,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 WORKDIR /
 
-ENV CBIO_ETL_VERSION=2.4.6
+ENV CBIO_ETL_VERSION=2.4.8
 ENV CBIO_REFS_VERSION=1.1.1
 
 RUN git clone https://github.com/kids-first/kf-cbioportal-etl.git \
