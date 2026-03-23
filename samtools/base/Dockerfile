@@ -20,4 +20,4 @@ RUN apt update && apt install -y \
     libncurses5-dev \
     libdeflate-dev \
     bzip2 \
-    curl \
+    curl
