@@ -145,6 +145,7 @@ samtools|1.3.1|docker pull pgc-images.sbgenomics.com/d3b-bixu/samtools:1.3.1
 samtools|1.6|docker pull pgc-images.sbgenomics.com/d3b-bixu/samtools:1.6
 samtools|1.7-11-g041220d|docker pull pgc-images.sbgenomics.com/d3b-bixu/samtools:1.7-11-g041220d
 samtools|1.9|docker pull pgc-images.sbgenomics.com/d3b-bixu/samtools:1.9
+samtools|base|docker pull pgc-images.sbgenomics.com/d3b-bixu/samtools:base
 samtools|latest|docker pull pgc-images.sbgenomics.com/d3b-bixu/samtools:latest
 sanger|caveman-pindel|docker pull pgc-images.sbgenomics.com/d3b-bixu/sanger:caveman-pindel
 scdblfinder|1.8.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/scdblfinder:1.8.0
