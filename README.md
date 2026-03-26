@@ -140,6 +140,7 @@ rnaseqc|v2.4.2|docker pull pgc-images.sbgenomics.com/d3b-bixu/rnaseqc:v2.4.2
 sambamba|0.6.3|docker pull pgc-images.sbgenomics.com/d3b-bixu/sambamba:0.6.3
 sambamba|0.7.1|docker pull pgc-images.sbgenomics.com/d3b-bixu/sambamba:0.7.1
 samtools|1.15.1|docker pull pgc-images.sbgenomics.com/d3b-bixu/samtools:1.15.1
+samtools|1.20-multi-arch|docker pull pgc-images.sbgenomics.com/d3b-bixu/samtools:1.20-multi-arch
 samtools|1.20-parallel|docker pull pgc-images.sbgenomics.com/d3b-bixu/samtools:1.20-parallel
 samtools|1.3.1|docker pull pgc-images.sbgenomics.com/d3b-bixu/samtools:1.3.1
 samtools|1.6|docker pull pgc-images.sbgenomics.com/d3b-bixu/samtools:1.6
