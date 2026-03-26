@@ -64,4 +64,4 @@ RUN ./configure --prefix=${C7_PREFIX} CFLAGS='-O3 -march=sapphirerapids' \
 && make clean
 WORKDIR /
 RUN rm -rf samtools*
-COPY Dockerfile link_samtools.sh ./
+COPY Dockerfile samtools /usr/local/bin
