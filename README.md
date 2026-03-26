@@ -53,6 +53,7 @@ cnvnator|v0.4.1|docker pull pgc-images.sbgenomics.com/d3b-bixu/cnvnator:v0.4.1
 codex2|3.8|docker pull pgc-images.sbgenomics.com/d3b-bixu/codex2:3.8
 consensus-merge|1.0.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/consensus-merge:1.0.0
 consensus-merge|1.1.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/consensus-merge:1.1.0
+consensus-merge|1.2.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/consensus-merge:1.2.0
 controlfreec|11.5|docker pull pgc-images.sbgenomics.com/d3b-bixu/controlfreec:11.5
 cutadapt|3.4|docker pull pgc-images.sbgenomics.com/d3b-bixu/cutadapt:3.4
 cutadapt|latest|docker pull pgc-images.sbgenomics.com/d3b-bixu/cutadapt:latest
