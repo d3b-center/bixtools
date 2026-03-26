@@ -3,11 +3,11 @@ set -euo pipefail
 # Pick samtools version based on march. Default to generic build if custom build not found
 root="/opt/samtools-1.20"
 march=`gcc -march=native -Q --help=target | grep march= | head -n1 | cut -f3-`
-echo $march
+echo $march >&2
 if [ -d "$root-$march" ]; then
-    echo "Using samtools $root-$march"
+    echo "Using samtools $root-$march" >&2
     $root-$march/bin/samtools "$@"
 else
-    echo "Using samtools $root/bin"
+    echo "Using samtools $root/bin" >&2
     $root/bin/samtools "$@"
 fi
