@@ -41,6 +41,7 @@ bwa|0.7.17-r1188|docker pull pgc-images.sbgenomics.com/d3b-bixu/bwa:0.7.17-r1188
 bwa|latest|docker pull pgc-images.sbgenomics.com/d3b-bixu/bwa:latest
 canvas|1.11.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/canvas:1.11.0
 cbio-etl-base|v1.0.0|docker pull pgc-images.sbgenomics.com/d3b-bixu/cbio-etl-base:v1.0.0
+cbio-etl-base|v1.0.1|docker pull pgc-images.sbgenomics.com/d3b-bixu/cbio-etl-base:v1.0.1
 cbio-etl|v2.4.4|docker pull pgc-images.sbgenomics.com/d3b-bixu/cbio-etl:v2.4.4
 cbio-etl|v2.4.6|docker pull pgc-images.sbgenomics.com/d3b-bixu/cbio-etl:v2.4.6
 cbio-etl|v2.4.8|docker pull pgc-images.sbgenomics.com/d3b-bixu/cbio-etl:v2.4.8
