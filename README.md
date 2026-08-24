@@ -168,6 +168,7 @@ sniffles|2.0.3|docker pull pgc-images.sbgenomics.com/d3b-bixu/sniffles:2.0.3
 sniffles|2.0.7|docker pull pgc-images.sbgenomics.com/d3b-bixu/sniffles:2.0.7
 snpEff|4.3t|docker pull pgc-images.sbgenomics.com/d3b-bixu/snpeff:4.3t
 snpEff|latest|docker pull pgc-images.sbgenomics.com/d3b-bixu/snpeff:latest
+somalier|v0.3.3|docker pull pgc-images.sbgenomics.com/d3b-bixu/somalier:v0.3.3
 soupx_R|1.6.2|docker pull pgc-images.sbgenomics.com/d3b-bixu/soupx_r:1.6.2
 soupx_R|4.1.0_SoupX|docker pull pgc-images.sbgenomics.com/d3b-bixu/soupx_r:4.1.0_SoupX
 speedseq|latest|docker pull pgc-images.sbgenomics.com/d3b-bixu/speedseq:latest
